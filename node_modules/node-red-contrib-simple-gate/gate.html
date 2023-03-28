@@ -1,0 +1,136 @@
+<!--
+  Copyright 2018 M. I. Bell
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('gate',{
+        category: 'function',
+        color: '#f3b567',
+        defaults: {
+            name: {value:""},
+            controlTopic: {value:"control"},
+            defaultState: {value:"open"},
+            openCmd: {value:"open"},
+            closeCmd: {value:"close"},
+            toggleCmd: {value:"toggle"},
+            defaultCmd: {value:"default"},
+            statusCmd: {value:"status"},
+            persist: {value:false},
+            storeName: {value: RED.settings.hasOwnProperty('context') ? 
+               RED.settings.context.default : 'default'}            
+        },
+        inputs:1,
+        outputs:1,
+        icon: "arrow-in.png",
+        label: function() {
+            return this.name||"gate";
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        },
+
+        oneditprepare: function() {
+            var node = this
+            RED.settings.context.stores.forEach(add)    // list context stores
+            function add(item){
+                $('#node-input-storeName').append(`<option value="${item}">${item}</option>`)
+            }
+            $('#node-input-storeName').val(node.storeName)  // disable if not checked
+            $("#node-input-persist").on("change", function(e) { 
+                $("#node-input-storeName").prop("disabled", !$(this).prop("checked"))
+            });
+            const version = RED.nodes.registry.getModule("node-red-contrib-simple-gate").version
+            $('#node-version').append(` ${version}`)
+
+        }        
+    });
+</script>
+
+<script type="text/x-red" data-template-name="gate">
+<!-- controlTopic --> 
+    <div class="form-row">
+         <label for="node-input-controlTopic"><i class="fa fa-cog"></i> Control Topic</label>
+         <input type="text" id="node-input-controlTopic" placeholder="control">
+     </div>
+<!-- defaultState and persist-->   
+    <div class="form-row">
+        <label for="node-input-func"><i class="fa fa-refresh"></i> Default State</label>
+        <select type="text" id="node-input-defaultState" style="width:25%;">
+            <option value="open"> open</option>
+            <option value="closed"> closed</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-persist" style="width:25%; display:inline">
+            <input type="checkbox" id="node-input-persist" style="display:inline-block; width:15px; vertical-align:baseline;">
+        <span>Restore from state saved in</span></label>
+        <select type="text" id="node-input-storeName" style="width:50%"> </select>
+        <i class="fa fa-database"></i>
+    </div>
+    <br/>
+<!-- commands -->
+    <div>Commands (case insensitive):</div>
+    <br/>
+<!-- openCmd --> 
+    <div class="form-row">
+         <label for="node-input-openCmd"><i class="fa fa-circle-o"></i> Open</label>
+         <input type="text" id="node-input-openCmd" placeholder="open">
+    </div>
+<!-- closeCmd --> 
+    <div class="form-row">
+         <label for="node-input-closeCmd"><i class="fa fa-circle"></i> Close</label>
+         <input type="text" id="node-input-closeCmd" placeholder="close">
+    </div>
+<!-- toggleCmd --> 
+    <div class="form-row">
+         <label for="node-input-toggleCmd"><i class="fa fa-arrows-v"></i> Toggle </label>
+         <input type="text" id="node-input-toggleCmd" placeholder="toggle">
+    </div>
+<!-- defaultCmd --> 
+    <div class="form-row">
+         <label for="node-input-defaultCmd"><i class="fa fa-dot-circle-o"></i> Default</label>
+         <input type="text" id="node-input-defaultCmd" placeholder="default">
+    </div>
+<!-- statusCmd --> 
+    <div class="form-row">
+        <label for="node-input-statusCmd"><i class="fa fa-info"></i> Status</label>
+        <input type="text" id="node-input-statusCmd" placeholder="status">
+    </div>
+    <br/>
+    <!-- Name & Version-->  
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name" style="width:50%">
+        <span>&emsp;&emsp;</span>
+        <label id="node-version" style="width:auto" >Version</label>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="gate">
+    <p>Transmits the input message when in the <code>open</code> state and blocks it when
+    <code>closed</code>. </p>
+    <p>Messages with the topic <code>Control Topic</code> are control messages, which set 
+    the state of the gate. Control messages can have values representing <code>open</code>,
+    <code>close</code>, <code>toggle</code>, <code>default</code>, and <code>status</code>. </p>
+    <p>When first deployed or after a <code>default</code> command, the gate is in the 
+    state defined by <code>Default State</code>.</p>
+    <p>When first deployed or after a <code>default</code> command, the gate is in the
+    state defined by <code>Default State</code>.<p>
+    <p>After a re-deploy or Node-RED restart, the node will enter the <code>Default State</code>,
+    unless the user has selected the <code>Restore from state saved in</code> option
+    (checkbox) in the edit dialog and has chosen a persistent form of context storage in the 
+    adjacent dropdown list. In that case, the node will enter the state it was in 
+    prior to the re-deploy or restart.</p>
+</script>

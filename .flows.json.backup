@@ -1,0 +1,1667 @@
+[
+    {
+        "id": "57aa7085c1d84098",
+        "type": "tab",
+        "label": "Filter Pump",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3f63d940e09f2d66",
+        "type": "tab",
+        "label": "SWCG",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4688e1a9d6eb75fd",
+        "type": "tab",
+        "label": "Polaris Pump",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4b96395a77975ca1",
+        "type": "tab",
+        "label": "Pool Status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cd56d1ea593f2982",
+        "type": "ui_tab",
+        "name": "Filter Pump",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "83381b67c70d2884",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Pool-Ctrl",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "true",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 10,
+                "gy": 10,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6583a8dafac3e1e8",
+        "type": "ui_group",
+        "name": "Priming",
+        "tab": "cd56d1ea593f2982",
+        "order": 2,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "13c396e881cb4d41",
+        "type": "ui_group",
+        "name": "Cleaning",
+        "tab": "cd56d1ea593f2982",
+        "order": 3,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c6747b9b634d315e",
+        "type": "ui_group",
+        "name": "Saving Energy",
+        "tab": "cd56d1ea593f2982",
+        "order": 3,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7b64e0f795292bb5",
+        "type": "ui_tab",
+        "name": "Polaris Pump",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "68f3763734309e02",
+        "type": "ui_group",
+        "name": "Polaris Pump",
+        "tab": "7b64e0f795292bb5",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "25b2032c23b6b704",
+        "type": "ui_tab",
+        "name": "SWCG",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3e9f1181ee5e5391",
+        "type": "ui_group",
+        "name": "SWCG",
+        "tab": "25b2032c23b6b704",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dc57eab5ef574e16",
+        "type": "ui_tab",
+        "name": "Pool Status",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0d32a9c265af416e",
+        "type": "ui_group",
+        "name": "FilterPumpCurrent",
+        "tab": "dc57eab5ef574e16",
+        "order": 3,
+        "disp": false,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "18266d5e5ed2965e",
+        "type": "ui_group",
+        "name": "WaterTemp",
+        "tab": "dc57eab5ef574e16",
+        "order": 5,
+        "disp": false,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "552cfad7bc22f889",
+        "type": "ui_group",
+        "name": "EnclosureTemp",
+        "tab": "dc57eab5ef574e16",
+        "order": 6,
+        "disp": false,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "16a416e84f9afe7e",
+        "type": "ui_group",
+        "name": "Filter Pump Speed",
+        "tab": "dc57eab5ef574e16",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a35865bb79dd65fb",
+        "type": "ui_group",
+        "name": "FilterPumpPower",
+        "tab": "dc57eab5ef574e16",
+        "order": 4,
+        "disp": false,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4045f84ceb98cf09",
+        "type": "ui_group",
+        "name": "SWCG & Polaris",
+        "tab": "dc57eab5ef574e16",
+        "order": 2,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5603399d2f104787",
+        "type": "8relind",
+        "z": "57aa7085c1d84098",
+        "name": "Speed2Relay",
+        "stack": "0",
+        "relay": "2",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "df5bae1991ab6c0f",
+                "7feff7b7ab4a313a"
+            ]
+        ]
+    },
+    {
+        "id": "711ccd642a6155cf",
+        "type": "ui_time_scheduler",
+        "z": "57aa7085c1d84098",
+        "group": "6583a8dafac3e1e8",
+        "name": "Speed1Scheduler",
+        "startDay": 0,
+        "refresh": "5",
+        "devices": [
+            "Speed 1"
+        ],
+        "singleOff": false,
+        "onlySendChange": true,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 1,
+        "width": "6",
+        "height": "2",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [],
+            [
+                "26609cf05650848c"
+            ]
+        ]
+    },
+    {
+        "id": "5a79071d1f552e84",
+        "type": "8relind",
+        "z": "57aa7085c1d84098",
+        "name": "Speed1Relay",
+        "stack": "0",
+        "relay": "1",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 560,
+        "y": 120,
+        "wires": [
+            [
+                "3b15e2253d536310",
+                "52d029e3277d7d3e"
+            ]
+        ]
+    },
+    {
+        "id": "33ecef8c2137e167",
+        "type": "ui_time_scheduler",
+        "z": "57aa7085c1d84098",
+        "group": "13c396e881cb4d41",
+        "name": "Speed2Scheduler",
+        "startDay": 0,
+        "refresh": "5",
+        "devices": [
+            "Speed 2"
+        ],
+        "singleOff": false,
+        "onlySendChange": true,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 1,
+        "width": "6",
+        "height": "2",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [],
+            [
+                "0665a10898f73ed9"
+            ]
+        ]
+    },
+    {
+        "id": "61bf50795ecdcd91",
+        "type": "8relind",
+        "z": "57aa7085c1d84098",
+        "name": "Speed3Relay",
+        "stack": "0",
+        "relay": "3",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 560,
+        "y": 440,
+        "wires": [
+            [
+                "55b37b04d1d475f8",
+                "1d9339772306f67c"
+            ]
+        ]
+    },
+    {
+        "id": "727752f0c984d59a",
+        "type": "ui_time_scheduler",
+        "z": "57aa7085c1d84098",
+        "group": "c6747b9b634d315e",
+        "name": "Speed3Scheduler",
+        "startDay": 0,
+        "refresh": "5",
+        "devices": [
+            "Speed 3"
+        ],
+        "singleOff": false,
+        "onlySendChange": true,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 1,
+        "width": "6",
+        "height": "2",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [],
+            [
+                "215187038d5b981b"
+            ]
+        ]
+    },
+    {
+        "id": "d2a1a65506ce79c0",
+        "type": "delay",
+        "z": "57aa7085c1d84098",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "5603399d2f104787"
+            ]
+        ]
+    },
+    {
+        "id": "811384cdd808526a",
+        "type": "delay",
+        "z": "57aa7085c1d84098",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 440,
+        "wires": [
+            [
+                "61bf50795ecdcd91"
+            ]
+        ]
+    },
+    {
+        "id": "3b15e2253d536310",
+        "type": "ui_led",
+        "z": "57aa7085c1d84098",
+        "order": 2,
+        "group": "6583a8dafac3e1e8",
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 750,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "df5bae1991ab6c0f",
+        "type": "ui_led",
+        "z": "57aa7085c1d84098",
+        "order": 2,
+        "group": "13c396e881cb4d41",
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 750,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "55b37b04d1d475f8",
+        "type": "ui_led",
+        "z": "57aa7085c1d84098",
+        "order": 2,
+        "group": "c6747b9b634d315e",
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 750,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "52d029e3277d7d3e",
+        "type": "debug",
+        "z": "57aa7085c1d84098",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7feff7b7ab4a313a",
+        "type": "debug",
+        "z": "57aa7085c1d84098",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1d9339772306f67c",
+        "type": "debug",
+        "z": "57aa7085c1d84098",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "26609cf05650848c",
+        "type": "ui_switch",
+        "z": "57aa7085c1d84098",
+        "name": "Speed1Switch",
+        "label": "",
+        "tooltip": "",
+        "group": "6583a8dafac3e1e8",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "5a79071d1f552e84"
+            ]
+        ]
+    },
+    {
+        "id": "0665a10898f73ed9",
+        "type": "ui_switch",
+        "z": "57aa7085c1d84098",
+        "name": "Speed2Switch",
+        "label": "",
+        "tooltip": "",
+        "group": "13c396e881cb4d41",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            [
+                "d2a1a65506ce79c0"
+            ]
+        ]
+    },
+    {
+        "id": "215187038d5b981b",
+        "type": "ui_switch",
+        "z": "57aa7085c1d84098",
+        "name": "Speed3Switch",
+        "label": "",
+        "tooltip": "",
+        "group": "c6747b9b634d315e",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "811384cdd808526a"
+            ]
+        ]
+    },
+    {
+        "id": "35dcdee4ce0a15a9",
+        "type": "ui_time_scheduler",
+        "z": "3f63d940e09f2d66",
+        "group": "3e9f1181ee5e5391",
+        "name": "SWCGScheduler",
+        "startDay": 0,
+        "refresh": 60,
+        "devices": [
+            "SWCG"
+        ],
+        "singleOff": false,
+        "onlySendChange": true,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 1,
+        "width": "6",
+        "height": "2",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [],
+            [
+                "7c4e433baadcfe72"
+            ]
+        ]
+    },
+    {
+        "id": "e0ab2dd31240311a",
+        "type": "8relind",
+        "z": "3f63d940e09f2d66",
+        "name": "SWCGRelay",
+        "stack": "0",
+        "relay": "5",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 550,
+        "y": 120,
+        "wires": [
+            [
+                "03309e11e7d6d9fa",
+                "bba6f026b752836c",
+                "7ac2d92a68e73c28"
+            ]
+        ]
+    },
+    {
+        "id": "03309e11e7d6d9fa",
+        "type": "ui_led",
+        "z": "3f63d940e09f2d66",
+        "order": 2,
+        "group": "3e9f1181ee5e5391",
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ed487821989683b8",
+        "type": "delay",
+        "z": "3f63d940e09f2d66",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "e0ab2dd31240311a"
+            ]
+        ]
+    },
+    {
+        "id": "7c4e433baadcfe72",
+        "type": "ui_switch",
+        "z": "3f63d940e09f2d66",
+        "name": "SWCGSwitch",
+        "label": "",
+        "tooltip": "",
+        "group": "3e9f1181ee5e5391",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "ed487821989683b8"
+            ]
+        ]
+    },
+    {
+        "id": "bba6f026b752836c",
+        "type": "debug",
+        "z": "3f63d940e09f2d66",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7ac2d92a68e73c28",
+        "type": "link out",
+        "z": "3f63d940e09f2d66",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "85357873eb95f343"
+        ],
+        "x": 685,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "154a3db70ed7f61f",
+        "type": "comment",
+        "z": "3f63d940e09f2d66",
+        "name": "To Pool Status flow",
+        "info": "",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2659d86e2cc382d0",
+        "type": "ui_time_scheduler",
+        "z": "4688e1a9d6eb75fd",
+        "group": "68f3763734309e02",
+        "name": "PolarisScheduler",
+        "startDay": 0,
+        "refresh": "5",
+        "devices": [
+            "Polaris Pump"
+        ],
+        "singleOff": false,
+        "onlySendChange": true,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 1,
+        "width": "6",
+        "height": "2",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [],
+            [
+                "bf1b6566544e0e55"
+            ]
+        ]
+    },
+    {
+        "id": "20a9a2b73a9ac383",
+        "type": "8relind",
+        "z": "4688e1a9d6eb75fd",
+        "name": "PolarisRelay",
+        "stack": "0",
+        "relay": "4",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 550,
+        "y": 120,
+        "wires": [
+            [
+                "111b6ea6d10da18b",
+                "e99a796d9ea055e2",
+                "7c51994361debb55"
+            ]
+        ]
+    },
+    {
+        "id": "111b6ea6d10da18b",
+        "type": "ui_led",
+        "z": "4688e1a9d6eb75fd",
+        "order": 2,
+        "group": "68f3763734309e02",
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "029ca3a6d16e342e",
+        "type": "delay",
+        "z": "4688e1a9d6eb75fd",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "20a9a2b73a9ac383"
+            ]
+        ]
+    },
+    {
+        "id": "bf1b6566544e0e55",
+        "type": "ui_switch",
+        "z": "4688e1a9d6eb75fd",
+        "name": "PolarisSwitch",
+        "label": "",
+        "tooltip": "",
+        "group": "68f3763734309e02",
+        "order": 0,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "029ca3a6d16e342e"
+            ]
+        ]
+    },
+    {
+        "id": "e99a796d9ea055e2",
+        "type": "debug",
+        "z": "4688e1a9d6eb75fd",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7c51994361debb55",
+        "type": "link out",
+        "z": "4688e1a9d6eb75fd",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "402827d14d5cb5e0"
+        ],
+        "x": 725,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1176598a97703092",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "0d32a9c265af416e",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Filter Pump Current",
+        "label": "A",
+        "format": "{{value | number:3}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 650,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e1b7aa9a076740ec",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "18266d5e5ed2965e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Water Temp",
+        "label": "F",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 690,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6844177a765d99ee",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "552cfad7bc22f889",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Enclosure Temp",
+        "label": "F",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "c566a74f72e90710",
+        "type": "BAS R 10K in",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "stack": "0",
+        "channel": "1",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 310,
+        "y": 580,
+        "wires": [
+            [
+                "e1b7aa9a076740ec"
+            ]
+        ]
+    },
+    {
+        "id": "7948aa3259590a08",
+        "type": "BAS 0-10V in",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "stack": "0",
+        "channel": "3",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "1176598a97703092",
+                "86c40ee346c5b9ae",
+                "e24e8bec39c261be"
+            ]
+        ]
+    },
+    {
+        "id": "31eebae1a6cd070a",
+        "type": "BAS R 10K in",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "stack": "0",
+        "channel": "2",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 310,
+        "y": 640,
+        "wires": [
+            [
+                "6844177a765d99ee"
+            ]
+        ]
+    },
+    {
+        "id": "e4b7fefd4175e45e",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "7948aa3259590a08"
+            ]
+        ]
+    },
+    {
+        "id": "494bb2075e28edb9",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 580,
+        "wires": [
+            [
+                "c566a74f72e90710"
+            ]
+        ]
+    },
+    {
+        "id": "fbab8a266f816c26",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 640,
+        "wires": [
+            [
+                "31eebae1a6cd070a"
+            ]
+        ]
+    },
+    {
+        "id": "7156231e662085f4",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 1,
+        "group": "16a416e84f9afe7e",
+        "width": "0",
+        "height": "0",
+        "label": "Speed1",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Speed1",
+        "x": 700,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1119d7adf0917de4",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 2,
+        "group": "16a416e84f9afe7e",
+        "width": "0",
+        "height": "0",
+        "label": "Speed2",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Speed2",
+        "x": 700,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "77fbf8f3dac33eac",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 3,
+        "group": "16a416e84f9afe7e",
+        "width": "0",
+        "height": "0",
+        "label": "Speed3",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Speed3",
+        "x": 700,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "92619ce0f1b14716",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "always",
+        "x": 530,
+        "y": 240,
+        "wires": [
+            [
+                "7156231e662085f4"
+            ]
+        ]
+    },
+    {
+        "id": "caea3d25a7f99178",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "always",
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "1119d7adf0917de4"
+            ]
+        ]
+    },
+    {
+        "id": "e2a22966e601e893",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "always",
+        "x": 530,
+        "y": 360,
+        "wires": [
+            [
+                "77fbf8f3dac33eac"
+            ]
+        ]
+    },
+    {
+        "id": "86c40ee346c5b9ae",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "mapCurrentRangesToSpeeds",
+        "func": "var current = msg.payload;\nif(current >= 7) {\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 5) {\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0) {\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 300,
+        "wires": [
+            [
+                "92619ce0f1b14716"
+            ],
+            [
+                "caea3d25a7f99178"
+            ],
+            [
+                "e2a22966e601e893"
+            ]
+        ]
+    },
+    {
+        "id": "e24e8bec39c261be",
+        "type": "change",
+        "z": "4b96395a77975ca1",
+        "name": "calculateFilterPumpPower",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload * 240",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 120,
+        "wires": [
+            [
+                "f72b240e050c4645"
+            ]
+        ]
+    },
+    {
+        "id": "f72b240e050c4645",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "a35865bb79dd65fb",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Filter Pump Power",
+        "label": "W",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "2500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 650,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5339998e0f6dae17",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 3,
+        "group": "4045f84ceb98cf09",
+        "width": 0,
+        "height": 0,
+        "label": "SWCG",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SWCG",
+        "x": 700,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "c63ec6c2b44ec339",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 1,
+        "group": "4045f84ceb98cf09",
+        "width": 0,
+        "height": 0,
+        "label": "Polaris Pump",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Polaris",
+        "x": 710,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "85357873eb95f343",
+        "type": "link in",
+        "z": "4b96395a77975ca1",
+        "name": "link in 1",
+        "links": [
+            "7ac2d92a68e73c28"
+        ],
+        "x": 165,
+        "y": 440,
+        "wires": [
+            [
+                "5339998e0f6dae17"
+            ]
+        ]
+    },
+    {
+        "id": "402827d14d5cb5e0",
+        "type": "link in",
+        "z": "4b96395a77975ca1",
+        "name": "link in 2",
+        "links": [
+            "7c51994361debb55"
+        ],
+        "x": 165,
+        "y": 500,
+        "wires": [
+            [
+                "c63ec6c2b44ec339"
+            ]
+        ]
+    },
+    {
+        "id": "30c4a06c54a64769",
+        "type": "comment",
+        "z": "4b96395a77975ca1",
+        "name": "From Polaris flow",
+        "info": "",
+        "x": 280,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "3e6f187fecc88d87",
+        "type": "comment",
+        "z": "4b96395a77975ca1",
+        "name": "From SWCG flow",
+        "info": "",
+        "x": 280,
+        "y": 420,
+        "wires": []
+    }
+]

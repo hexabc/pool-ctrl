@@ -1,0 +1,16 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "i2c-bus": "^5.2.2",
+        "node-red-contrib-simple-gate": "~0.5.2",
+        "node-red-contrib-sm-8relind": "file:../8relind-rpi/node-red-contrib-sm-8relind",
+        "node-red-contrib-sm-bas": "file:../megabas-rpi/node-red-contrib-sm-bas",
+        "node-red-contrib-toggle": "~0.1.1",
+        "node-red-contrib-ui-led": "~0.4.11",
+        "node-red-contrib-ui-time-scheduler": "~1.17.2",
+        "node-red-dashboard": "~3.4.0"
+    }
+}

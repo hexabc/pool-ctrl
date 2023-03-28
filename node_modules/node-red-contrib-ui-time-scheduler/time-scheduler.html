@@ -1,0 +1,310 @@
+<!--
+MIT License
+
+Copyright (c) 2020 Mario Fellinger
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+<script type="text/x-red" data-template-name="ui_time_scheduler">
+    <div class="form-row" id="template-row-group">
+       <label for="node-input-group"><i class="fa fa-table"></i> <span data-i18n="time-scheduler.label.group"></span> </label>
+       <input type="text" id="node-input-group">
+    </div>
+    <div class="form-row" id="template-row-size">
+        <label><i class="fa fa-object-group"></i> <span data-i18n="time-scheduler.label.size"></span> </label>
+        <input type="hidden" id="node-input-width">
+        <input type="hidden" id="node-input-height">
+        <button class="editor-button" id="node-input-size"></button>
+    </div>
+    <label for="form-row node-input-device-container-row"><i class="fa fa-plug"></i> <span data-i18n="time-scheduler.label.devices"></span> </label>
+    <div class="form-row node-input-device-container-row">
+        <ol id="node-input-device-container"></ol>
+    </div>
+    <div class="form-row">
+        <label for="node-input-eventMode"><i class="fa fa-unlink"></i> <span data-i18n="time-scheduler.label.eventMode"></span> </label>
+        <input type="checkbox" id="node-input-eventMode" style="display: inline-block; width: auto; vertical-align: top;">
+        <span data-i18n="time-scheduler.eventModeDesc"></span>
+    </div>
+    <div class="form-row" id="node-div-customPayload">
+        <label for="node-input-customPayload"><i class="fa fa-asterisk"></i> <span data-i18n="time-scheduler.label.customPayload"></span> </label>
+        <input type="checkbox" id="node-input-customPayload" style="display: inline-block; width: auto; vertical-align: top;">
+        <span data-i18n="time-scheduler.customPayloadDesc"></span>
+    </div>
+    <div id="node-div-eventOption">
+        <label for="form-row node-input-eventOption-container-row"><i class="fa fa-list"></i> <span data-i18n="time-scheduler.label.eventOptions"></span> </label>
+        <div class="form-row node-input-eventOption-container-row">
+            <ol id="node-input-eventOption-container"></ol>
+        </div>
+    </div>
+    <div class="form-row">
+        <label for="node-input-startDay"><i class="fa fa-calendar"></i> <span data-i18n="time-scheduler.label.startDay"></span> </label>
+        <select id="node-input-startDay" style="width:25%; margin-right: 6px;">
+            <option value="0" data-i18n="time-scheduler.days.0"> </option>
+            <option value="1" data-i18n="time-scheduler.days.1"> </option>
+            <option value="2" data-i18n="time-scheduler.days.2"> </option>
+            <option value="3" data-i18n="time-scheduler.days.3"> </option>
+            <option value="4" data-i18n="time-scheduler.days.4"> </option>
+            <option value="5" data-i18n="time-scheduler.days.5"> </option>
+            <option value="6" data-i18n="time-scheduler.days.6"> </option>
+        </select>
+        <span class="form-row" id="node-div-refresh">
+            <label for="node-input-refresh"><i class="fa fa-refresh"></i> <span data-i18n="time-scheduler.label.refresh"></span> </label>
+            <input type="number" id="node-input-refresh" min="1" max="60" style="width:25%;"/>
+        </span>
+    </div>
+    <div class="form-row" id="node-div-singleOff">
+        <label for="node-input-singleOff"><i class="fa fa-dot-circle-o"></i> <span data-i18n="time-scheduler.label.singleOff"></span> </label>
+        <input type="checkbox" id="node-input-singleOff" style="display: inline-block; width: auto; vertical-align: top;">
+        <span data-i18n="time-scheduler.singleOffDesc"></span>
+    </div>
+    <div class="form-row">
+        <label for="node-input-onlySendChange"><i class="fa fa-hand-paper-o"></i> <span data-i18n="time-scheduler.label.block"></span> </label>
+        <input type="checkbox" id="node-input-onlySendChange" style="display: inline-block; width: auto; vertical-align: top;">
+        <span data-i18n="time-scheduler.onlySendChangeDesc"></span>
+    </div>
+    <div class="form-row">
+        <label for="node-input-sendTopic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="checkbox" id="node-input-sendTopic" style="display: inline-block; width: auto; vertical-align: top;">
+        <span data-i18n="time-scheduler.topicDesc"></span>
+    </div>
+    <div class="form-row">
+		<label for="node-input-lat"><i class="fa fa-globe"></i> <span data-i18n="time-scheduler.label.latitude"></span> </label>
+		<input type="number" id="node-input-lat" min="-90" max="90" step="any" placeholder="48.3069" style="width:25%; margin-right: 6px;">
+		<label for="node-input-lon"><i class="fa fa-globe"></i> <span data-i18n="time-scheduler.label.longitude"></span> </label>
+		<input type="number" id="node-input-lon" min="-180" max="180" step="any" placeholder="14.2858" style="width:25%">
+	</div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="time-scheduler.label.name"></span> </label>
+        <input type="text" id="node-input-name">
+        <span class="form-row" id="node-div-customContextStore">
+            <label for="node-input-customContextStore"><i class="fa fa-database"></i> <span data-i18n="time-scheduler.label.context"></span> </label>
+            <select id="node-input-customContextStore" style="width:25%"></select>
+        </span>
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ui_time_scheduler', {
+        category: 'dashboard',
+        color: 'rgb( 63, 173, 181)',
+        defaults: {
+            group: { type: 'ui_group', required: true },
+            name: { value: '' },
+            startDay: { value: 0 },
+            refresh: { value: 60 },
+            devices: { value: ["Device 1"] },
+            singleOff: { value: false },
+            onlySendChange: { value: false },
+            customPayload: { value: false },
+            eventMode: { value: false },
+            eventOptions: { value: [{ label: "On", event: "true" }, { label: "Off", event: "false" }] },
+            sendTopic: { value: false },
+            lat: { value: '' },
+            lon: { value: '' },
+            customContextStore: { value: '' },
+            outputs: { value: 2 },
+            order: { value: 0 },
+            width: {
+                value: 0,
+                validate: function(v) {
+                    let valid = true
+                    const width = v || 0;
+                    const currentGroup = $('#node-input-group').val() || this.group;
+                    const groupNode = RED.nodes.node(currentGroup);
+                    valid = !groupNode || +width <= +groupNode.width;
+                    $("#node-input-size").toggleClass("input-error", !valid);
+                    return valid;
+                }
+            },
+            height: { value: 0 }
+        },
+        inputs: 1,
+        outputs: 2,
+        icon: "calendar.png",
+        paletteLabel: "ui scheduler",
+        label: function() { return this.name || "ui scheduler"; },
+        oneditprepare: function() {
+            const node = this;
+
+            $("#node-input-size").elementSizer({
+                width: "#node-input-width",
+                height: "#node-input-height",
+                group: "#node-input-group"
+            });
+
+            $("#node-input-refresh").on("change", function() {
+                if ($("#node-input-refresh").val() <= 0 || $("#node-input-refresh").val() > 60) {
+                    $("#node-input-refresh").val(60);
+                }
+            });
+
+            $("#node-input-eventMode").on("change", function() {
+                if ($("#node-input-eventMode").prop("checked")) {
+                    $("#node-div-customPayload").show();
+                    $("#node-input-customPayload").prop("checked") ? '' : $("#node-div-eventOption").show();
+                    $("#node-input-refresh").val(60);
+                    $("#node-div-refresh").hide();
+                    $("#node-div-singleOff").hide();
+                } else {
+                    $("#node-input-customPayload").prop("checked", false);
+                    $("#node-div-customPayload").hide();
+                    $("#node-div-eventOption").hide();
+                    $("#node-div-refresh").show();
+                    $("#node-div-singleOff").show();
+                }
+            });
+
+            $("#node-input-customPayload").on("change", function() {
+                if ($("#node-input-customPayload").prop("checked")) {
+                    $("#node-div-eventOption").hide();
+                } else {
+                    $("#node-div-eventOption").show();
+                }
+            });
+
+            if (RED.settings.context && RED.settings.context.stores && RED.settings.context.stores.length > 1) {
+                for (let i = 0; i < RED.settings.context.stores.length; i++) {
+                    const value = RED.settings.context.stores[i];
+                    $('#node-input-customContextStore').append(new Option(value, value));
+                }
+                if (this.customContextStore && RED.settings.context.stores.includes(this.customContextStore)) {
+                    $('#node-input-customContextStore').val(this.customContextStore);
+                }
+                $('#node-input-name').css({ "width": "25%", "margin-right": "6px" });
+            } else {
+                $('#node-input-customContextStore').append(new Option("", ""));
+                $('#node-div-customContextStore').hide();
+            }
+
+            $("#node-input-device-container").css('min-height', '165px').editableList({
+                addItem: function(row, index, data) {
+                    const current = node._("time-scheduler.label.device") + " " + (index + 1);
+
+                    const label = $('<span/>', { class: "node-input-device-label", text: " " + current });
+                    $(row).html(label);
+
+                    const nameInput = $('<input/>', { class: "node-input-device-name", type: "text", style: "margin-left:7px; width:calc(75% - 32px);", value: data.name || current });
+                    nameInput.appendTo(row).typedInput({ default: 'str', types: ['str'] });
+
+                    const finalspan = $('<span/>', { style: "float: right;margin-top: 6px;" }).appendTo(row);
+                    finalspan.append(' &#8594; <span class="node-input-device-index">' + (index + 2) + '</span> ');
+                },
+                removeItem: function(opt) {
+                    const devices = $("#node-input-device-container").editableList('items');
+                    devices.each(function(i) {
+                        $(this).find(".node-input-device-label").html(node._("time-scheduler.label.device") + " " + (i + 1));
+                        const name = $(this).find(".node-input-device-name").typedInput('value');
+                        const regex = new RegExp("^" + node._("time-scheduler.label.device") + " \\d+$")
+                        if (regex.test(name)) {
+                            $(this).find(".node-input-device-name").typedInput('value', node._("time-scheduler.label.device") + " " + (i + 1));
+                        }
+                        $(this).find(".node-input-device-index").html(i + 2);
+                    });
+
+                    if (devices.length === 0) $("#node-input-device-container").editableList('addItem', {});
+                },
+                sortItems: function(rules) {
+                    const devices = $("#node-input-device-container").editableList('items');
+                    devices.each(function(i) {
+                        $(this).find(".node-input-device-label").html(node._("time-scheduler.label.device") + " " + (i + 1));
+                        const name = $(this).find(".node-input-device-name").typedInput('value');
+                        const regex = new RegExp("^" + node._("time-scheduler.label.device") + " \\d+$")
+                        if (regex.test(name)) {
+                            $(this).find(".node-input-device-name").typedInput('value', node._("time-scheduler.label.device") + " " + (i + 1));
+                        }
+                        $(this).find(".node-input-device-index").html(i + 2);
+                    });
+                },
+                removable: true,
+                sortable: true
+            });
+
+            $("#node-input-eventOption-container").css('min-height', '115px').editableList({
+                addItem: function(row, index, option) {
+                    $(row).html('<span/>');
+                    const labelField = $('<input/>', { class: "node-input-eventOption-label", type: "text", style: "margin-left:7px; width:calc(50% - 32px);", placeholder: 'Label', value: option.label });
+                    labelField.appendTo(row);
+                    const eventField = $('<input/>', { class: "node-input-eventOption-event", type: "text", style: "margin-left:7px; width:calc(50% - 32px);", placeholder: 'Payload', value: option.event });
+                    eventField.appendTo(row).typedInput({ default: 'str', types: ['str'] });
+                },
+                removeItem: function(opt) {
+                    if ($("#node-input-eventOption-container").editableList('items').length === 0) {
+                        $("#node-input-eventOption-container").editableList('addItem', { label: node._("time-scheduler.label.on"), event: "true" });
+                        $("#node-input-eventOption-container").editableList('addItem', { label: node._("time-scheduler.label.off"), event: "false" });
+                    }
+                },
+                removable: true,
+                sortable: true
+            });
+
+            if (!this.startDay) $("#node-input-startDay").val(0).change();
+            if (!this.refresh) $("#node-input-refresh").val(60);
+            if (!this.devices) {
+                $("#node-input-device-container").editableList('addItem', { name: this.name });
+            } else {
+                for (let i = 0; i < this.devices.length; i++) {
+                    $("#node-input-device-container").editableList('addItem', { name: this.devices[i] });
+                }
+            }
+            if (!this.eventOptions || this.eventOptions.length === 0) {
+                $("#node-input-eventOption-container").editableList('addItem', { label: node._("time-scheduler.label.on"), event: "true" });
+                $("#node-input-eventOption-container").editableList('addItem', { label: node._("time-scheduler.label.off"), event: "false" });
+            } else {
+                for (let i = 0; i < this.eventOptions.length; i++) {
+                    $("#node-input-eventOption-container").editableList('addItem', { label: this.eventOptions[i].label, event: this.eventOptions[i].event });
+                }
+            }
+        },
+        oneditsave: function() {
+            const node = this;
+
+            node.devices = [];
+            const devices = $("#node-input-device-container").editableList('items');
+            devices.each(function(i) {
+                const device = $(this);
+                let deviceName = device.find(".node-input-device-name").typedInput('value');
+                deviceName = deviceName === "" ? node._("time-scheduler.label.device") + " " + (i + 1) : deviceName;
+                while (node.devices.includes(deviceName)) {
+                    deviceName = deviceName + "_" + node._("time-scheduler.copy");
+                }
+                node.devices.push(deviceName);
+            });
+
+            node.eventOptions = [];
+            if ($("#node-input-eventMode").prop("checked") && !$("#node-input-customPayload").prop("checked")) {
+                const eventOptions = $("#node-input-eventOption-container").editableList('items');
+                eventOptions.each(function(i) {
+                    const option = $(this);
+                    const o = {
+                        label: option.find(".node-input-eventOption-label").val() || node._("time-scheduler.label.on"),
+                        event: option.find(".node-input-eventOption-event").typedInput('value') || "true"
+                    }
+                    if (node.eventOptions.filter(option => option.label === o.label || option.event === o.event).length === 0) {
+                        node.eventOptions.push(o);
+                    }
+                });
+            }
+
+            node.outputs = 1 + devices.length;
+        },
+        oneditresize: function(size) {
+        }
+    });
+</script>
