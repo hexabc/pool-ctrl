@@ -20,7 +20,9 @@
             }
         },
         "debug": {
-            "filter": "filterSelected"
-        }
+            "filter": "filterAll"
+        },
+        "menu-menu-item-palette": true,
+        "menu-menu-item-sidebar": false
     }
 }

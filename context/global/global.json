@@ -4,5 +4,7 @@
     "polarisPumpStatus": false,
     "filterPumpStatus": false,
     "filterPumpSpeed": "Speed3",
-    "SWCGStatus": false
+    "SWCGStatus": false,
+    "FanStartTemp": 83,
+    "FanStopTemp": 81
 }

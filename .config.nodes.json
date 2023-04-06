@@ -775,5 +775,24 @@
                 "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-simple-gate/gate.js"
             }
         }
+    },
+    "node-red-contrib-unit-converter": {
+        "name": "node-red-contrib-unit-converter",
+        "version": "0.0.3",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "unit-converter": {
+                "name": "unit-converter",
+                "types": [
+                    "unit-converter"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-unit-converter",
+                "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-unit-converter/unit-converter.js"
+            }
+        }
     }
 }

@@ -288,6 +288,17 @@
         "className": ""
     },
     {
+        "id": "4fd7552bd6811198",
+        "type": "ui_group",
+        "name": "Enclosure Fan",
+        "tab": "dc57eab5ef574e16",
+        "order": 7,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "5603399d2f104787",
         "type": "8relind",
         "z": "57aa7085c1d84098",
@@ -300,8 +311,7 @@
         "y": 280,
         "wires": [
             [
-                "df5bae1991ab6c0f",
-                "7feff7b7ab4a313a"
+                "df5bae1991ab6c0f"
             ]
         ]
     },
@@ -351,8 +361,7 @@
         "y": 120,
         "wires": [
             [
-                "3b15e2253d536310",
-                "52d029e3277d7d3e"
+                "3b15e2253d536310"
             ]
         ]
     },
@@ -402,8 +411,7 @@
         "y": 440,
         "wires": [
             [
-                "55b37b04d1d475f8",
-                "1d9339772306f67c"
+                "55b37b04d1d475f8"
             ]
         ]
     },
@@ -518,7 +526,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 140,
+        "y": 120,
         "wires": []
     },
     {
@@ -549,7 +557,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 300,
+        "y": 280,
         "wires": []
     },
     {
@@ -580,55 +588,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "52d029e3277d7d3e",
-        "type": "debug",
-        "z": "57aa7085c1d84098",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "7feff7b7ab4a313a",
-        "type": "debug",
-        "z": "57aa7085c1d84098",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "1d9339772306f67c",
-        "type": "debug",
-        "z": "57aa7085c1d84098",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 420,
+        "y": 440,
         "wires": []
     },
     {
@@ -772,7 +732,7 @@
         "z": "3f63d940e09f2d66",
         "name": "SWCGRelay",
         "stack": "0",
-        "relay": "5",
+        "relay": "7",
         "payload": "payload",
         "payloadType": "msg",
         "x": 550,
@@ -780,7 +740,6 @@
         "wires": [
             [
                 "03309e11e7d6d9fa",
-                "bba6f026b752836c",
                 "7ac2d92a68e73c28"
             ]
         ]
@@ -813,7 +772,7 @@
         "showGlow": true,
         "name": "",
         "x": 730,
-        "y": 140,
+        "y": 120,
         "wires": []
     },
     {
@@ -876,23 +835,6 @@
         ]
     },
     {
-        "id": "bba6f026b752836c",
-        "type": "debug",
-        "z": "3f63d940e09f2d66",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 740,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "7ac2d92a68e73c28",
         "type": "link out",
         "z": "3f63d940e09f2d66",
@@ -901,8 +843,8 @@
         "links": [
             "85357873eb95f343"
         ],
-        "x": 685,
-        "y": 220,
+        "x": 695,
+        "y": 200,
         "wires": []
     },
     {
@@ -911,8 +853,8 @@
         "z": "3f63d940e09f2d66",
         "name": "To Pool Status flow",
         "info": "",
-        "x": 670,
-        "y": 260,
+        "x": 690,
+        "y": 240,
         "wires": []
     },
     {
@@ -954,7 +896,7 @@
         "z": "4688e1a9d6eb75fd",
         "name": "PolarisRelay",
         "stack": "0",
-        "relay": "4",
+        "relay": "8",
         "payload": "payload",
         "payloadType": "msg",
         "x": 550,
@@ -962,7 +904,6 @@
         "wires": [
             [
                 "111b6ea6d10da18b",
-                "e99a796d9ea055e2",
                 "7c51994361debb55"
             ]
         ]
@@ -995,7 +936,7 @@
         "showGlow": true,
         "name": "",
         "x": 730,
-        "y": 140,
+        "y": 120,
         "wires": []
     },
     {
@@ -1058,23 +999,6 @@
         ]
     },
     {
-        "id": "e99a796d9ea055e2",
-        "type": "debug",
-        "z": "4688e1a9d6eb75fd",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 740,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "7c51994361debb55",
         "type": "link out",
         "z": "4688e1a9d6eb75fd",
@@ -1083,8 +1007,8 @@
         "links": [
             "402827d14d5cb5e0"
         ],
-        "x": 725,
-        "y": 220,
+        "x": 695,
+        "y": 200,
         "wires": []
     },
     {
@@ -1111,7 +1035,7 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 650,
+        "x": 770,
         "y": 60,
         "wires": []
     },
@@ -1127,19 +1051,19 @@
         "gtype": "gage",
         "title": "Water Temp",
         "label": "F",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 10,
+        "format": "{{value | number:1}}",
+        "min": "40",
+        "max": "120",
         "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
+            "#05e6e2",
+            "#fafa05",
+            "#eb0505"
         ],
-        "seg1": "",
-        "seg2": "",
+        "seg1": "70",
+        "seg2": "85",
         "diff": false,
         "className": "",
-        "x": 690,
+        "x": 790,
         "y": 580,
         "wires": []
     },
@@ -1155,19 +1079,19 @@
         "gtype": "gage",
         "title": "Enclosure Temp",
         "label": "F",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 10,
+        "format": "{{value | number:1}}",
+        "min": "40",
+        "max": "120",
         "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
+            "#05e6e2",
+            "#fafa05",
+            "#eb0505"
         ],
-        "seg1": "",
-        "seg2": "",
+        "seg1": "70",
+        "seg2": "85",
         "diff": false,
         "className": "",
-        "x": 680,
+        "x": 780,
         "y": 640,
         "wires": []
     },
@@ -1184,7 +1108,7 @@
         "y": 580,
         "wires": [
             [
-                "e1b7aa9a076740ec"
+                "61e2e1673da7f097"
             ]
         ]
     },
@@ -1220,7 +1144,7 @@
         "y": 640,
         "wires": [
             [
-                "6844177a765d99ee"
+                "1e64f66566dfaf14"
             ]
         ]
     },
@@ -1267,7 +1191,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "60",
+        "repeat": "5",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -1296,7 +1220,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "60",
+        "repeat": "5",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -1338,7 +1262,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Speed1",
-        "x": 700,
+        "x": 800,
         "y": 240,
         "wires": []
     },
@@ -1369,7 +1293,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Speed2",
-        "x": 700,
+        "x": 800,
         "y": 300,
         "wires": []
     },
@@ -1400,7 +1324,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Speed3",
-        "x": 700,
+        "x": 800,
         "y": 360,
         "wires": []
     },
@@ -1514,7 +1438,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 570,
+        "x": 610,
         "y": 120,
         "wires": [
             [
@@ -1546,7 +1470,7 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 650,
+        "x": 770,
         "y": 180,
         "wires": []
     },
@@ -1577,7 +1501,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "SWCG",
-        "x": 700,
+        "x": 800,
         "y": 440,
         "wires": []
     },
@@ -1608,7 +1532,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Polaris",
-        "x": 710,
+        "x": 810,
         "y": 500,
         "wires": []
     },
@@ -1620,7 +1544,7 @@
         "links": [
             "7ac2d92a68e73c28"
         ],
-        "x": 165,
+        "x": 155,
         "y": 440,
         "wires": [
             [
@@ -1636,7 +1560,7 @@
         "links": [
             "7c51994361debb55"
         ],
-        "x": 165,
+        "x": 155,
         "y": 500,
         "wires": [
             [
@@ -1663,5 +1587,281 @@
         "x": 280,
         "y": 420,
         "wires": []
+    },
+    {
+        "id": "61e2e1673da7f097",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "Steinhart-HartWater",
+        "func": "var A = -0.000502318;\nvar B = 0.000479838;\nvar C = -7.22045E-07;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 580,
+        "wires": [
+            [
+                "e1b7aa9a076740ec"
+            ]
+        ]
+    },
+    {
+        "id": "1e64f66566dfaf14",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "Steinhart-HartEnclosure",
+        "func": "var A = 0.000214331;\nvar B = 0.00037416;\nvar C = -3.86473E-07;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 640,
+        "wires": [
+            [
+                "6844177a765d99ee",
+                "9cef508ff0a07f3f"
+            ]
+        ]
+    },
+    {
+        "id": "eba710b3735ba873",
+        "type": "ui_numeric",
+        "z": "4b96395a77975ca1",
+        "name": "EnterFanStartTemp",
+        "label": "Fan Start Temp",
+        "tooltip": "",
+        "group": "4fd7552bd6811198",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}} &degF",
+        "min": "40",
+        "max": "120",
+        "step": 1,
+        "className": "",
+        "x": 390,
+        "y": 860,
+        "wires": [
+            [
+                "479ead13a6775c5b"
+            ]
+        ]
+    },
+    {
+        "id": "c5e4e2e7e9d8a17b",
+        "type": "ui_numeric",
+        "z": "4b96395a77975ca1",
+        "name": "EnterFanStopTemp",
+        "label": "Fan Stop Temp",
+        "tooltip": "",
+        "group": "4fd7552bd6811198",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}} &degF",
+        "min": "40",
+        "max": "120",
+        "step": 1,
+        "className": "",
+        "x": 390,
+        "y": 920,
+        "wires": [
+            [
+                "d77339e798ac28c5"
+            ]
+        ]
+    },
+    {
+        "id": "12095c7b0e55bc1e",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 2,
+        "group": "4fd7552bd6811198",
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 810,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "9cef508ff0a07f3f",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "FanOnOrOff",
+        "func": "var temp = msg.payload;\nvar FanStartTemp = global.get(\"FanStartTemp\");\nvar FanStopTemp = global.get(\"FanStopTemp\");\n\nif (temp > FanStartTemp) {\n    msg.payload = true;\n}\nelse if (temp < FanStopTemp) {\n    msg.payload = false;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 700,
+        "wires": [
+            [
+                "8b0c435caad96e90"
+            ]
+        ]
+    },
+    {
+        "id": "8b0c435caad96e90",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "toggle",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "always",
+        "x": 710,
+        "y": 700,
+        "wires": [
+            [
+                "962e8890cd94bf0d"
+            ]
+        ]
+    },
+    {
+        "id": "479ead13a6775c5b",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "SaveInGlobalContext",
+        "func": "var temp = msg.payload;\nglobal.set(\"FanStartTemp\", temp);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d77339e798ac28c5",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "SaveInGlobalContext",
+        "func": "var temp = msg.payload;\nglobal.set(\"FanStopTemp\", temp);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "962e8890cd94bf0d",
+        "type": "8relind",
+        "z": "4b96395a77975ca1",
+        "name": "FanRelay",
+        "stack": "0",
+        "relay": "6",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 800,
+        "y": 760,
+        "wires": [
+            [
+                "12095c7b0e55bc1e"
+            ]
+        ]
+    },
+    {
+        "id": "4f944705c6e60603",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "FanStartTemp",
+        "payloadType": "global",
+        "x": 160,
+        "y": 860,
+        "wires": [
+            [
+                "eba710b3735ba873"
+            ]
+        ]
+    },
+    {
+        "id": "967426ca18b4726e",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "FanStopTemp",
+        "payloadType": "global",
+        "x": 160,
+        "y": 920,
+        "wires": [
+            [
+                "c5e4e2e7e9d8a17b"
+            ]
+        ]
     }
 ]

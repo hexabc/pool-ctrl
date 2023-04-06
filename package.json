@@ -11,6 +11,7 @@
         "node-red-contrib-toggle": "~0.1.1",
         "node-red-contrib-ui-led": "~0.4.11",
         "node-red-contrib-ui-time-scheduler": "~1.17.2",
+        "node-red-contrib-unit-converter": "~0.0.3",
         "node-red-dashboard": "~3.4.0"
     }
 }
