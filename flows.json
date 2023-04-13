@@ -735,8 +735,8 @@
         "relay": "7",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 550,
-        "y": 120,
+        "x": 690,
+        "y": 100,
         "wires": [
             [
                 "03309e11e7d6d9fa",
@@ -771,8 +771,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 730,
-        "y": 120,
+        "x": 850,
+        "y": 100,
         "wires": []
     },
     {
@@ -792,8 +792,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 380,
-        "y": 120,
+        "x": 520,
+        "y": 100,
         "wires": [
             [
                 "e0ab2dd31240311a"
@@ -826,11 +826,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 200,
-        "y": 120,
+        "x": 160,
+        "y": 140,
         "wires": [
             [
-                "ed487821989683b8"
+                "b72e2bf35cb6570b"
             ]
         ]
     },
@@ -843,8 +843,8 @@
         "links": [
             "85357873eb95f343"
         ],
-        "x": 695,
-        "y": 200,
+        "x": 815,
+        "y": 180,
         "wires": []
     },
     {
@@ -853,8 +853,49 @@
         "z": "3f63d940e09f2d66",
         "name": "To Pool Status flow",
         "info": "",
-        "x": 690,
-        "y": 240,
+        "x": 830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b72e2bf35cb6570b",
+        "type": "function",
+        "z": "3f63d940e09f2d66",
+        "name": "BlockSWCG",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed == \"Speed0\") {\n    if (msg.payload == true) {\n        return [{ payload: false }, { payload: \"For SWCG to run, filter pump must be ON !\" }];\n    }\n}\nreturn [msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "ed487821989683b8"
+            ],
+            [
+                "d62e746b789fe73e"
+            ]
+        ]
+    },
+    {
+        "id": "d62e746b789fe73e",
+        "type": "ui_toast",
+        "z": "3f63d940e09f2d66",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 550,
+        "y": 180,
         "wires": []
     },
     {
@@ -899,8 +940,8 @@
         "relay": "8",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 550,
-        "y": 120,
+        "x": 690,
+        "y": 100,
         "wires": [
             [
                 "111b6ea6d10da18b",
@@ -935,8 +976,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 730,
-        "y": 120,
+        "x": 850,
+        "y": 100,
         "wires": []
     },
     {
@@ -956,8 +997,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 380,
-        "y": 120,
+        "x": 520,
+        "y": 100,
         "wires": [
             [
                 "20a9a2b73a9ac383"
@@ -990,11 +1031,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 200,
-        "y": 120,
+        "x": 160,
+        "y": 140,
         "wires": [
             [
-                "029ca3a6d16e342e"
+                "1db34e87cf5d7c7c"
             ]
         ]
     },
@@ -1007,8 +1048,49 @@
         "links": [
             "402827d14d5cb5e0"
         ],
-        "x": 695,
-        "y": 200,
+        "x": 815,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1db34e87cf5d7c7c",
+        "type": "function",
+        "z": "4688e1a9d6eb75fd",
+        "name": "BlockPolaris",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\") {\n    if(msg.payload == true) {\n        return [{ payload: false }, { payload: \"For Polaris to run, filter pump must run at Speed2 !\" }];\n    }\n}\nreturn [msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "029ca3a6d16e342e"
+            ],
+            [
+                "bcc7c781e6e60d74"
+            ]
+        ]
+    },
+    {
+        "id": "bcc7c781e6e60d74",
+        "type": "ui_toast",
+        "z": "4688e1a9d6eb75fd",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 550,
+        "y": 180,
         "wires": []
     },
     {
@@ -1162,7 +1244,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "1",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -1399,7 +1481,7 @@
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "mapCurrentRangesToSpeeds",
-        "func": "var current = msg.payload;\nif(current >= 7) {\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 5) {\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0) {\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
+        "func": "var current = msg.payload;\nif(current >= 7) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 5) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
@@ -1612,7 +1694,7 @@
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "Steinhart-HartEnclosure",
-        "func": "var A = 0.000214331;\nvar B = 0.00037416;\nvar C = -3.86473E-07;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
+        "func": "var A = -0.000502318;\nvar B = 0.000479838;\nvar C = -7.22045E-07;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
