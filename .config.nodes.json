@@ -794,5 +794,46 @@
                 "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-unit-converter/unit-converter.js"
             }
         }
+    },
+    "node-red-contrib-boolean-logic": {
+        "name": "node-red-contrib-boolean-logic",
+        "version": "0.0.3",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "BooleanLogic": {
+                "name": "BooleanLogic",
+                "types": [
+                    "BooleanLogic"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-boolean-logic",
+                "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-boolean-logic/boolean-logic/BooleanLogic.js"
+            },
+            "Invert": {
+                "name": "Invert",
+                "types": [
+                    "Invert"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-boolean-logic",
+                "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-boolean-logic/boolean-logic/Invert.js"
+            },
+            "BDebug": {
+                "name": "BDebug",
+                "types": [
+                    "BDebug"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-boolean-logic",
+                "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-boolean-logic/boolean-logic/BDebug.js"
+            }
+        }
     }
 }

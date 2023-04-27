@@ -794,24 +794,5 @@
                 "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-unit-converter/unit-converter.js"
             }
         }
-    },
-    "node-red-contrib-ds18b20-sensor": {
-        "name": "node-red-contrib-ds18b20-sensor",
-        "version": "1.3.6",
-        "local": true,
-        "user": true,
-        "nodes": {
-            "rpi-ds18b20": {
-                "name": "rpi-ds18b20",
-                "types": [
-                    "rpi-ds18b20"
-                ],
-                "enabled": true,
-                "local": true,
-                "user": false,
-                "module": "node-red-contrib-ds18b20-sensor",
-                "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-ds18b20-sensor/ds18b20-node/ds18b20-node.js"
-            }
-        }
     }
 }
