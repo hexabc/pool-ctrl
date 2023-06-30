@@ -1,7 +1,7 @@
 {
     "timers": [
         {
-            "starttime": 1682337780000,
+            "starttime": 1685880000000,
             "days": [
                 1,
                 1,
@@ -12,7 +12,7 @@
                 1
             ],
             "output": "0",
-            "endtime": 1682380800000
+            "endtime": 1685919600000
         }
     ],
     "settings": {
