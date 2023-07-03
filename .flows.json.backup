@@ -164,7 +164,7 @@
     {
         "id": "c6747b9b634d315e",
         "type": "ui_group",
-        "name": "Saving Energy",
+        "name": "Chlorinating",
         "tab": "cd56d1ea593f2982",
         "order": 3,
         "disp": true,
@@ -1675,7 +1675,7 @@
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "Steinhart-HartWater",
-        "func": "var A = -0.000502318;\nvar B = 0.000479838;\nvar C = -7.22045E-07;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
+        "func": "//var A = -0.000502318;\n//var B = 0.000479838;\n//var C = -7.22045E-07;\n\nvar A = 0.001125308852122;\nvar B = 0.000234711863267;\nvar C = 0.000000085663516;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
