@@ -1481,7 +1481,7 @@
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "mapCurrentRangesToSpeeds",
-        "func": "var current = msg.payload;\nif(current >= 2.4) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 1.5) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
+        "func": "var current = msg.payload;\nif(current >= 2.0) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
