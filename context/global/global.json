@@ -5,10 +5,10 @@
     "filterPumpStatus": false,
     "filterPumpSpeed": "Speed3",
     "SWCGStatus": false,
-    "FanStartTemp": 88,
-    "FanStopTemp": 86,
+    "FanStartTemp": 92,
+    "FanStopTemp": 90,
     "speed": "Speed2",
     "vspOnOff": true,
     "vspOn": false,
-    "vspSpeed": "Speed0"
+    "vspSpeed": "Speed3"
 }

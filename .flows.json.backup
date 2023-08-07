@@ -899,6 +899,54 @@
         "wires": []
     },
     {
+        "id": "d774f32b6ef7a4d6",
+        "type": "inject",
+        "z": "3f63d940e09f2d66",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "2d8601c7ae281ed4"
+            ]
+        ]
+    },
+    {
+        "id": "2d8601c7ae281ed4",
+        "type": "function",
+        "z": "3f63d940e09f2d66",
+        "name": "MonitorFilterPump",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\" && vspSpeed != \"Speed3\") {\n    msg.payload = false;\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "7c4e433baadcfe72"
+            ]
+        ]
+    },
+    {
         "id": "2659d86e2cc382d0",
         "type": "ui_time_scheduler",
         "z": "4688e1a9d6eb75fd",
@@ -1092,6 +1140,54 @@
         "x": 550,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "ce865d5c57b923df",
+        "type": "inject",
+        "z": "4688e1a9d6eb75fd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "95d85863c5b5ac63"
+            ]
+        ]
+    },
+    {
+        "id": "95d85863c5b5ac63",
+        "type": "function",
+        "z": "4688e1a9d6eb75fd",
+        "name": "MonitorFilterPump",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\") {\n    msg.payload = false;\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "bf1b6566544e0e55"
+            ]
+        ]
     },
     {
         "id": "1176598a97703092",
@@ -1481,7 +1577,7 @@
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "mapCurrentRangesToSpeeds",
-        "func": "var current = msg.payload;\nif(current >= 1.5) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
+        "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
