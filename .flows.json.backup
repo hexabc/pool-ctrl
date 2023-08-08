@@ -877,7 +877,8 @@
             [
                 "d62e746b789fe73e"
             ]
-        ]
+        ],
+        "info": "Don't allow to start SWCG if filter pump is not running."
     },
     {
         "id": "d62e746b789fe73e",
@@ -932,7 +933,7 @@
         "type": "function",
         "z": "3f63d940e09f2d66",
         "name": "MonitorFilterPump",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\" && vspSpeed != \"Speed3\") {\n    msg.payload = false;\n    return msg;\n}\n",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed == \"Speed0\") {\n    msg.payload = false;\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -944,7 +945,8 @@
             [
                 "7c4e433baadcfe72"
             ]
-        ]
+        ],
+        "info": "Turn off SWCG if filter pump is not running."
     },
     {
         "id": "2659d86e2cc382d0",
@@ -1120,7 +1122,8 @@
             [
                 "bcc7c781e6e60d74"
             ]
-        ]
+        ],
+        "info": "Don't allow to turn Polaris pump if filter pump is not running\r\nat Speed2."
     },
     {
         "id": "bcc7c781e6e60d74",
@@ -1187,7 +1190,8 @@
             [
                 "bf1b6566544e0e55"
             ]
-        ]
+        ],
+        "info": "Turn Off Polaris pump if filter pump not running at Speed2."
     },
     {
         "id": "1176598a97703092",
