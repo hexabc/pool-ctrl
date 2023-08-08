@@ -735,8 +735,8 @@
         "relay": "7",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 690,
-        "y": 100,
+        "x": 710,
+        "y": 140,
         "wires": [
             [
                 "03309e11e7d6d9fa",
@@ -771,7 +771,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 850,
+        "x": 870,
         "y": 100,
         "wires": []
     },
@@ -792,8 +792,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 520,
-        "y": 100,
+        "x": 540,
+        "y": 140,
         "wires": [
             [
                 "e0ab2dd31240311a"
@@ -843,39 +843,26 @@
         "links": [
             "85357873eb95f343"
         ],
-        "x": 815,
+        "x": 845,
         "y": 180,
-        "wires": []
-    },
-    {
-        "id": "154a3db70ed7f61f",
-        "type": "comment",
-        "z": "3f63d940e09f2d66",
-        "name": "To Pool Status flow",
-        "info": "",
-        "x": 830,
-        "y": 220,
         "wires": []
     },
     {
         "id": "b72e2bf35cb6570b",
         "type": "function",
         "z": "3f63d940e09f2d66",
-        "name": "BlockSWCG",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed == \"Speed0\") {\n    if (msg.payload == true) {\n        return [{ payload: false }, { payload: \"For SWCG to run, filter pump must be ON !\" }];\n    }\n}\nreturn [msg];",
-        "outputs": 2,
+        "name": "ProtectSWCG",
+        "func": "var SWCGSwitch = msg.payload;\nglobal.set(\"SWCGSwitch\", SWCGSwitch);\nvar vspSpeed = global.get(\"vspSpeed\");\nif (SWCGSwitch == false || SWCGSwitch == true && vspSpeed != \"Speed0\") {\n    return msg;\n}",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 360,
         "y": 140,
         "wires": [
             [
                 "ed487821989683b8"
-            ],
-            [
-                "d62e746b789fe73e"
             ]
         ],
         "info": "Don't allow to start SWCG if filter pump is not running."
@@ -895,8 +882,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 550,
-        "y": 180,
+        "x": 570,
+        "y": 300,
         "wires": []
     },
     {
@@ -921,7 +908,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "2d8601c7ae281ed4"
@@ -932,21 +919,34 @@
         "id": "2d8601c7ae281ed4",
         "type": "function",
         "z": "3f63d940e09f2d66",
-        "name": "MonitorFilterPump",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed == \"Speed0\") {\n    msg.payload = false;\n    return msg;\n}\n",
-        "outputs": 1,
+        "name": "ResetSWCGSwitch",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed == \"Speed0\") {\n    var SWCGSwitch = global.get(\"SWCGSwitch\");\n    if (SWCGSwitch == true) {\n        return [{ payload: false }, { payload: \"For SWCG to run, the filter pump must be on !\" }];\n    }\n}",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "7c4e433baadcfe72"
+            ],
+            [
+                "d62e746b789fe73e"
             ]
         ],
         "info": "Turn off SWCG if filter pump is not running."
+    },
+    {
+        "id": "154a3db70ed7f61f",
+        "type": "comment",
+        "z": "3f63d940e09f2d66",
+        "name": "To Pool Status flow",
+        "info": "",
+        "x": 870,
+        "y": 220,
+        "wires": []
     },
     {
         "id": "2659d86e2cc382d0",
@@ -990,8 +990,8 @@
         "relay": "8",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 690,
-        "y": 100,
+        "x": 750,
+        "y": 140,
         "wires": [
             [
                 "111b6ea6d10da18b",
@@ -1026,7 +1026,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 850,
+        "x": 910,
         "y": 100,
         "wires": []
     },
@@ -1036,7 +1036,7 @@
         "z": "4688e1a9d6eb75fd",
         "name": "",
         "pauseType": "delay",
-        "timeout": "2",
+        "timeout": "1",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -1047,8 +1047,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 520,
-        "y": 100,
+        "x": 580,
+        "y": 140,
         "wires": [
             [
                 "20a9a2b73a9ac383"
@@ -1098,7 +1098,7 @@
         "links": [
             "402827d14d5cb5e0"
         ],
-        "x": 815,
+        "x": 875,
         "y": 180,
         "wires": []
     },
@@ -1106,24 +1106,21 @@
         "id": "1db34e87cf5d7c7c",
         "type": "function",
         "z": "4688e1a9d6eb75fd",
-        "name": "BlockPolaris",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\") {\n    if(msg.payload == true) {\n        return [{ payload: false }, { payload: \"For Polaris to run, filter pump must run at Speed2 !\" }];\n    }\n}\nreturn [msg];",
-        "outputs": 2,
+        "name": "ProtectPolarisPump",
+        "func": "var polarisSwitch = msg.payload;\nglobal.set(\"polarisSwitch\", polarisSwitch);\nvar vspSpeed = global.get(\"vspSpeed\");\nif(polarisSwitch == false || polarisSwitch == true && vspSpeed == \"Speed2\") {\n    return msg;\n}",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 380,
         "y": 140,
         "wires": [
             [
                 "029ca3a6d16e342e"
-            ],
-            [
-                "bcc7c781e6e60d74"
             ]
         ],
-        "info": "Don't allow to turn Polaris pump if filter pump is not running\r\nat Speed2."
+        "info": "Don't allow to turn Polaris pump on if filter pump is not running\r\nat Speed2."
     },
     {
         "id": "bcc7c781e6e60d74",
@@ -1140,8 +1137,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 550,
-        "y": 180,
+        "x": 570,
+        "y": 300,
         "wires": []
     },
     {
@@ -1166,7 +1163,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "95d85863c5b5ac63"
@@ -1177,21 +1174,34 @@
         "id": "95d85863c5b5ac63",
         "type": "function",
         "z": "4688e1a9d6eb75fd",
-        "name": "MonitorFilterPump",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\") {\n    msg.payload = false;\n    return msg;\n}\n",
-        "outputs": 1,
+        "name": "ResetPolarisSwitch",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\") {\n    var polarisSwitch = global.get(\"polarisSwitch\");\n    if (polarisSwitch == true) {\n        return [{ payload: false }, { payload: \"For Polaris to run, filter pump must run at Speed2 !\" }];\n    }\n}",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "bf1b6566544e0e55"
+            ],
+            [
+                "bcc7c781e6e60d74"
             ]
         ],
-        "info": "Turn Off Polaris pump if filter pump not running at Speed2."
+        "info": "Turn off Polaris pump switch if filter pump not running at Speed2.\r\nSend notification on attempt to turn Polaris on if\r\nvspSpeed != Speed2."
+    },
+    {
+        "id": "383beb8619562272",
+        "type": "comment",
+        "z": "4688e1a9d6eb75fd",
+        "name": "To Pool Status flow",
+        "info": "",
+        "x": 890,
+        "y": 220,
+        "wires": []
     },
     {
         "id": "1176598a97703092",
