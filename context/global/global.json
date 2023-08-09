@@ -10,7 +10,7 @@
     "speed": "Speed2",
     "vspOnOff": true,
     "vspOn": false,
-    "vspSpeed": "Speed3",
+    "vspSpeed": "Speed0",
     "polarisSwitch": false,
-    "SWCGSwitch": true
+    "SWCGSwitch": false
 }
