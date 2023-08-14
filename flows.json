@@ -307,7 +307,7 @@
         "relay": "2",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 560,
+        "x": 420,
         "y": 280,
         "wires": [
             [
@@ -357,7 +357,7 @@
         "relay": "1",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 560,
+        "x": 420,
         "y": 120,
         "wires": [
             [
@@ -407,7 +407,7 @@
         "relay": "3",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 560,
+        "x": 420,
         "y": 440,
         "wires": [
             [
@@ -449,56 +449,6 @@
         ]
     },
     {
-        "id": "d2a1a65506ce79c0",
-        "type": "delay",
-        "z": "57aa7085c1d84098",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "3",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 380,
-        "y": 280,
-        "wires": [
-            [
-                "5603399d2f104787"
-            ]
-        ]
-    },
-    {
-        "id": "811384cdd808526a",
-        "type": "delay",
-        "z": "57aa7085c1d84098",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "4",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 380,
-        "y": 440,
-        "wires": [
-            [
-                "61bf50795ecdcd91"
-            ]
-        ]
-    },
-    {
         "id": "3b15e2253d536310",
         "type": "ui_led",
         "z": "57aa7085c1d84098",
@@ -525,7 +475,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 750,
+        "x": 610,
         "y": 120,
         "wires": []
     },
@@ -556,7 +506,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 750,
+        "x": 610,
         "y": 280,
         "wires": []
     },
@@ -587,7 +537,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 750,
+        "x": 610,
         "y": 440,
         "wires": []
     },
@@ -655,7 +605,7 @@
         "y": 280,
         "wires": [
             [
-                "d2a1a65506ce79c0"
+                "5603399d2f104787"
             ]
         ]
     },
@@ -689,7 +639,7 @@
         "y": 440,
         "wires": [
             [
-                "811384cdd808526a"
+                "61bf50795ecdcd91"
             ]
         ]
     },
@@ -735,8 +685,8 @@
         "relay": "7",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 710,
-        "y": 140,
+        "x": 590,
+        "y": 100,
         "wires": [
             [
                 "03309e11e7d6d9fa",
@@ -771,34 +721,9 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 870,
+        "x": 770,
         "y": 100,
         "wires": []
-    },
-    {
-        "id": "ed487821989683b8",
-        "type": "delay",
-        "z": "3f63d940e09f2d66",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 540,
-        "y": 140,
-        "wires": [
-            [
-                "e0ab2dd31240311a"
-            ]
-        ]
     },
     {
         "id": "7c4e433baadcfe72",
@@ -843,7 +768,7 @@
         "links": [
             "85357873eb95f343"
         ],
-        "x": 845,
+        "x": 735,
         "y": 180,
         "wires": []
     },
@@ -852,8 +777,8 @@
         "type": "function",
         "z": "3f63d940e09f2d66",
         "name": "ProtectSWCG",
-        "func": "var SWCGSwitch = msg.payload;\nglobal.set(\"SWCGSwitch\", SWCGSwitch);\nvar vspSpeed = global.get(\"vspSpeed\");\nif (SWCGSwitch == false || SWCGSwitch == true && vspSpeed != \"Speed0\") {\n    return msg;\n}",
-        "outputs": 1,
+        "func": "var SWCGSwitch = msg.payload;\nvar vspSpeed = global.get(\"vspSpeed\");\nif (SWCGSwitch == false || SWCGSwitch == true && vspSpeed != \"Speed0\") {\n    // Pass the message to the SWCG relay.\n    return [msg, null];\n} else {\n    // VSP speed is not appropriate for the SWCG to run.\n    return [null, { payload: \"For SWCG to run, the filter pump must be on\" }];\n}",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -862,7 +787,10 @@
         "y": 140,
         "wires": [
             [
-                "ed487821989683b8"
+                "e0ab2dd31240311a"
+            ],
+            [
+                "d62e746b789fe73e"
             ]
         ],
         "info": "Don't allow to start SWCG if filter pump is not running."
@@ -882,8 +810,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 570,
-        "y": 300,
+        "x": 610,
+        "y": 280,
         "wires": []
     },
     {
@@ -920,8 +848,8 @@
         "type": "function",
         "z": "3f63d940e09f2d66",
         "name": "ResetSWCGSwitch",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed == \"Speed0\") {\n    var SWCGSwitch = global.get(\"SWCGSwitch\");\n    if (SWCGSwitch == true) {\n        return [{ payload: false }, { payload: \"For SWCG to run, the filter pump must be on !\" }];\n    }\n}",
-        "outputs": 2,
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed == \"Speed0\") {\n    // Reset the SWCG switch if the current transducer stops reporting\n    // a correct VSP speed.\n    return { payload: false };\n}",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -931,9 +859,6 @@
         "wires": [
             [
                 "7c4e433baadcfe72"
-            ],
-            [
-                "d62e746b789fe73e"
             ]
         ],
         "info": "Turn off SWCG if filter pump is not running."
@@ -944,7 +869,7 @@
         "z": "3f63d940e09f2d66",
         "name": "To Pool Status flow",
         "info": "",
-        "x": 870,
+        "x": 810,
         "y": 220,
         "wires": []
     },
@@ -990,8 +915,8 @@
         "relay": "8",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 750,
-        "y": 140,
+        "x": 590,
+        "y": 100,
         "wires": [
             [
                 "111b6ea6d10da18b",
@@ -1026,34 +951,9 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 910,
+        "x": 770,
         "y": 100,
         "wires": []
-    },
-    {
-        "id": "029ca3a6d16e342e",
-        "type": "delay",
-        "z": "4688e1a9d6eb75fd",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 580,
-        "y": 140,
-        "wires": [
-            [
-                "20a9a2b73a9ac383"
-            ]
-        ]
     },
     {
         "id": "bf1b6566544e0e55",
@@ -1098,7 +998,7 @@
         "links": [
             "402827d14d5cb5e0"
         ],
-        "x": 875,
+        "x": 735,
         "y": 180,
         "wires": []
     },
@@ -1107,8 +1007,8 @@
         "type": "function",
         "z": "4688e1a9d6eb75fd",
         "name": "ProtectPolarisPump",
-        "func": "var polarisSwitch = msg.payload;\nglobal.set(\"polarisSwitch\", polarisSwitch);\nvar vspSpeed = global.get(\"vspSpeed\");\nif(polarisSwitch == false || polarisSwitch == true && vspSpeed == \"Speed2\") {\n    return msg;\n}",
-        "outputs": 1,
+        "func": "var polarisSwitch = msg.payload;\nvar vspSpeed = global.get(\"vspSpeed\");\nif(polarisSwitch == false || polarisSwitch == true && vspSpeed == \"Speed2\") {\n    // Pass the message to the Polaris relay.\n    return [msg, null];\n} else {\n    // VSP speed is not appropriate for the Polaris pump to run.\n    return [null, {payload: \"For Polaris to run, filter pump must run at Speed2\"}];\n}",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -1117,7 +1017,10 @@
         "y": 140,
         "wires": [
             [
-                "029ca3a6d16e342e"
+                "20a9a2b73a9ac383"
+            ],
+            [
+                "bcc7c781e6e60d74"
             ]
         ],
         "info": "Don't allow to turn Polaris pump on if filter pump is not running\r\nat Speed2."
@@ -1137,12 +1040,41 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 570,
-        "y": 300,
+        "x": 610,
+        "y": 280,
         "wires": []
     },
     {
-        "id": "ce865d5c57b923df",
+        "id": "383beb8619562272",
+        "type": "comment",
+        "z": "4688e1a9d6eb75fd",
+        "name": "To Pool Status flow",
+        "info": "",
+        "x": 810,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "38ab6c2f80376031",
+        "type": "function",
+        "z": "4688e1a9d6eb75fd",
+        "name": "ResetPolarisSwitch",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\") {\n     // Reset the Polaris switch if the current transducer stops reporting\n     // a correct VSP speed.\n     return { payload: false };\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "bf1b6566544e0e55"
+            ]
+        ]
+    },
+    {
+        "id": "196dd7177e5d6c94",
         "type": "inject",
         "z": "4688e1a9d6eb75fd",
         "name": "",
@@ -1166,42 +1098,9 @@
         "y": 280,
         "wires": [
             [
-                "95d85863c5b5ac63"
+                "38ab6c2f80376031"
             ]
         ]
-    },
-    {
-        "id": "95d85863c5b5ac63",
-        "type": "function",
-        "z": "4688e1a9d6eb75fd",
-        "name": "ResetPolarisSwitch",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\") {\n    var polarisSwitch = global.get(\"polarisSwitch\");\n    if (polarisSwitch == true) {\n        return [{ payload: false }, { payload: \"For Polaris to run, filter pump must run at Speed2 !\" }];\n    }\n}",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 280,
-        "wires": [
-            [
-                "bf1b6566544e0e55"
-            ],
-            [
-                "bcc7c781e6e60d74"
-            ]
-        ],
-        "info": "Turn off Polaris pump switch if filter pump not running at Speed2.\r\nSend notification on attempt to turn Polaris on if\r\nvspSpeed != Speed2."
-    },
-    {
-        "id": "383beb8619562272",
-        "type": "comment",
-        "z": "4688e1a9d6eb75fd",
-        "name": "To Pool Status flow",
-        "info": "",
-        "x": 890,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "1176598a97703092",
@@ -1840,7 +1739,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 860,
+        "y": 880,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1868,7 +1767,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 920,
+        "y": 940,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1902,7 +1801,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 810,
+        "x": 770,
         "y": 820,
         "wires": []
     },
@@ -1959,7 +1858,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 860,
+        "y": 880,
         "wires": [
             []
         ]
@@ -1976,7 +1875,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 920,
+        "y": 940,
         "wires": [
             []
         ]
@@ -1990,7 +1889,7 @@
         "relay": "6",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 800,
+        "x": 780,
         "y": 760,
         "wires": [
             [
@@ -2020,7 +1919,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 860,
+        "y": 880,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -2049,7 +1948,7 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 920,
+        "y": 940,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
