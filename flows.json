@@ -307,8 +307,8 @@
         "relay": "2",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 420,
-        "y": 280,
+        "x": 540,
+        "y": 140,
         "wires": [
             [
                 "df5bae1991ab6c0f"
@@ -357,8 +357,8 @@
         "relay": "1",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 420,
-        "y": 120,
+        "x": 540,
+        "y": 60,
         "wires": [
             [
                 "3b15e2253d536310"
@@ -390,7 +390,7 @@
         "width": "6",
         "height": "2",
         "x": 130,
-        "y": 220,
+        "y": 140,
         "wires": [
             [],
             [
@@ -407,8 +407,8 @@
         "relay": "3",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 420,
-        "y": 440,
+        "x": 540,
+        "y": 220,
         "wires": [
             [
                 "55b37b04d1d475f8"
@@ -440,7 +440,7 @@
         "width": "6",
         "height": "2",
         "x": 130,
-        "y": 380,
+        "y": 220,
         "wires": [
             [],
             [
@@ -475,8 +475,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 610,
-        "y": 120,
+        "x": 710,
+        "y": 60,
         "wires": []
     },
     {
@@ -506,8 +506,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 610,
-        "y": 280,
+        "x": 710,
+        "y": 140,
         "wires": []
     },
     {
@@ -537,8 +537,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 610,
-        "y": 440,
+        "x": 710,
+        "y": 220,
         "wires": []
     },
     {
@@ -567,8 +567,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 200,
-        "y": 120,
+        "x": 340,
+        "y": 60,
         "wires": [
             [
                 "5a79071d1f552e84"
@@ -601,8 +601,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 200,
-        "y": 280,
+        "x": 340,
+        "y": 140,
         "wires": [
             [
                 "5603399d2f104787"
@@ -635,8 +635,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 200,
-        "y": 440,
+        "x": 340,
+        "y": 220,
         "wires": [
             [
                 "61bf50795ecdcd91"
@@ -668,7 +668,7 @@
         "width": "6",
         "height": "2",
         "x": 130,
-        "y": 60,
+        "y": 40,
         "wires": [
             [],
             [
@@ -685,8 +685,8 @@
         "relay": "7",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 590,
-        "y": 100,
+        "x": 550,
+        "y": 80,
         "wires": [
             [
                 "03309e11e7d6d9fa",
@@ -722,7 +722,7 @@
         "showGlow": true,
         "name": "",
         "x": 770,
-        "y": 100,
+        "y": 80,
         "wires": []
     },
     {
@@ -752,7 +752,7 @@
         "animate": false,
         "className": "",
         "x": 160,
-        "y": 140,
+        "y": 120,
         "wires": [
             [
                 "b72e2bf35cb6570b"
@@ -769,7 +769,7 @@
             "85357873eb95f343"
         ],
         "x": 735,
-        "y": 180,
+        "y": 140,
         "wires": []
     },
     {
@@ -784,7 +784,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 140,
+        "y": 120,
         "wires": [
             [
                 "e0ab2dd31240311a"
@@ -810,38 +810,9 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 610,
-        "y": 280,
+        "x": 570,
+        "y": 160,
         "wires": []
-    },
-    {
-        "id": "d774f32b6ef7a4d6",
-        "type": "inject",
-        "z": "3f63d940e09f2d66",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 280,
-        "wires": [
-            [
-                "2d8601c7ae281ed4"
-            ]
-        ]
     },
     {
         "id": "2d8601c7ae281ed4",
@@ -854,8 +825,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 280,
+        "x": 310,
+        "y": 240,
         "wires": [
             [
                 "7c4e433baadcfe72"
@@ -864,14 +835,20 @@
         "info": "Turn off SWCG if filter pump is not running."
     },
     {
-        "id": "154a3db70ed7f61f",
-        "type": "comment",
+        "id": "7c19cbf5e55a8cd9",
+        "type": "link in",
         "z": "3f63d940e09f2d66",
-        "name": "To Pool Status flow",
-        "info": "",
-        "x": 810,
-        "y": 220,
-        "wires": []
+        "name": "link in 4",
+        "links": [
+            "3d8a694feaca0af4"
+        ],
+        "x": 165,
+        "y": 240,
+        "wires": [
+            [
+                "2d8601c7ae281ed4"
+            ]
+        ]
     },
     {
         "id": "2659d86e2cc382d0",
@@ -898,7 +875,7 @@
         "width": "6",
         "height": "2",
         "x": 130,
-        "y": 60,
+        "y": 40,
         "wires": [
             [],
             [
@@ -916,7 +893,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 590,
-        "y": 100,
+        "y": 80,
         "wires": [
             [
                 "111b6ea6d10da18b",
@@ -951,8 +928,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 770,
-        "y": 100,
+        "x": 790,
+        "y": 80,
         "wires": []
     },
     {
@@ -982,7 +959,7 @@
         "animate": false,
         "className": "",
         "x": 160,
-        "y": 140,
+        "y": 120,
         "wires": [
             [
                 "1db34e87cf5d7c7c"
@@ -998,8 +975,8 @@
         "links": [
             "402827d14d5cb5e0"
         ],
-        "x": 735,
-        "y": 180,
+        "x": 755,
+        "y": 140,
         "wires": []
     },
     {
@@ -1014,7 +991,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 140,
+        "y": 120,
         "wires": [
             [
                 "20a9a2b73a9ac383"
@@ -1041,17 +1018,7 @@
         "topic": "",
         "name": "",
         "x": 610,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "383beb8619562272",
-        "type": "comment",
-        "z": "4688e1a9d6eb75fd",
-        "name": "To Pool Status flow",
-        "info": "",
-        "x": 810,
-        "y": 220,
+        "y": 160,
         "wires": []
     },
     {
@@ -1065,8 +1032,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 280,
+        "x": 310,
+        "y": 240,
         "wires": [
             [
                 "bf1b6566544e0e55"
@@ -1074,28 +1041,15 @@
         ]
     },
     {
-        "id": "196dd7177e5d6c94",
-        "type": "inject",
+        "id": "29b40b7a633f5fe4",
+        "type": "link in",
         "z": "4688e1a9d6eb75fd",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
+        "name": "link in 3",
+        "links": [
+            "ee8dcc5afb113c60"
         ],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 280,
+        "x": 165,
+        "y": 240,
         "wires": [
             [
                 "38ab6c2f80376031"
@@ -1126,8 +1080,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 770,
-        "y": 60,
+        "x": 790,
+        "y": 40,
         "wires": []
     },
     {
@@ -1154,8 +1108,8 @@
         "seg2": "85",
         "diff": false,
         "className": "",
-        "x": 790,
-        "y": 580,
+        "x": 810,
+        "y": 500,
         "wires": []
     },
     {
@@ -1182,8 +1136,8 @@
         "seg2": "85",
         "diff": false,
         "className": "",
-        "x": 780,
-        "y": 640,
+        "x": 800,
+        "y": 560,
         "wires": []
     },
     {
@@ -1196,7 +1150,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 580,
+        "y": 500,
         "wires": [
             [
                 "61e2e1673da7f097"
@@ -1213,7 +1167,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "1176598a97703092",
@@ -1232,7 +1186,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
                 "1e64f66566dfaf14"
@@ -1255,13 +1209,13 @@
         ],
         "repeat": "1",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "7948aa3259590a08"
@@ -1284,13 +1238,13 @@
         ],
         "repeat": "5",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 580,
+        "y": 500,
         "wires": [
             [
                 "c566a74f72e90710"
@@ -1313,13 +1267,13 @@
         ],
         "repeat": "5",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
                 "31eebae1a6cd070a"
@@ -1353,8 +1307,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Speed1",
-        "x": 800,
-        "y": 240,
+        "x": 820,
+        "y": 160,
         "wires": []
     },
     {
@@ -1384,8 +1338,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Speed2",
-        "x": 800,
-        "y": 300,
+        "x": 820,
+        "y": 220,
         "wires": []
     },
     {
@@ -1415,8 +1369,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Speed3",
-        "x": 800,
-        "y": 360,
+        "x": 820,
+        "y": 280,
         "wires": []
     },
     {
@@ -1433,8 +1387,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "always",
-        "x": 530,
-        "y": 240,
+        "x": 570,
+        "y": 160,
         "wires": [
             [
                 "7156231e662085f4"
@@ -1455,8 +1409,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "always",
-        "x": 530,
-        "y": 300,
+        "x": 570,
+        "y": 220,
         "wires": [
             [
                 "1119d7adf0917de4"
@@ -1477,8 +1431,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "always",
-        "x": 530,
-        "y": 360,
+        "x": 570,
+        "y": 280,
         "wires": [
             [
                 "77fbf8f3dac33eac"
@@ -1489,15 +1443,15 @@
         "id": "86c40ee346c5b9ae",
         "type": "function",
         "z": "4b96395a77975ca1",
-        "name": "mapCurrentRangesToSpeeds",
+        "name": "mapCurrentToSpeed",
         "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 300,
+        "x": 300,
+        "y": 220,
         "wires": [
             [
                 "92619ce0f1b14716"
@@ -1529,8 +1483,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 120,
+        "x": 550,
+        "y": 100,
         "wires": [
             [
                 "f72b240e050c4645"
@@ -1561,8 +1515,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 770,
-        "y": 180,
+        "x": 790,
+        "y": 100,
         "wires": []
     },
     {
@@ -1592,8 +1546,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "SWCG",
-        "x": 800,
-        "y": 440,
+        "x": 820,
+        "y": 380,
         "wires": []
     },
     {
@@ -1623,8 +1577,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Polaris",
-        "x": 810,
-        "y": 500,
+        "x": 830,
+        "y": 440,
         "wires": []
     },
     {
@@ -1635,8 +1589,8 @@
         "links": [
             "7ac2d92a68e73c28"
         ],
-        "x": 155,
-        "y": 440,
+        "x": 195,
+        "y": 380,
         "wires": [
             [
                 "5339998e0f6dae17"
@@ -1651,33 +1605,13 @@
         "links": [
             "7c51994361debb55"
         ],
-        "x": 155,
-        "y": 500,
+        "x": 195,
+        "y": 440,
         "wires": [
             [
                 "c63ec6c2b44ec339"
             ]
         ]
-    },
-    {
-        "id": "30c4a06c54a64769",
-        "type": "comment",
-        "z": "4b96395a77975ca1",
-        "name": "From Polaris flow",
-        "info": "",
-        "x": 280,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "3e6f187fecc88d87",
-        "type": "comment",
-        "z": "4b96395a77975ca1",
-        "name": "From SWCG flow",
-        "info": "",
-        "x": 280,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "61e2e1673da7f097",
@@ -1691,7 +1625,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 580,
+        "y": 500,
         "wires": [
             [
                 "e1b7aa9a076740ec"
@@ -1710,7 +1644,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
                 "6844177a765d99ee",
@@ -1739,7 +1673,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 880,
+        "y": 700,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1767,7 +1701,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 940,
+        "y": 760,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1801,8 +1735,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 770,
-        "y": 820,
+        "x": 830,
+        "y": 620,
         "wires": []
     },
     {
@@ -1816,8 +1750,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 700,
+        "x": 370,
+        "y": 620,
         "wires": [
             [
                 "8b0c435caad96e90"
@@ -1838,8 +1772,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "always",
-        "x": 710,
-        "y": 700,
+        "x": 530,
+        "y": 620,
         "wires": [
             [
                 "962e8890cd94bf0d"
@@ -1858,7 +1792,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 880,
+        "y": 700,
         "wires": [
             []
         ]
@@ -1875,7 +1809,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 940,
+        "y": 760,
         "wires": [
             []
         ]
@@ -1889,8 +1823,8 @@
         "relay": "6",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 780,
-        "y": 760,
+        "x": 680,
+        "y": 620,
         "wires": [
             [
                 "12095c7b0e55bc1e"
@@ -1919,7 +1853,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 880,
+        "y": 700,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1948,11 +1882,56 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 940,
+        "y": 760,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
             ]
         ]
+    },
+    {
+        "id": "e495e60d7b9f3d99",
+        "type": "complete",
+        "z": "4b96395a77975ca1",
+        "name": "mapCurrentToSpeedCompleted",
+        "scope": [
+            "86c40ee346c5b9ae"
+        ],
+        "uncaught": false,
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "ee8dcc5afb113c60",
+                "3d8a694feaca0af4"
+            ]
+        ],
+        "info": "Send \"completed\" event to Polaris Pump and SWCG flows\r\nafter the mapCurrentToSpeed function completes.\r\nThis is to make sure that a global variable vspSpeed\r\nis set before it is used."
+    },
+    {
+        "id": "ee8dcc5afb113c60",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "29b40b7a633f5fe4"
+        ],
+        "x": 355,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3d8a694feaca0af4",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "7c19cbf5e55a8cd9"
+        ],
+        "x": 355,
+        "y": 300,
+        "wires": []
     }
 ]
