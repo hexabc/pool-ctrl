@@ -1695,7 +1695,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 660,
+        "y": 640,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1723,7 +1723,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 720,
+        "y": 700,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1814,7 +1814,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 660,
+        "y": 640,
         "wires": [
             []
         ]
@@ -1831,7 +1831,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 720,
+        "y": 700,
         "wires": [
             []
         ]
@@ -1875,7 +1875,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 660,
+        "y": 640,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1904,7 +1904,7 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 720,
+        "y": 700,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
