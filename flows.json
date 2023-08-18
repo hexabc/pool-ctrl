@@ -307,12 +307,10 @@
         "relay": "2",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 540,
+        "x": 600,
         "y": 140,
         "wires": [
-            [
-                "df5bae1991ab6c0f"
-            ]
+            []
         ]
     },
     {
@@ -357,12 +355,10 @@
         "relay": "1",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 540,
-        "y": 60,
+        "x": 600,
+        "y": 40,
         "wires": [
-            [
-                "3b15e2253d536310"
-            ]
+            []
         ]
     },
     {
@@ -390,7 +386,7 @@
         "width": "6",
         "height": "2",
         "x": 130,
-        "y": 140,
+        "y": 160,
         "wires": [
             [],
             [
@@ -407,12 +403,10 @@
         "relay": "3",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 540,
-        "y": 220,
+        "x": 600,
+        "y": 240,
         "wires": [
-            [
-                "55b37b04d1d475f8"
-            ]
+            []
         ]
     },
     {
@@ -440,7 +434,7 @@
         "width": "6",
         "height": "2",
         "x": 130,
-        "y": 220,
+        "y": 260,
         "wires": [
             [],
             [
@@ -475,8 +469,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 710,
-        "y": 60,
+        "x": 570,
+        "y": 80,
         "wires": []
     },
     {
@@ -506,8 +500,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 710,
-        "y": 140,
+        "x": 570,
+        "y": 180,
         "wires": []
     },
     {
@@ -537,8 +531,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 710,
-        "y": 220,
+        "x": 570,
+        "y": 280,
         "wires": []
     },
     {
@@ -571,7 +565,8 @@
         "y": 60,
         "wires": [
             [
-                "5a79071d1f552e84"
+                "5a79071d1f552e84",
+                "3b15e2253d536310"
             ]
         ]
     },
@@ -602,10 +597,11 @@
         "animate": false,
         "className": "",
         "x": 340,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
-                "5603399d2f104787"
+                "5603399d2f104787",
+                "df5bae1991ab6c0f"
             ]
         ]
     },
@@ -636,10 +632,11 @@
         "animate": false,
         "className": "",
         "x": 340,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
-                "61bf50795ecdcd91"
+                "61bf50795ecdcd91",
+                "55b37b04d1d475f8"
             ]
         ]
     },
@@ -685,8 +682,8 @@
         "relay": "7",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 550,
-        "y": 80,
+        "x": 690,
+        "y": 100,
         "wires": [
             [
                 "03309e11e7d6d9fa",
@@ -721,8 +718,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 770,
-        "y": 80,
+        "x": 850,
+        "y": 120,
         "wires": []
     },
     {
@@ -768,8 +765,8 @@
         "links": [
             "85357873eb95f343"
         ],
-        "x": 735,
-        "y": 140,
+        "x": 815,
+        "y": 80,
         "wires": []
     },
     {
@@ -787,7 +784,7 @@
         "y": 120,
         "wires": [
             [
-                "e0ab2dd31240311a"
+                "662a2ce69b1e105a"
             ],
             [
                 "d62e746b789fe73e"
@@ -811,7 +808,7 @@
         "topic": "",
         "name": "",
         "x": 570,
-        "y": 160,
+        "y": 180,
         "wires": []
     },
     {
@@ -826,7 +823,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 240,
+        "y": 220,
         "wires": [
             [
                 "7c4e433baadcfe72"
@@ -843,10 +840,32 @@
             "3d8a694feaca0af4"
         ],
         "x": 165,
-        "y": 240,
+        "y": 220,
         "wires": [
             [
                 "2d8601c7ae281ed4"
+            ]
+        ]
+    },
+    {
+        "id": "662a2ce69b1e105a",
+        "type": "toggle",
+        "z": "3f63d940e09f2d66",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 530,
+        "y": 100,
+        "wires": [
+            [
+                "e0ab2dd31240311a"
             ]
         ]
     },
@@ -892,12 +911,12 @@
         "relay": "8",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 590,
-        "y": 80,
+        "x": 730,
+        "y": 100,
         "wires": [
             [
-                "111b6ea6d10da18b",
-                "7c51994361debb55"
+                "7c51994361debb55",
+                "111b6ea6d10da18b"
             ]
         ]
     },
@@ -928,8 +947,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 790,
-        "y": 80,
+        "x": 890,
+        "y": 120,
         "wires": []
     },
     {
@@ -975,8 +994,8 @@
         "links": [
             "402827d14d5cb5e0"
         ],
-        "x": 755,
-        "y": 140,
+        "x": 855,
+        "y": 80,
         "wires": []
     },
     {
@@ -984,7 +1003,7 @@
         "type": "function",
         "z": "4688e1a9d6eb75fd",
         "name": "ProtectPolarisPump",
-        "func": "var polarisSwitch = msg.payload;\nvar vspSpeed = global.get(\"vspSpeed\");\nif(polarisSwitch == false || polarisSwitch == true && vspSpeed == \"Speed2\") {\n    // Pass the message to the Polaris relay.\n    return [msg, null];\n} else {\n    // VSP speed is not appropriate for the Polaris pump to run.\n    return [null, {payload: \"For Polaris to run, filter pump must run at Speed2\"}];\n}",
+        "func": "var polarisSwitch = msg.payload;\nvar vspSpeed = global.get(\"vspSpeed\");\nif(polarisSwitch == false || polarisSwitch == true && vspSpeed == \"Speed2\") {\n    // Pass the message to the Polaris relay.\n    return [msg, null];\n} else {\n    // VSP speed is not appropriate for the Polaris pump to run.\n    return [null, {payload: \"For Polaris to run, filter pump must run at speed 2\"}];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -994,7 +1013,7 @@
         "y": 120,
         "wires": [
             [
-                "20a9a2b73a9ac383"
+                "40d4fe8c0ccc9bb4"
             ],
             [
                 "bcc7c781e6e60d74"
@@ -1018,7 +1037,7 @@
         "topic": "",
         "name": "",
         "x": 610,
-        "y": 160,
+        "y": 180,
         "wires": []
     },
     {
@@ -1033,7 +1052,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 240,
+        "y": 220,
         "wires": [
             [
                 "bf1b6566544e0e55"
@@ -1049,10 +1068,32 @@
             "ee8dcc5afb113c60"
         ],
         "x": 165,
-        "y": 240,
+        "y": 220,
         "wires": [
             [
                 "38ab6c2f80376031"
+            ]
+        ]
+    },
+    {
+        "id": "40d4fe8c0ccc9bb4",
+        "type": "toggle",
+        "z": "4688e1a9d6eb75fd",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "20a9a2b73a9ac383"
             ]
         ]
     },
@@ -1109,7 +1150,7 @@
         "diff": false,
         "className": "",
         "x": 810,
-        "y": 500,
+        "y": 460,
         "wires": []
     },
     {
@@ -1137,7 +1178,7 @@
         "diff": false,
         "className": "",
         "x": 800,
-        "y": 560,
+        "y": 520,
         "wires": []
     },
     {
@@ -1150,7 +1191,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 500,
+        "y": 460,
         "wires": [
             [
                 "61e2e1673da7f097"
@@ -1186,7 +1227,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "1e64f66566dfaf14"
@@ -1207,7 +1248,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "2",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -1244,7 +1285,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 500,
+        "y": 460,
         "wires": [
             [
                 "c566a74f72e90710"
@@ -1273,7 +1314,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "31eebae1a6cd070a"
@@ -1386,8 +1427,8 @@
         "toggleTopic": "",
         "toggleValue": "",
         "toggleType": "str",
-        "passOnOff": "always",
-        "x": 570,
+        "passOnOff": "ifChanged",
+        "x": 610,
         "y": 160,
         "wires": [
             [
@@ -1408,8 +1449,8 @@
         "toggleTopic": "",
         "toggleValue": "",
         "toggleType": "str",
-        "passOnOff": "always",
-        "x": 570,
+        "passOnOff": "ifChanged",
+        "x": 610,
         "y": 220,
         "wires": [
             [
@@ -1418,39 +1459,17 @@
         ]
     },
     {
-        "id": "e2a22966e601e893",
-        "type": "toggle",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "always",
-        "x": 570,
-        "y": 280,
-        "wires": [
-            [
-                "77fbf8f3dac33eac"
-            ]
-        ]
-    },
-    {
         "id": "86c40ee346c5b9ae",
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "mapCurrentToSpeed",
-        "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload: true}, {payload: false}, {payload: false}];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
+        "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{ payload: true }, { payload: false }, { payload: false }];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
+        "x": 340,
         "y": 220,
         "wires": [
             [
@@ -1547,7 +1566,7 @@
         "showGlow": true,
         "name": "SWCG",
         "x": 820,
-        "y": 380,
+        "y": 340,
         "wires": []
     },
     {
@@ -1578,7 +1597,7 @@
         "showGlow": true,
         "name": "Polaris",
         "x": 830,
-        "y": 440,
+        "y": 400,
         "wires": []
     },
     {
@@ -1590,7 +1609,7 @@
             "7ac2d92a68e73c28"
         ],
         "x": 195,
-        "y": 380,
+        "y": 360,
         "wires": [
             [
                 "5339998e0f6dae17"
@@ -1606,7 +1625,7 @@
             "7c51994361debb55"
         ],
         "x": 195,
-        "y": 440,
+        "y": 400,
         "wires": [
             [
                 "c63ec6c2b44ec339"
@@ -1625,7 +1644,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 500,
+        "y": 460,
         "wires": [
             [
                 "e1b7aa9a076740ec"
@@ -1644,7 +1663,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "6844177a765d99ee",
@@ -1673,7 +1692,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 700,
+        "y": 660,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1701,7 +1720,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 760,
+        "y": 720,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1736,7 +1755,7 @@
         "showGlow": true,
         "name": "",
         "x": 830,
-        "y": 620,
+        "y": 640,
         "wires": []
     },
     {
@@ -1751,7 +1770,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "8b0c435caad96e90"
@@ -1771,9 +1790,9 @@
         "toggleTopic": "",
         "toggleValue": "",
         "toggleType": "str",
-        "passOnOff": "always",
+        "passOnOff": "ifChanged",
         "x": 530,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "962e8890cd94bf0d"
@@ -1792,7 +1811,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 700,
+        "y": 660,
         "wires": [
             []
         ]
@@ -1809,7 +1828,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 760,
+        "y": 720,
         "wires": [
             []
         ]
@@ -1823,8 +1842,8 @@
         "relay": "6",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 680,
-        "y": 620,
+        "x": 820,
+        "y": 580,
         "wires": [
             [
                 "12095c7b0e55bc1e"
@@ -1853,7 +1872,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 700,
+        "y": 660,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1882,7 +1901,7 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 760,
+        "y": 720,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
@@ -1899,14 +1918,14 @@
         ],
         "uncaught": false,
         "x": 170,
-        "y": 320,
+        "y": 300,
         "wires": [
             [
                 "ee8dcc5afb113c60",
                 "3d8a694feaca0af4"
             ]
         ],
-        "info": "Send \"completed\" event to Polaris Pump and SWCG flows\r\nafter the mapCurrentToSpeed function completes.\r\nThis is to make sure that a global variable vspSpeed\r\nis set before it is used."
+        "info": "Send \"completed\" event to Polaris Pump and SWCG flows\r\nafter the mapCurrentToSpeed function completes.\r\nThis synchronization is not really necessary, a simple\r\n\"inject\" node in Polaris Pump and SWCG flows would do,\r\nbut it's always nicer to have synchronous processing\r\nwhere possible."
     },
     {
         "id": "ee8dcc5afb113c60",
@@ -1917,8 +1936,8 @@
         "links": [
             "29b40b7a633f5fe4"
         ],
-        "x": 355,
-        "y": 340,
+        "x": 365,
+        "y": 320,
         "wires": []
     },
     {
@@ -1930,8 +1949,30 @@
         "links": [
             "7c19cbf5e55a8cd9"
         ],
-        "x": 355,
-        "y": 300,
+        "x": 365,
+        "y": 280,
         "wires": []
+    },
+    {
+        "id": "e2a22966e601e893",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 610,
+        "y": 280,
+        "wires": [
+            [
+                "77fbf8f3dac33eac"
+            ]
+        ]
     }
 ]
