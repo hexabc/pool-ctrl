@@ -23,6 +23,6 @@
             "filter": "filterAll"
         },
         "menu-menu-item-palette": true,
-        "menu-menu-item-sidebar": false
+        "menu-menu-item-sidebar": true
     }
 }
