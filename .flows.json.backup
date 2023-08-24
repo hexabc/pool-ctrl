@@ -650,7 +650,7 @@
         "group": "3e9f1181ee5e5391",
         "name": "SWCGScheduler",
         "startDay": 0,
-        "refresh": 60,
+        "refresh": "5",
         "devices": [
             "SWCG"
         ],
@@ -722,7 +722,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 120,
+        "y": 140,
         "wires": []
     },
     {
@@ -752,10 +752,11 @@
         "animate": false,
         "className": "",
         "x": 160,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
-                "b72e2bf35cb6570b"
+                "b72e2bf35cb6570b",
+                "f339168af5813d52"
             ]
         ]
     },
@@ -784,7 +785,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
                 "662a2ce69b1e105a"
@@ -793,7 +794,7 @@
                 "d62e746b789fe73e"
             ]
         ],
-        "info": "Don't allow to start SWCG if filter pump is not running."
+        "info": "Block the message to the SWCG Relay if the filter pump\r\nis not running at any speed."
     },
     {
         "id": "d62e746b789fe73e",
@@ -811,28 +812,28 @@
         "topic": "",
         "name": "",
         "x": 570,
-        "y": 180,
+        "y": 200,
         "wires": []
     },
     {
         "id": "2d8601c7ae281ed4",
         "type": "function",
         "z": "3f63d940e09f2d66",
-        "name": "ResetSWCGSwitch",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed == \"Speed0\") {\n    // Reset the SWCG switch if the current transducer stops reporting\n    // a correct VSP speed.\n    return { payload: false };\n}",
+        "name": "ResetSWCGSwitch2",
+        "func": "var isSpeed0 = msg.payload;\nif (isSpeed0 == true) {\n    return { payload: false };\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 240,
+        "x": 180,
+        "y": 300,
         "wires": [
             [
                 "7c4e433baadcfe72"
             ]
         ],
-        "info": "Turn off SWCG if filter pump is not running."
+        "info": "Reset the SWCG switch if the OFF message has been sent from the Speed0\r\ntoggle in the Pool Status flow. In other words, turn the SWCG off if\r\nthe VSP current transducer starts reporting Speed0 (the pump\r\nis not running)."
     },
     {
         "id": "7c19cbf5e55a8cd9",
@@ -840,10 +841,10 @@
         "z": "3f63d940e09f2d66",
         "name": "link in 4",
         "links": [
-            "3d8a694feaca0af4"
+            "d6ca499c42d260e1"
         ],
-        "x": 165,
-        "y": 240,
+        "x": 185,
+        "y": 380,
         "wires": [
             [
                 "2d8601c7ae281ed4"
@@ -865,12 +866,32 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 530,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
                 "e0ab2dd31240311a"
             ]
         ]
+    },
+    {
+        "id": "f339168af5813d52",
+        "type": "function",
+        "z": "3f63d940e09f2d66",
+        "name": "ResetSWCGSwitch1",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nvar swcgSwitch = msg.payload;\nif (vspSpeed == \"Speed0\" && swcgSwitch == true) {\n     return { payload: false };\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "7c4e433baadcfe72"
+            ]
+        ],
+        "info": "Reset the SWCG switch if the scheduler or the user attempts to\r\nturn it ON while the filter pump doesn't run."
     },
     {
         "id": "2659d86e2cc382d0",
@@ -951,7 +972,7 @@
         "showGlow": true,
         "name": "",
         "x": 770,
-        "y": 120,
+        "y": 140,
         "wires": []
     },
     {
@@ -981,10 +1002,11 @@
         "animate": false,
         "className": "",
         "x": 160,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
-                "1db34e87cf5d7c7c"
+                "1db34e87cf5d7c7c",
+                "38ab6c2f80376031"
             ]
         ]
     },
@@ -1013,7 +1035,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
                 "40d4fe8c0ccc9bb4"
@@ -1022,7 +1044,7 @@
                 "bcc7c781e6e60d74"
             ]
         ],
-        "info": "Don't allow to turn Polaris pump on if filter pump is not running\r\nat Speed2."
+        "info": "Block the message to the Polaris Relay if the filter pump\r\ndoesn't run at Speed2."
     },
     {
         "id": "bcc7c781e6e60d74",
@@ -1040,43 +1062,8 @@
         "topic": "",
         "name": "",
         "x": 610,
-        "y": 180,
+        "y": 200,
         "wires": []
-    },
-    {
-        "id": "38ab6c2f80376031",
-        "type": "function",
-        "z": "4688e1a9d6eb75fd",
-        "name": "ResetPolarisSwitch",
-        "func": "var vspSpeed = global.get(\"vspSpeed\");\nif (vspSpeed != \"Speed2\") {\n     // Reset the Polaris switch if the current transducer stops reporting\n     // a correct VSP speed.\n     return { payload: false };\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 240,
-        "wires": [
-            [
-                "bf1b6566544e0e55"
-            ]
-        ]
-    },
-    {
-        "id": "29b40b7a633f5fe4",
-        "type": "link in",
-        "z": "4688e1a9d6eb75fd",
-        "name": "link in 3",
-        "links": [
-            "ee8dcc5afb113c60"
-        ],
-        "x": 165,
-        "y": 240,
-        "wires": [
-            [
-                "38ab6c2f80376031"
-            ]
-        ]
     },
     {
         "id": "40d4fe8c0ccc9bb4",
@@ -1093,12 +1080,68 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 570,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
                 "20a9a2b73a9ac383"
             ]
         ]
+    },
+    {
+        "id": "a5692093ed8bdb4a",
+        "type": "link in",
+        "z": "4688e1a9d6eb75fd",
+        "name": "link in 5",
+        "links": [
+            "8bbb7e65eca87fb3"
+        ],
+        "x": 185,
+        "y": 380,
+        "wires": [
+            [
+                "30efecb80aa483fc"
+            ]
+        ]
+    },
+    {
+        "id": "38ab6c2f80376031",
+        "type": "function",
+        "z": "4688e1a9d6eb75fd",
+        "name": "ResetPolarisSwitch1",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nvar polarisSwitch = msg.payload;\nif (vspSpeed != \"Speed2\" && polarisSwitch == true) {\n     return { payload: false };\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "bf1b6566544e0e55"
+            ]
+        ],
+        "info": "Reset the Polaris switch if the scheduler or the user attempts to\r\nturn it ON while the filter pump doesn't run at Speed2."
+    },
+    {
+        "id": "30efecb80aa483fc",
+        "type": "function",
+        "z": "4688e1a9d6eb75fd",
+        "name": "ResetPolarisSwitch2",
+        "func": "var isSpeed2 = msg.payload;\nif (isSpeed2 == false) {\n     return { payload: false };\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "bf1b6566544e0e55"
+            ]
+        ],
+        "info": "Reset the Polaris switch if the OFF message has been sent from\r\nSpeed2 toggle in the Pool Status flow. In other words, turn\r\nthe Polaris pump off if the VSP current transducer stops\r\nreporting Speed2."
     },
     {
         "id": "1176598a97703092",
@@ -1153,7 +1196,7 @@
         "diff": false,
         "className": "",
         "x": 790,
-        "y": 460,
+        "y": 520,
         "wires": []
     },
     {
@@ -1181,7 +1224,7 @@
         "diff": false,
         "className": "",
         "x": 780,
-        "y": 520,
+        "y": 580,
         "wires": []
     },
     {
@@ -1194,7 +1237,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
                 "61e2e1673da7f097"
@@ -1230,7 +1273,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "1e64f66566dfaf14"
@@ -1254,7 +1297,7 @@
         "repeat": "2",
         "crontab": "",
         "once": false,
-        "onceDelay": 0.1,
+        "onceDelay": "2",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -1280,7 +1323,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "10",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -1288,7 +1331,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
                 "c566a74f72e90710"
@@ -1309,7 +1352,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "10",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -1317,7 +1360,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "31eebae1a6cd070a"
@@ -1431,7 +1474,7 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 610,
+        "x": 650,
         "y": 160,
         "wires": [
             [
@@ -1453,11 +1496,12 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 610,
+        "x": 650,
         "y": 220,
         "wires": [
             [
-                "1119d7adf0917de4"
+                "1119d7adf0917de4",
+                "8bbb7e65eca87fb3"
             ]
         ]
     },
@@ -1466,14 +1510,14 @@
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "mapCurrentToSpeed",
-        "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{ payload: true }, { payload: false }, { payload: false }];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }];\n}",
-        "outputs": 3,
+        "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{ payload: true }, { payload: false }, { payload: false }, { payload: false }];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }, { payload: false }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }, { payload: true }];\n}",
+        "outputs": 4,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "92619ce0f1b14716"
@@ -1483,6 +1527,9 @@
             ],
             [
                 "e2a22966e601e893"
+            ],
+            [
+                "ef26258c53aeb4b1"
             ]
         ]
     },
@@ -1569,7 +1616,7 @@
         "showGlow": true,
         "name": "SWCG",
         "x": 800,
-        "y": 340,
+        "y": 400,
         "wires": []
     },
     {
@@ -1600,7 +1647,7 @@
         "showGlow": true,
         "name": "Polaris",
         "x": 810,
-        "y": 400,
+        "y": 460,
         "wires": []
     },
     {
@@ -1611,8 +1658,8 @@
         "links": [
             "7ac2d92a68e73c28"
         ],
-        "x": 195,
-        "y": 360,
+        "x": 485,
+        "y": 400,
         "wires": [
             [
                 "5339998e0f6dae17"
@@ -1627,8 +1674,8 @@
         "links": [
             "7c51994361debb55"
         ],
-        "x": 195,
-        "y": 400,
+        "x": 485,
+        "y": 460,
         "wires": [
             [
                 "c63ec6c2b44ec339"
@@ -1647,7 +1694,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
                 "e1b7aa9a076740ec"
@@ -1666,7 +1713,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "6844177a765d99ee",
@@ -1695,7 +1742,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1723,7 +1770,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1758,7 +1805,7 @@
         "showGlow": true,
         "name": "",
         "x": 810,
-        "y": 580,
+        "y": 640,
         "wires": []
     },
     {
@@ -1773,7 +1820,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "8b0c435caad96e90"
@@ -1795,7 +1842,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 510,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "962e8890cd94bf0d"
@@ -1814,7 +1861,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 640,
+        "y": 700,
         "wires": [
             []
         ]
@@ -1831,7 +1878,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 700,
+        "y": 760,
         "wires": [
             []
         ]
@@ -1846,7 +1893,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 660,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "12095c7b0e55bc1e"
@@ -1875,7 +1922,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1904,57 +1951,12 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
             ]
         ]
-    },
-    {
-        "id": "e495e60d7b9f3d99",
-        "type": "complete",
-        "z": "4b96395a77975ca1",
-        "name": "mapCurrentToSpeedCompleted",
-        "scope": [
-            "86c40ee346c5b9ae"
-        ],
-        "uncaught": false,
-        "x": 170,
-        "y": 300,
-        "wires": [
-            [
-                "ee8dcc5afb113c60",
-                "3d8a694feaca0af4"
-            ]
-        ],
-        "info": "Send \"completed\" event to Polaris Pump and SWCG flows\r\nafter the mapCurrentToSpeed function completes.\r\nThis synchronization is not really necessary, a simple\r\n\"inject\" node in Polaris Pump and SWCG flows would do,\r\nbut it's always nicer to have synchronous processing\r\nwhere possible."
-    },
-    {
-        "id": "ee8dcc5afb113c60",
-        "type": "link out",
-        "z": "4b96395a77975ca1",
-        "name": "link out 3",
-        "mode": "link",
-        "links": [
-            "29b40b7a633f5fe4"
-        ],
-        "x": 365,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "3d8a694feaca0af4",
-        "type": "link out",
-        "z": "4b96395a77975ca1",
-        "name": "link out 4",
-        "mode": "link",
-        "links": [
-            "7c19cbf5e55a8cd9"
-        ],
-        "x": 365,
-        "y": 280,
-        "wires": []
     },
     {
         "id": "e2a22966e601e893",
@@ -1970,12 +1972,60 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 610,
+        "x": 650,
         "y": 280,
         "wires": [
             [
                 "77fbf8f3dac33eac"
             ]
         ]
+    },
+    {
+        "id": "8bbb7e65eca87fb3",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "a5692093ed8bdb4a"
+        ],
+        "x": 145,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ef26258c53aeb4b1",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            [
+                "d6ca499c42d260e1"
+            ]
+        ]
+    },
+    {
+        "id": "d6ca499c42d260e1",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "7c19cbf5e55a8cd9"
+        ],
+        "x": 145,
+        "y": 400,
+        "wires": []
     }
 ]
