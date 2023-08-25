@@ -1,5 +1,13 @@
 [
     {
+        "id": "4b96395a77975ca1",
+        "type": "tab",
+        "label": "Pool Status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "57aa7085c1d84098",
         "type": "tab",
         "label": "Filter Pump",
@@ -19,14 +27,6 @@
         "id": "4688e1a9d6eb75fd",
         "type": "tab",
         "label": "Polaris Pump",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "4b96395a77975ca1",
-        "type": "tab",
-        "label": "Pool Status",
         "disabled": false,
         "info": "",
         "env": []
@@ -217,7 +217,7 @@
         "type": "ui_tab",
         "name": "Pool Status",
         "icon": "dashboard",
-        "order": 4,
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -226,7 +226,7 @@
         "type": "ui_group",
         "name": "FilterPumpCurrent",
         "tab": "dc57eab5ef574e16",
-        "order": 3,
+        "order": 4,
         "disp": false,
         "width": "5",
         "collapse": false,
@@ -237,7 +237,7 @@
         "type": "ui_group",
         "name": "WaterTemp",
         "tab": "dc57eab5ef574e16",
-        "order": 5,
+        "order": 6,
         "disp": false,
         "width": "5",
         "collapse": false,
@@ -248,7 +248,7 @@
         "type": "ui_group",
         "name": "EnclosureTemp",
         "tab": "dc57eab5ef574e16",
-        "order": 6,
+        "order": 7,
         "disp": false,
         "width": "5",
         "collapse": false,
@@ -259,7 +259,7 @@
         "type": "ui_group",
         "name": "Filter Pump Speed",
         "tab": "dc57eab5ef574e16",
-        "order": 1,
+        "order": 2,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -270,7 +270,7 @@
         "type": "ui_group",
         "name": "FilterPumpPower",
         "tab": "dc57eab5ef574e16",
-        "order": 4,
+        "order": 5,
         "disp": false,
         "width": "5",
         "collapse": false,
@@ -281,7 +281,7 @@
         "type": "ui_group",
         "name": "SWCG & Polaris Pump",
         "tab": "dc57eab5ef574e16",
-        "order": 2,
+        "order": 3,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -292,11 +292,1017 @@
         "type": "ui_group",
         "name": "Enclosure Fan",
         "tab": "dc57eab5ef574e16",
-        "order": 7,
+        "order": 8,
         "disp": true,
         "width": "5",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "7f421a3b1dcf30cf",
+        "type": "ui_group",
+        "name": "CurrentTime",
+        "tab": "dc57eab5ef574e16",
+        "order": 1,
+        "disp": false,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1176598a97703092",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "0d32a9c265af416e",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Filter Pump Current",
+        "label": "A",
+        "format": "{{value | number:3}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 770,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e1b7aa9a076740ec",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "18266d5e5ed2965e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Water Temp",
+        "label": "F",
+        "format": "{{value | number:1}}",
+        "min": "40",
+        "max": "120",
+        "colors": [
+            "#05e6e2",
+            "#fafa05",
+            "#eb0505"
+        ],
+        "seg1": "70",
+        "seg2": "85",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6844177a765d99ee",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "552cfad7bc22f889",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Enclosure Temp",
+        "label": "F",
+        "format": "{{value | number:1}}",
+        "min": "40",
+        "max": "120",
+        "colors": [
+            "#05e6e2",
+            "#fafa05",
+            "#eb0505"
+        ],
+        "seg1": "70",
+        "seg2": "85",
+        "diff": false,
+        "className": "",
+        "x": 780,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c566a74f72e90710",
+        "type": "BAS R 10K in",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "stack": "0",
+        "channel": "1",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 310,
+        "y": 440,
+        "wires": [
+            [
+                "61e2e1673da7f097"
+            ]
+        ]
+    },
+    {
+        "id": "7948aa3259590a08",
+        "type": "BAS 0-10V in",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "stack": "0",
+        "channel": "3",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "1176598a97703092",
+                "86c40ee346c5b9ae",
+                "e24e8bec39c261be"
+            ]
+        ]
+    },
+    {
+        "id": "31eebae1a6cd070a",
+        "type": "BAS R 10K in",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "stack": "0",
+        "channel": "2",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "1e64f66566dfaf14"
+            ]
+        ]
+    },
+    {
+        "id": "e4b7fefd4175e45e",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "7948aa3259590a08"
+            ]
+        ]
+    },
+    {
+        "id": "494bb2075e28edb9",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "c566a74f72e90710"
+            ]
+        ]
+    },
+    {
+        "id": "fbab8a266f816c26",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "31eebae1a6cd070a"
+            ]
+        ]
+    },
+    {
+        "id": "7156231e662085f4",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 1,
+        "group": "16a416e84f9afe7e",
+        "width": "0",
+        "height": "0",
+        "label": "Speed1 - Priming",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Speed1",
+        "x": 800,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1119d7adf0917de4",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 2,
+        "group": "16a416e84f9afe7e",
+        "width": "0",
+        "height": "0",
+        "label": "Speed2 - Cleaning",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Speed2",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "77fbf8f3dac33eac",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 3,
+        "group": "16a416e84f9afe7e",
+        "width": "0",
+        "height": "0",
+        "label": "Speed3 - Chlorinating",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Speed3",
+        "x": 800,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "92619ce0f1b14716",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 630,
+        "y": 120,
+        "wires": [
+            [
+                "7156231e662085f4"
+            ]
+        ]
+    },
+    {
+        "id": "caea3d25a7f99178",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 630,
+        "y": 180,
+        "wires": [
+            [
+                "1119d7adf0917de4",
+                "8bbb7e65eca87fb3"
+            ]
+        ]
+    },
+    {
+        "id": "86c40ee346c5b9ae",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "mapCurrentToSpeed",
+        "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{ payload: true }, { payload: false }, { payload: false }, { payload: false }];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }, { payload: false }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }, { payload: true }];\n}",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "92619ce0f1b14716"
+            ],
+            [
+                "caea3d25a7f99178"
+            ],
+            [
+                "e2a22966e601e893"
+            ],
+            [
+                "ef26258c53aeb4b1"
+            ]
+        ]
+    },
+    {
+        "id": "e24e8bec39c261be",
+        "type": "change",
+        "z": "4b96395a77975ca1",
+        "name": "calculateFilterPumpPower",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload * 240",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 80,
+        "wires": [
+            [
+                "f72b240e050c4645"
+            ]
+        ]
+    },
+    {
+        "id": "f72b240e050c4645",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "a35865bb79dd65fb",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Filter Pump Power",
+        "label": "W",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "2400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 770,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5339998e0f6dae17",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 1,
+        "group": "4045f84ceb98cf09",
+        "width": 0,
+        "height": 0,
+        "label": "SWCG",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SWCG",
+        "x": 800,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "c63ec6c2b44ec339",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 2,
+        "group": "4045f84ceb98cf09",
+        "width": 0,
+        "height": 0,
+        "label": "Polaris Pump",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Polaris",
+        "x": 810,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "85357873eb95f343",
+        "type": "link in",
+        "z": "4b96395a77975ca1",
+        "name": "link in 1",
+        "links": [
+            "7ac2d92a68e73c28"
+        ],
+        "x": 485,
+        "y": 360,
+        "wires": [
+            [
+                "5339998e0f6dae17"
+            ]
+        ]
+    },
+    {
+        "id": "402827d14d5cb5e0",
+        "type": "link in",
+        "z": "4b96395a77975ca1",
+        "name": "link in 2",
+        "links": [
+            "7c51994361debb55"
+        ],
+        "x": 485,
+        "y": 400,
+        "wires": [
+            [
+                "c63ec6c2b44ec339"
+            ]
+        ]
+    },
+    {
+        "id": "61e2e1673da7f097",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "Steinhart-HartWater",
+        "func": "//var A = -0.000502318;\n//var B = 0.000479838;\n//var C = -7.22045E-07;\n\nvar A = 0.001125308852122;\nvar B = 0.000234711863267;\nvar C = 0.000000085663516;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 440,
+        "wires": [
+            [
+                "e1b7aa9a076740ec"
+            ]
+        ]
+    },
+    {
+        "id": "1e64f66566dfaf14",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "Steinhart-HartEnclosure",
+        "func": "//var A = -0.000502318;\n//var B = 0.000479838;\n//var C = -7.22045E-07;\n\nvar A = 0.001125308852122;\nvar B = 0.000234711863267;\nvar C = 0.000000085663516;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 480,
+        "wires": [
+            [
+                "6844177a765d99ee",
+                "9cef508ff0a07f3f"
+            ]
+        ]
+    },
+    {
+        "id": "eba710b3735ba873",
+        "type": "ui_numeric",
+        "z": "4b96395a77975ca1",
+        "name": "EnterFanStartTemp",
+        "label": "Fan Start Temp",
+        "tooltip": "",
+        "group": "4fd7552bd6811198",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}} &degF",
+        "min": "40",
+        "max": "120",
+        "step": 1,
+        "className": "",
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "479ead13a6775c5b"
+            ]
+        ]
+    },
+    {
+        "id": "c5e4e2e7e9d8a17b",
+        "type": "ui_numeric",
+        "z": "4b96395a77975ca1",
+        "name": "EnterFanStopTemp",
+        "label": "Fan Stop Temp",
+        "tooltip": "",
+        "group": "4fd7552bd6811198",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}} &degF",
+        "min": "40",
+        "max": "120",
+        "step": 1,
+        "className": "",
+        "x": 390,
+        "y": 640,
+        "wires": [
+            [
+                "d77339e798ac28c5"
+            ]
+        ]
+    },
+    {
+        "id": "12095c7b0e55bc1e",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 2,
+        "group": "4fd7552bd6811198",
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 810,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "9cef508ff0a07f3f",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "FanOnOrOff",
+        "func": "var temp = msg.payload;\nvar FanStartTemp = global.get(\"FanStartTemp\");\nvar FanStopTemp = global.get(\"FanStopTemp\");\n\nif (temp > FanStartTemp) {\n    msg.payload = true;\n}\nelse if (temp < FanStopTemp) {\n    msg.payload = false;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 540,
+        "wires": [
+            [
+                "8b0c435caad96e90"
+            ]
+        ]
+    },
+    {
+        "id": "8b0c435caad96e90",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "toggle",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 510,
+        "y": 540,
+        "wires": [
+            [
+                "962e8890cd94bf0d"
+            ]
+        ]
+    },
+    {
+        "id": "479ead13a6775c5b",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "SaveInGlobalContext",
+        "func": "var temp = msg.payload;\nglobal.set(\"FanStartTemp\", temp);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d77339e798ac28c5",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "SaveInGlobalContext",
+        "func": "var temp = msg.payload;\nglobal.set(\"FanStopTemp\", temp);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "962e8890cd94bf0d",
+        "type": "8relind",
+        "z": "4b96395a77975ca1",
+        "name": "FanRelay",
+        "stack": "0",
+        "relay": "6",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 660,
+        "y": 540,
+        "wires": [
+            [
+                "12095c7b0e55bc1e"
+            ]
+        ]
+    },
+    {
+        "id": "4f944705c6e60603",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "FanStartTemp",
+        "payloadType": "global",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "eba710b3735ba873"
+            ]
+        ]
+    },
+    {
+        "id": "967426ca18b4726e",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "FanStopTemp",
+        "payloadType": "global",
+        "x": 160,
+        "y": 640,
+        "wires": [
+            [
+                "c5e4e2e7e9d8a17b"
+            ]
+        ]
+    },
+    {
+        "id": "e2a22966e601e893",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [
+                "77fbf8f3dac33eac"
+            ]
+        ]
+    },
+    {
+        "id": "8bbb7e65eca87fb3",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "a5692093ed8bdb4a"
+        ],
+        "x": 135,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ef26258c53aeb4b1",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 630,
+        "y": 300,
+        "wires": [
+            [
+                "d6ca499c42d260e1"
+            ]
+        ]
+    },
+    {
+        "id": "d6ca499c42d260e1",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "7c19cbf5e55a8cd9"
+        ],
+        "x": 135,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "32bc1e869254c826",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 680,
+        "wires": [
+            [
+                "3dc9d11661b15411",
+                "2f5d4e9b4785f9af"
+            ]
+        ]
+    },
+    {
+        "id": "3dc9d11661b15411",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "Convert2TimeString",
+        "func": "let timestamp = msg.payload;\nlet time = new Date(timestamp).toLocaleTimeString();\nreturn {\n    payload: time\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 680,
+        "wires": [
+            [
+                "a8e474b6d56e8228"
+            ]
+        ]
+    },
+    {
+        "id": "a8e474b6d56e8228",
+        "type": "ui_text",
+        "z": "4b96395a77975ca1",
+        "group": "7f421a3b1dcf30cf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Digital time",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "digital_time",
+        "x": 550,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "2f5d4e9b4785f9af",
+        "type": "ui_clock",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "7f421a3b1dcf30cf",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "x": 290,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6799c6487319e63a",
+        "type": "ui_template",
+        "z": "4b96395a77975ca1",
+        "group": "7f421a3b1dcf30cf",
+        "name": "",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "format": "<style>\n    .digital_time {\n        transform: scale(1);\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 540,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "22b476b37852124d",
+        "type": "comment",
+        "z": "4b96395a77975ca1",
+        "name": "Speed0",
+        "info": "",
+        "x": 790,
+        "y": 300,
+        "wires": []
     },
     {
         "id": "5603399d2f104787",
@@ -332,8 +1338,8 @@
         "eventMode": false,
         "eventOptions": [],
         "sendTopic": false,
-        "lat": "",
-        "lon": "",
+        "lat": "40.39448",
+        "lon": "-74.10402",
         "customContextStore": "",
         "outputs": 2,
         "order": 1,
@@ -382,8 +1388,8 @@
         "eventMode": false,
         "eventOptions": [],
         "sendTopic": false,
-        "lat": "",
-        "lon": "",
+        "lat": "40.39448",
+        "lon": "-74.10402",
         "customContextStore": "",
         "outputs": 2,
         "order": 1,
@@ -432,8 +1438,8 @@
         "eventMode": false,
         "eventOptions": [],
         "sendTopic": false,
-        "lat": "",
-        "lon": "",
+        "lat": "40.39448",
+        "lon": "-74.10402",
         "customContextStore": "",
         "outputs": 2,
         "order": 1,
@@ -660,8 +1666,8 @@
         "eventMode": false,
         "eventOptions": [],
         "sendTopic": false,
-        "lat": "",
-        "lon": "",
+        "lat": "40.39448",
+        "lon": "-74.10402",
         "customContextStore": "",
         "outputs": 2,
         "order": 1,
@@ -936,8 +1942,8 @@
         "eventMode": false,
         "eventOptions": [],
         "sendTopic": false,
-        "lat": "",
-        "lon": "",
+        "lat": "40.39448",
+        "lon": "-74.10402",
         "customContextStore": "",
         "outputs": 2,
         "order": 1,
@@ -1194,890 +2200,5 @@
             ]
         ],
         "info": "This delay is to avoid a racing condition\r\nbetween Polaris and filter pump schedulers. "
-    },
-    {
-        "id": "1176598a97703092",
-        "type": "ui_gauge",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "group": "0d32a9c265af416e",
-        "order": 0,
-        "width": "0",
-        "height": "0",
-        "gtype": "gage",
-        "title": "Filter Pump Current",
-        "label": "A",
-        "format": "{{value | number:3}}",
-        "min": 0,
-        "max": 10,
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 770,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "e1b7aa9a076740ec",
-        "type": "ui_gauge",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "group": "18266d5e5ed2965e",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Water Temp",
-        "label": "F",
-        "format": "{{value | number:1}}",
-        "min": "40",
-        "max": "120",
-        "colors": [
-            "#05e6e2",
-            "#fafa05",
-            "#eb0505"
-        ],
-        "seg1": "70",
-        "seg2": "85",
-        "diff": false,
-        "className": "",
-        "x": 790,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "6844177a765d99ee",
-        "type": "ui_gauge",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "group": "552cfad7bc22f889",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Enclosure Temp",
-        "label": "F",
-        "format": "{{value | number:1}}",
-        "min": "40",
-        "max": "120",
-        "colors": [
-            "#05e6e2",
-            "#fafa05",
-            "#eb0505"
-        ],
-        "seg1": "70",
-        "seg2": "85",
-        "diff": false,
-        "className": "",
-        "x": 780,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "c566a74f72e90710",
-        "type": "BAS R 10K in",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "stack": "0",
-        "channel": "1",
-        "payload": "payload",
-        "payloadType": "msg",
-        "x": 310,
-        "y": 520,
-        "wires": [
-            [
-                "61e2e1673da7f097"
-            ]
-        ]
-    },
-    {
-        "id": "7948aa3259590a08",
-        "type": "BAS 0-10V in",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "stack": "0",
-        "channel": "3",
-        "payload": "payload",
-        "payloadType": "msg",
-        "x": 310,
-        "y": 100,
-        "wires": [
-            [
-                "1176598a97703092",
-                "86c40ee346c5b9ae",
-                "e24e8bec39c261be"
-            ]
-        ]
-    },
-    {
-        "id": "31eebae1a6cd070a",
-        "type": "BAS R 10K in",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "stack": "0",
-        "channel": "2",
-        "payload": "payload",
-        "payloadType": "msg",
-        "x": 310,
-        "y": 580,
-        "wires": [
-            [
-                "1e64f66566dfaf14"
-            ]
-        ]
-    },
-    {
-        "id": "e4b7fefd4175e45e",
-        "type": "inject",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "2",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 100,
-        "wires": [
-            [
-                "7948aa3259590a08"
-            ]
-        ]
-    },
-    {
-        "id": "494bb2075e28edb9",
-        "type": "inject",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "10",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 520,
-        "wires": [
-            [
-                "c566a74f72e90710"
-            ]
-        ]
-    },
-    {
-        "id": "fbab8a266f816c26",
-        "type": "inject",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "10",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 580,
-        "wires": [
-            [
-                "31eebae1a6cd070a"
-            ]
-        ]
-    },
-    {
-        "id": "7156231e662085f4",
-        "type": "ui_led",
-        "z": "4b96395a77975ca1",
-        "order": 1,
-        "group": "16a416e84f9afe7e",
-        "width": "0",
-        "height": "0",
-        "label": "Speed1 - Priming",
-        "labelPlacement": "right",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Speed1",
-        "x": 800,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "1119d7adf0917de4",
-        "type": "ui_led",
-        "z": "4b96395a77975ca1",
-        "order": 2,
-        "group": "16a416e84f9afe7e",
-        "width": "0",
-        "height": "0",
-        "label": "Speed2 - Cleaning",
-        "labelPlacement": "right",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Speed2",
-        "x": 800,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "77fbf8f3dac33eac",
-        "type": "ui_led",
-        "z": "4b96395a77975ca1",
-        "order": 3,
-        "group": "16a416e84f9afe7e",
-        "width": "0",
-        "height": "0",
-        "label": "Speed3 - Chlorinating",
-        "labelPlacement": "right",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Speed3",
-        "x": 800,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "92619ce0f1b14716",
-        "type": "toggle",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 650,
-        "y": 160,
-        "wires": [
-            [
-                "7156231e662085f4"
-            ]
-        ]
-    },
-    {
-        "id": "caea3d25a7f99178",
-        "type": "toggle",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 650,
-        "y": 220,
-        "wires": [
-            [
-                "1119d7adf0917de4",
-                "8bbb7e65eca87fb3"
-            ]
-        ]
-    },
-    {
-        "id": "86c40ee346c5b9ae",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "mapCurrentToSpeed",
-        "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{ payload: true }, { payload: false }, { payload: false }, { payload: false }];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }, { payload: false }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }, { payload: true }];\n}",
-        "outputs": 4,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 200,
-        "wires": [
-            [
-                "92619ce0f1b14716"
-            ],
-            [
-                "caea3d25a7f99178"
-            ],
-            [
-                "e2a22966e601e893"
-            ],
-            [
-                "ef26258c53aeb4b1"
-            ]
-        ]
-    },
-    {
-        "id": "e24e8bec39c261be",
-        "type": "change",
-        "z": "4b96395a77975ca1",
-        "name": "calculateFilterPumpPower",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "msg.payload * 240",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 550,
-        "y": 100,
-        "wires": [
-            [
-                "f72b240e050c4645"
-            ]
-        ]
-    },
-    {
-        "id": "f72b240e050c4645",
-        "type": "ui_gauge",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "group": "a35865bb79dd65fb",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Filter Pump Power",
-        "label": "W",
-        "format": "{{value | number:2}}",
-        "min": 0,
-        "max": "2400",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 770,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "5339998e0f6dae17",
-        "type": "ui_led",
-        "z": "4b96395a77975ca1",
-        "order": 1,
-        "group": "4045f84ceb98cf09",
-        "width": 0,
-        "height": 0,
-        "label": "SWCG",
-        "labelPlacement": "right",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "SWCG",
-        "x": 800,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "c63ec6c2b44ec339",
-        "type": "ui_led",
-        "z": "4b96395a77975ca1",
-        "order": 2,
-        "group": "4045f84ceb98cf09",
-        "width": 0,
-        "height": 0,
-        "label": "Polaris Pump",
-        "labelPlacement": "right",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Polaris",
-        "x": 810,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "85357873eb95f343",
-        "type": "link in",
-        "z": "4b96395a77975ca1",
-        "name": "link in 1",
-        "links": [
-            "7ac2d92a68e73c28"
-        ],
-        "x": 485,
-        "y": 400,
-        "wires": [
-            [
-                "5339998e0f6dae17"
-            ]
-        ]
-    },
-    {
-        "id": "402827d14d5cb5e0",
-        "type": "link in",
-        "z": "4b96395a77975ca1",
-        "name": "link in 2",
-        "links": [
-            "7c51994361debb55"
-        ],
-        "x": 485,
-        "y": 460,
-        "wires": [
-            [
-                "c63ec6c2b44ec339"
-            ]
-        ]
-    },
-    {
-        "id": "61e2e1673da7f097",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "Steinhart-HartWater",
-        "func": "//var A = -0.000502318;\n//var B = 0.000479838;\n//var C = -7.22045E-07;\n\nvar A = 0.001125308852122;\nvar B = 0.000234711863267;\nvar C = 0.000000085663516;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 520,
-        "wires": [
-            [
-                "e1b7aa9a076740ec"
-            ]
-        ]
-    },
-    {
-        "id": "1e64f66566dfaf14",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "Steinhart-HartEnclosure",
-        "func": "//var A = -0.000502318;\n//var B = 0.000479838;\n//var C = -7.22045E-07;\n\nvar A = 0.001125308852122;\nvar B = 0.000234711863267;\nvar C = 0.000000085663516;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nmsg.payload = (T - 273.15) * 9.0 / 5.0 + 32.0;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 580,
-        "wires": [
-            [
-                "6844177a765d99ee",
-                "9cef508ff0a07f3f"
-            ]
-        ]
-    },
-    {
-        "id": "eba710b3735ba873",
-        "type": "ui_numeric",
-        "z": "4b96395a77975ca1",
-        "name": "EnterFanStartTemp",
-        "label": "Fan Start Temp",
-        "tooltip": "",
-        "group": "4fd7552bd6811198",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "wrap": false,
-        "passthru": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "{{value}} &degF",
-        "min": "40",
-        "max": "120",
-        "step": 1,
-        "className": "",
-        "x": 390,
-        "y": 700,
-        "wires": [
-            [
-                "479ead13a6775c5b"
-            ]
-        ]
-    },
-    {
-        "id": "c5e4e2e7e9d8a17b",
-        "type": "ui_numeric",
-        "z": "4b96395a77975ca1",
-        "name": "EnterFanStopTemp",
-        "label": "Fan Stop Temp",
-        "tooltip": "",
-        "group": "4fd7552bd6811198",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "wrap": false,
-        "passthru": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "{{value}} &degF",
-        "min": "40",
-        "max": "120",
-        "step": 1,
-        "className": "",
-        "x": 390,
-        "y": 760,
-        "wires": [
-            [
-                "d77339e798ac28c5"
-            ]
-        ]
-    },
-    {
-        "id": "12095c7b0e55bc1e",
-        "type": "ui_led",
-        "z": "4b96395a77975ca1",
-        "order": 2,
-        "group": "4fd7552bd6811198",
-        "width": 0,
-        "height": 0,
-        "label": "Status",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 810,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "9cef508ff0a07f3f",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "FanOnOrOff",
-        "func": "var temp = msg.payload;\nvar FanStartTemp = global.get(\"FanStartTemp\");\nvar FanStopTemp = global.get(\"FanStopTemp\");\n\nif (temp > FanStartTemp) {\n    msg.payload = true;\n}\nelse if (temp < FanStopTemp) {\n    msg.payload = false;\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 640,
-        "wires": [
-            [
-                "8b0c435caad96e90"
-            ]
-        ]
-    },
-    {
-        "id": "8b0c435caad96e90",
-        "type": "toggle",
-        "z": "4b96395a77975ca1",
-        "name": "toggle",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 510,
-        "y": 640,
-        "wires": [
-            [
-                "962e8890cd94bf0d"
-            ]
-        ]
-    },
-    {
-        "id": "479ead13a6775c5b",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "SaveInGlobalContext",
-        "func": "var temp = msg.payload;\nglobal.set(\"FanStartTemp\", temp);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 700,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d77339e798ac28c5",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "SaveInGlobalContext",
-        "func": "var temp = msg.payload;\nglobal.set(\"FanStopTemp\", temp);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "962e8890cd94bf0d",
-        "type": "8relind",
-        "z": "4b96395a77975ca1",
-        "name": "FanRelay",
-        "stack": "0",
-        "relay": "6",
-        "payload": "payload",
-        "payloadType": "msg",
-        "x": 660,
-        "y": 640,
-        "wires": [
-            [
-                "12095c7b0e55bc1e"
-            ]
-        ]
-    },
-    {
-        "id": "4f944705c6e60603",
-        "type": "inject",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "FanStartTemp",
-        "payloadType": "global",
-        "x": 160,
-        "y": 700,
-        "wires": [
-            [
-                "eba710b3735ba873"
-            ]
-        ]
-    },
-    {
-        "id": "967426ca18b4726e",
-        "type": "inject",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "FanStopTemp",
-        "payloadType": "global",
-        "x": 160,
-        "y": 760,
-        "wires": [
-            [
-                "c5e4e2e7e9d8a17b"
-            ]
-        ]
-    },
-    {
-        "id": "e2a22966e601e893",
-        "type": "toggle",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 650,
-        "y": 280,
-        "wires": [
-            [
-                "77fbf8f3dac33eac"
-            ]
-        ]
-    },
-    {
-        "id": "8bbb7e65eca87fb3",
-        "type": "link out",
-        "z": "4b96395a77975ca1",
-        "name": "link out 6",
-        "mode": "link",
-        "links": [
-            "a5692093ed8bdb4a"
-        ],
-        "x": 145,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "ef26258c53aeb4b1",
-        "type": "toggle",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 650,
-        "y": 340,
-        "wires": [
-            [
-                "d6ca499c42d260e1"
-            ]
-        ]
-    },
-    {
-        "id": "d6ca499c42d260e1",
-        "type": "link out",
-        "z": "4b96395a77975ca1",
-        "name": "link out 7",
-        "mode": "link",
-        "links": [
-            "7c19cbf5e55a8cd9"
-        ],
-        "x": 145,
-        "y": 400,
-        "wires": []
     }
 ]

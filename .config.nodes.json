@@ -835,5 +835,24 @@
                 "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-boolean-logic/boolean-logic/BDebug.js"
             }
         }
+    },
+    "node-red-contrib-ui-clock": {
+        "name": "node-red-contrib-ui-clock",
+        "version": "1.0.2",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "ui_clock": {
+                "name": "ui_clock",
+                "types": [
+                    "ui_clock"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ui-clock",
+                "file": "/home/poolboy/pool-ctrl/node_modules/node-red-contrib-ui-clock/clock.js"
+            }
+        }
     }
 }

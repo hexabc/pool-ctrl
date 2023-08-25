@@ -10,6 +10,7 @@
         "node-red-contrib-sm-8relind": "file:../8relind-rpi/node-red-contrib-sm-8relind",
         "node-red-contrib-sm-bas": "file:../megabas-rpi/node-red-contrib-sm-bas",
         "node-red-contrib-toggle": "~0.1.1",
+        "node-red-contrib-ui-clock": "~1.0.2",
         "node-red-contrib-ui-led": "~0.4.11",
         "node-red-contrib-ui-time-scheduler": "~1.17.2",
         "node-red-contrib-unit-converter": "~0.0.3",
