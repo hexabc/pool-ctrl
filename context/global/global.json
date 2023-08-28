@@ -1,16 +1,5 @@
 {
-    "pumpPower": 4.319999999999999,
-    "pumpSpeed": "Speed2",
-    "polarisPumpStatus": false,
-    "filterPumpStatus": false,
-    "filterPumpSpeed": "Speed3",
-    "SWCGStatus": false,
-    "FanStartTemp": 92,
-    "FanStopTemp": 90,
-    "speed": "Speed2",
-    "vspOnOff": true,
-    "vspOn": false,
-    "vspSpeed": "Speed0",
-    "polarisSwitch": false,
-    "SWCGSwitch": true
+    "FanStartTemp": 32,
+    "FanStopTemp": 30,
+    "vspSpeed": "Speed0"
 }
