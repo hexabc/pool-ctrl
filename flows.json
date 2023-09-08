@@ -32,14 +32,6 @@
         "env": []
     },
     {
-        "id": "cf32a8e04493b41b",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "c0f272f785fad1e5",
         "type": "tab",
         "label": "Charts",
@@ -48,12 +40,70 @@
         "env": []
     },
     {
-        "id": "75e714d7d2e3c842",
-        "type": "tab",
-        "label": "Flow 4",
-        "disabled": false,
+        "id": "e12f18fb86d56370",
+        "type": "subflow",
+        "name": "Steinhart-Hart",
         "info": "",
-        "env": []
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "f2b43a8667c1e099"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 440,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "f2b43a8667c1e099",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "e39eaef375abcb4c",
+        "type": "subflow",
+        "name": "ToCelsius",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "aaad63aa35e90ef7"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 400,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "aaad63aa35e90ef7",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
     },
     {
         "id": "cd56d1ea593f2982",
@@ -261,7 +311,7 @@
         "type": "ui_group",
         "name": "Water Temp [°F]",
         "tab": "dc57eab5ef574e16",
-        "order": 6,
+        "order": 7,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -272,7 +322,7 @@
         "type": "ui_group",
         "name": "Enclosure Temp [°C]",
         "tab": "dc57eab5ef574e16",
-        "order": 8,
+        "order": 9,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -316,7 +366,7 @@
         "type": "ui_group",
         "name": "Enclosure Fan",
         "tab": "dc57eab5ef574e16",
-        "order": 9,
+        "order": 10,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -338,7 +388,7 @@
         "type": "ui_group",
         "name": "Cpu Temp [°C]",
         "tab": "dc57eab5ef574e16",
-        "order": 7,
+        "order": 8,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -356,7 +406,7 @@
     {
         "id": "96cfaa1c32a04204",
         "type": "ui_group",
-        "name": "Water Temperature [°F]",
+        "name": "Air / Water Temperature [°F]",
         "tab": "322f8f2977a81686",
         "order": 1,
         "disp": true,
@@ -367,13 +417,60 @@
     {
         "id": "06b1dc811ba8bfe4",
         "type": "ui_group",
-        "name": "Enclosure Temperature [°C]",
+        "name": "Air / Enclosure / Cpu Temperature [°C]",
         "tab": "322f8f2977a81686",
         "order": 2,
         "disp": true,
         "width": "12",
         "collapse": true,
         "className": ""
+    },
+    {
+        "id": "cb7f341b71631289",
+        "type": "ui_group",
+        "name": "Air Temp [°F]",
+        "tab": "dc57eab5ef574e16",
+        "order": 6,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f2b43a8667c1e099",
+        "type": "function",
+        "z": "e12f18fb86d56370",
+        "name": "Steinhart-Hart",
+        "func": "let A = 0.001125308852122;\nlet B = 0.000234711863267;\nlet C = 0.000000085663516;\n\nlet R = msg.payload * 1000;\n\n// In Kelvin\nlet Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nlet T = 1 / Trecip;\n\n// In Fahrenheit\nlet f = (T - 273.15) * 9.0 / 5.0 + 32.0;\nmsg.payload = f.toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "info": "Subflow to calculate Fahrenheit temperature\r\nfrom 10k thermistor resistance."
+    },
+    {
+        "id": "aaad63aa35e90ef7",
+        "type": "function",
+        "z": "e39eaef375abcb4c",
+        "name": "ToCelsius",
+        "func": "let f = msg.payload;\nlet c = (f - 32.0) * 5 / 9;\n\nmsg.payload = c.toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "info": "Subflow to convert Fahrenheit temparature to Celsius."
     },
     {
         "id": "1176598a97703092",
@@ -417,7 +514,7 @@
         "label": "F",
         "format": "{{value | number:1}}",
         "min": "40",
-        "max": "120",
+        "max": "100",
         "colors": [
             "#05e6e2",
             "#fafa05",
@@ -428,7 +525,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 460,
+        "y": 580,
         "wires": []
     },
     {
@@ -445,7 +542,7 @@
         "label": "°C",
         "format": "{{value | number:1}}",
         "min": "0",
-        "max": "100",
+        "max": "60",
         "colors": [
             "#05e6e2",
             "#fafa05",
@@ -456,7 +553,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 540,
+        "y": 660,
         "wires": []
     },
     {
@@ -469,10 +566,10 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 460,
+        "y": 580,
         "wires": [
             [
-                "61e2e1673da7f097"
+                "b22004a283699c7c"
             ]
         ]
     },
@@ -505,10 +602,10 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 520,
+        "y": 640,
         "wires": [
             [
-                "1e64f66566dfaf14"
+                "237579c78d16e1bc"
             ]
         ]
     },
@@ -563,7 +660,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 460,
+        "y": 580,
         "wires": [
             [
                 "c566a74f72e90710"
@@ -592,7 +689,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 520,
+        "y": 640,
         "wires": [
             [
                 "31eebae1a6cd070a"
@@ -915,45 +1012,6 @@
         ]
     },
     {
-        "id": "61e2e1673da7f097",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "Steinhart-HartWater",
-        "func": "//var A = -0.000502318;\n//var B = 0.000479838;\n//var C = -7.22045E-07;\n\nvar A = 0.001125308852122;\nvar B = 0.000234711863267;\nvar C = 0.000000085663516;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nvar f = (T - 273.15) * 9.0 / 5.0 + 32.0;\nmsg.payload = f.toFixed(1);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 460,
-        "wires": [
-            [
-                "e1b7aa9a076740ec",
-                "044396ee4edbb423"
-            ]
-        ]
-    },
-    {
-        "id": "1e64f66566dfaf14",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "Steinhart-HartEnclosure",
-        "func": "//var A = -0.000502318;\n//var B = 0.000479838;\n//var C = -7.22045E-07;\n\nvar A = 0.001125308852122;\nvar B = 0.000234711863267;\nvar C = 0.000000085663516;\n\nvar R = msg.payload * 1000;\n\n// In Kelvin\nvar Trecip = A + B * Math.log(R) + C * (Math.log(R)) ** 3;\nvar T = 1 / Trecip;\n\n// In Fahrenheit\nvar f = (T - 273.15) * 9.0 / 5.0 + 32.0;\n\nmsg.payload = f;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 520,
-        "wires": [
-            [
-                "7d09e0fe2fd0cab1"
-            ]
-        ]
-    },
-    {
         "id": "eba710b3735ba873",
         "type": "ui_numeric",
         "z": "4b96395a77975ca1",
@@ -974,7 +1032,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 760,
+        "y": 880,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1002,7 +1060,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 820,
+        "y": 940,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1037,7 +1095,7 @@
         "showGlow": true,
         "name": "",
         "x": 830,
-        "y": 640,
+        "y": 760,
         "wires": []
     },
     {
@@ -1052,7 +1110,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 640,
+        "y": 760,
         "wires": [
             [
                 "8b0c435caad96e90"
@@ -1074,7 +1132,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 490,
-        "y": 640,
+        "y": 760,
         "wires": [
             [
                 "962e8890cd94bf0d"
@@ -1093,7 +1151,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 760,
+        "y": 880,
         "wires": [
             []
         ]
@@ -1110,7 +1168,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 820,
+        "y": 940,
         "wires": [
             []
         ]
@@ -1125,7 +1183,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 640,
-        "y": 640,
+        "y": 760,
         "wires": [
             [
                 "12095c7b0e55bc1e"
@@ -1154,7 +1212,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 760,
+        "y": 880,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1183,7 +1241,7 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 820,
+        "y": 940,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
@@ -1282,7 +1340,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 880,
+        "y": 1000,
         "wires": [
             [
                 "3dc9d11661b15411",
@@ -1302,7 +1360,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 880,
+        "y": 1000,
         "wires": [
             [
                 "a8e474b6d56e8228"
@@ -1323,7 +1381,7 @@
         "layout": "row-center",
         "className": "digital_time",
         "x": 550,
-        "y": 880,
+        "y": 1000,
         "wires": []
     },
     {
@@ -1336,7 +1394,7 @@
         "width": "3",
         "height": "3",
         "x": 290,
-        "y": 920,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1355,7 +1413,7 @@
         "templateScope": "local",
         "className": "",
         "x": 540,
-        "y": 920,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -1373,7 +1431,7 @@
         "oldrc": false,
         "name": "",
         "x": 370,
-        "y": 700,
+        "y": 820,
         "wires": [
             [
                 "8bec55162dd6dc32"
@@ -1404,7 +1462,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 700,
+        "y": 820,
         "wires": [
             [
                 "3f46dcfd80905234"
@@ -1423,7 +1481,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 700,
+        "y": 820,
         "wires": [
             [
                 "3743eca48c342350",
@@ -1444,8 +1502,8 @@
         "title": "",
         "label": "°C",
         "format": "{{value}}",
-        "min": 0,
-        "max": "100",
+        "min": "0",
+        "max": "80",
         "colors": [
             "#00b500",
             "#e6e600",
@@ -1456,29 +1514,8 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 700,
+        "y": 820,
         "wires": []
-    },
-    {
-        "id": "7d09e0fe2fd0cab1",
-        "type": "function",
-        "z": "4b96395a77975ca1",
-        "name": "ToCelsius",
-        "func": "let f = msg.payload;\nlet c = (f - 32.0) * 5 / 9;\n\nmsg.payload = c.toFixed(1);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 640,
-        "y": 580,
-        "wires": [
-            [
-                "6844177a765d99ee",
-                "9cef508ff0a07f3f",
-                "fb55be63495f43b5"
-            ]
-        ]
     },
     {
         "id": "044396ee4edbb423",
@@ -1490,7 +1527,7 @@
             "0be7a512af5258bd"
         ],
         "x": 795,
-        "y": 420,
+        "y": 540,
         "wires": []
     },
     {
@@ -1503,7 +1540,7 @@
             "24e1b9d00ff40fa4"
         ],
         "x": 795,
-        "y": 580,
+        "y": 700,
         "wires": []
     },
     {
@@ -1516,8 +1553,178 @@
             "588f0339291477f4"
         ],
         "x": 795,
-        "y": 740,
+        "y": 860,
         "wires": []
+    },
+    {
+        "id": "c1d99ef4b9d91cc3",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Air",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 460,
+        "wires": [
+            [
+                "53ad2f84e31105ec"
+            ]
+        ]
+    },
+    {
+        "id": "53ad2f84e31105ec",
+        "type": "BAS R 10K in",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "stack": "0",
+        "channel": "8",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 350,
+        "y": 460,
+        "wires": [
+            [
+                "27423b229191df4e"
+            ]
+        ]
+    },
+    {
+        "id": "bc752452df545960",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "cb7f341b71631289",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "",
+        "label": "F",
+        "format": "{{value | number:1}}",
+        "min": "40",
+        "max": "120",
+        "colors": [
+            "#05e6e2",
+            "#fafa05",
+            "#eb0505"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1bc5b3e0d3c496c3",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 12",
+        "mode": "link",
+        "links": [
+            "1c3f39b17cd1cf56"
+        ],
+        "x": 795,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "328833e45226d67f",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 13",
+        "mode": "link",
+        "links": [
+            "01cea2a4cb05a9be"
+        ],
+        "x": 795,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "27423b229191df4e",
+        "type": "subflow:e12f18fb86d56370",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "x": 530,
+        "y": 460,
+        "wires": [
+            [
+                "1bc5b3e0d3c496c3",
+                "bc752452df545960",
+                "8fcbc3fcf775341d"
+            ]
+        ]
+    },
+    {
+        "id": "8fcbc3fcf775341d",
+        "type": "subflow:e39eaef375abcb4c",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "x": 680,
+        "y": 500,
+        "wires": [
+            [
+                "328833e45226d67f"
+            ]
+        ]
+    },
+    {
+        "id": "b22004a283699c7c",
+        "type": "subflow:e12f18fb86d56370",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "044396ee4edbb423",
+                "e1b7aa9a076740ec"
+            ]
+        ]
+    },
+    {
+        "id": "237579c78d16e1bc",
+        "type": "subflow:e12f18fb86d56370",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "x": 530,
+        "y": 640,
+        "wires": [
+            [
+                "64dac35cca9bfb7b"
+            ]
+        ]
+    },
+    {
+        "id": "64dac35cca9bfb7b",
+        "type": "subflow:e39eaef375abcb4c",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "x": 640,
+        "y": 700,
+        "wires": [
+            [
+                "6844177a765d99ee",
+                "fb55be63495f43b5",
+                "9cef508ff0a07f3f"
+            ]
+        ]
     },
     {
         "id": "5603399d2f104787",
@@ -2495,14 +2702,14 @@
         "id": "8d02091b58de8f0b",
         "type": "ui_chart",
         "z": "c0f272f785fad1e5",
-        "name": "",
+        "name": "AirWaterTempChart",
         "group": "96cfaa1c32a04204",
         "order": 1,
         "width": 0,
         "height": 0,
         "label": "",
         "chartType": "line",
-        "legend": "false",
+        "legend": "true",
         "xformat": "auto",
         "interpolate": "step",
         "nodata": "Waiting for data to arrive...",
@@ -2529,8 +2736,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 570,
-        "y": 80,
+        "x": 710,
+        "y": 60,
         "wires": [
             []
         ]
@@ -2543,8 +2750,8 @@
         "links": [
             "044396ee4edbb423"
         ],
-        "x": 185,
-        "y": 80,
+        "x": 165,
+        "y": 120,
         "wires": [
             [
                 "6bf8e4bdfbe33dd2"
@@ -2568,8 +2775,8 @@
         "topic": "",
         "payload": "[]",
         "payloadType": "jsonata",
-        "x": 250,
-        "y": 140,
+        "x": 530,
+        "y": 180,
         "wires": [
             [
                 "8d02091b58de8f0b"
@@ -2580,7 +2787,7 @@
         "id": "d8265cee72db87d1",
         "type": "ui_chart",
         "z": "c0f272f785fad1e5",
-        "name": "",
+        "name": "AirEnclosureCpuTempChart",
         "group": "06b1dc811ba8bfe4",
         "order": 1,
         "width": 0,
@@ -2614,8 +2821,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 570,
-        "y": 280,
+        "x": 740,
+        "y": 240,
         "wires": [
             []
         ]
@@ -2628,8 +2835,8 @@
         "links": [
             "fb55be63495f43b5"
         ],
-        "x": 185,
-        "y": 280,
+        "x": 165,
+        "y": 300,
         "wires": [
             [
                 "05786c0743ce2fa9"
@@ -2653,8 +2860,8 @@
         "topic": "",
         "payload": "[]",
         "payloadType": "jsonata",
-        "x": 270,
-        "y": 340,
+        "x": 530,
+        "y": 420,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -2678,11 +2885,11 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 360,
-        "y": 80,
+        "x": 300,
+        "y": 120,
         "wires": [
             [
-                "8d02091b58de8f0b"
+                "da035da2667aa0a6"
             ]
         ]
     },
@@ -2703,11 +2910,11 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 360,
-        "y": 280,
+        "x": 300,
+        "y": 300,
         "wires": [
             [
-                "d8265cee72db87d1"
+                "bd2adab7904ebc60"
             ]
         ]
     },
@@ -2719,8 +2926,8 @@
         "links": [
             "eafbc79c885b930e"
         ],
-        "x": 185,
-        "y": 220,
+        "x": 165,
+        "y": 360,
         "wires": [
             [
                 "c86a4a9521b61073"
@@ -2744,12 +2951,179 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 360,
-        "y": 220,
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "b30b870e45391d2f"
+            ]
+        ]
+    },
+    {
+        "id": "1c3f39b17cd1cf56",
+        "type": "link in",
+        "z": "c0f272f785fad1e5",
+        "name": "link in 9",
+        "links": [
+            "1bc5b3e0d3c496c3"
+        ],
+        "x": 165,
+        "y": 60,
+        "wires": [
+            [
+                "5c1cf71818f46622"
+            ]
+        ]
+    },
+    {
+        "id": "5c1cf71818f46622",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 60,
+        "wires": [
+            [
+                "8d02091b58de8f0b"
+            ]
+        ]
+    },
+    {
+        "id": "01cea2a4cb05a9be",
+        "type": "link in",
+        "z": "c0f272f785fad1e5",
+        "name": "link in 10",
+        "links": [
+            "328833e45226d67f"
+        ],
+        "x": 165,
+        "y": 240,
+        "wires": [
+            [
+                "8b9f1e045aa79aa8"
+            ]
+        ]
+    },
+    {
+        "id": "8b9f1e045aa79aa8",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 240,
         "wires": [
             [
                 "d8265cee72db87d1"
             ]
         ]
+    },
+    {
+        "id": "da035da2667aa0a6",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "8d02091b58de8f0b"
+            ]
+        ]
+    },
+    {
+        "id": "bd2adab7904ebc60",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 300,
+        "wires": [
+            [
+                "d8265cee72db87d1"
+            ]
+        ]
+    },
+    {
+        "id": "b30b870e45391d2f",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "20",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "d8265cee72db87d1"
+            ]
+        ]
+    },
+    {
+        "id": "3f81cf57b6ab0776",
+        "type": "comment",
+        "z": "c0f272f785fad1e5",
+        "name": "Color Assignment Note",
+        "info": "Delay nodes establish colors for time series.\nThe time series of the first measurement to arrive\nwill be assigned navy blue, the second light blue,\nthe third orange, etc.",
+        "x": 120,
+        "y": 460,
+        "wires": []
     }
 ]

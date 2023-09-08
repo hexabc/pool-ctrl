@@ -73,15 +73,22 @@ module.exports = {
     /** To password protect the Node-RED editor and admin API, the following
      * property can be used. See http://nodered.org/docs/security.html for details.
      */
-    //adminAuth: {
-    //    type: "credentials",
-    //    users: [{
-    //        username: "admin",
-    //        password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
-    //        permissions: "*"
-    //    }]
-    //},
-
+    adminAuth: {
+        sessionExpiryTime: 86400,
+        type: "credentials",
+        users: [
+            {
+                username: "admin",
+                password: "$2b$08$DTnLF.0wM.J/0V6HTDp2EOz9V0klKkEArGFptw4WBSRav.LVYO6Aa" ,
+                permissions: "*"
+            },
+            {
+                username: "viewer",
+                password: "$2b$08$DTnLF.0wM.J/0V6HTDp2EOz9V0klKkEArGFptw4WBSRav.LVYO6Aa" ,
+                permissions: "read"
+            }
+        ]
+    },
     /** The following property can be used to enable HTTPS
      * This property can be either an object, containing both a (private) key
      * and a (public) certificate, or a function that returns such an object.
@@ -96,25 +103,25 @@ module.exports = {
     //},
 
     /** Option 2: function that returns the HTTP configuration object */
-    // https: function() {
-    //     // This function should return the options object, or a Promise
-    //     // that resolves to the options object
-    //     return {
-    //         key: require("fs").readFileSync('privkey.pem'),
-    //         cert: require("fs").readFileSync('cert.pem')
-    //     }
-    // },
+    https: function() {
+        // This function should return the options object, or a Promise
+        // that resolves to the options object
+        return {
+            key: require("fs").readFileSync('/home/poolboy/pool-ctrl-certs/privkey.pem'),
+            cert: require("fs").readFileSync('/home/poolboy/pool-ctrl-certs/signcert.pem')
+        }
+    },
 
     /** If the `https` setting is a function, the following setting can be used
      * to set how often, in hours, the function will be called. That can be used
      * to refresh any certificates.
      */
-    //httpsRefreshInterval : 12,
+    httpsRefreshInterval : 12,
 
     /** The following property can be used to cause insecure HTTP connections to
      * be redirected to HTTPS.
      */
-    //requireHttps: true,
+    requireHttps: true,
 
     /** To password protect the node-defined HTTP endpoints (httpNodeRoot),
      * including node-red-dashboard, or the static content (httpStatic), the
@@ -122,8 +129,8 @@ module.exports = {
      * The `pass` field is a bcrypt hash of the password.
      * See http://nodered.org/docs/security.html#generating-the-password-hash
      */
-    //httpNodeAuth: {user:"user",pass:"$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN."},
-    //httpStaticAuth: {user:"user",pass:"$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN."},
+    httpNodeAuth: {user:"admin",pass:"$2b$08$DTnLF.0wM.J/0V6HTDp2EOz9V0klKkEArGFptw4WBSRav.LVYO6Aa"},
+    //httpStaticAuth: {user:"admin",pass:"$2b$08$DTnLF.0wM.J/0V6HTDp2EOz9V0klKkEArGFptw4WBSRav.LVYO6Aa"},
 
 /*******************************************************************************
  * Server Settings
@@ -165,7 +172,7 @@ module.exports = {
      * The following property can be used to specify a different root path.
      * If set to false, this is disabled.
      */
-    //httpAdminRoot: '/admin',
+    httpAdminRoot: '/edit',
 
     /** The following property can be used to add a custom middleware function
      * in front of all admin http routes. For example, to set custom http
