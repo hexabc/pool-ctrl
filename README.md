@@ -54,8 +54,11 @@ https://cdn.shopify.com/s/files/1/0534/4392/0067/files/8-RELAYS-UsersGuide-V5.pd
    openssl req -new -sha256 -key privkey.pem -out cert.pem
    openssl x509 -req -in cert.pem -signkey privkey.pem -out signcert.pem
    ```
-10. Edit settings.js file:
-
+10. Edit settings.js file. You should be now in ~pi/pool-ctrl-certs directory:
+    ```console
+    cd ..
+    vi pool-ctrl/settings.js
+    ```
     10.1. Replace password values in adminAuth and httpNodeAuth objects with your bcrypt hash.
 
     10.2. Set userDir to your pool-ctrl project's root directory ('/home/pi/pool-ctrl').
