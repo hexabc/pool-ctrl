@@ -79,7 +79,7 @@ You can go one step further now and configure your firewall to forward incoming 
 
 ![Port Forwarding Rules](image.png)
 
-Now you would be able to use your router's public, routable IP address to reach the application from any place in the world (well, not really, your internet provider's routers might be implementing policies that discard requests from certain prefixes):
+Now you would be able to use your router's public, routable IP address to reach the application from any place in the world (well, not really, your internet provider's network might be implementing policies that discard requests from certain prefixes):
 ```console
 https://<public_ip_address>:1880/ui
 https://<public_ip_address>:1880/edit
