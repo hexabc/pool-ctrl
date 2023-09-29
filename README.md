@@ -38,7 +38,12 @@ https://cdn.shopify.com/s/files/1/0534/4392/0067/files/8-RELAYS-UsersGuide-V5.pd
     ```console
     git clone https://github.com/hexabc/pool-ctrl
     ```
-8. Generate a hashed password to protect the dashboard and the editor web applications:
+8. Install npm modules. Since Sequent Microsystems packages in steps 5 and 6 were installed locally and references in package.json are specified as symbolic links, pass --install-links parameter:
+    ```console
+    cd pool-ctrl
+    npm install --install-links
+    ```
+9. Generate a hashed password to protect the dashboard and the editor web applications:
     ```console
     node-red admin hash-pw
     ```
@@ -48,6 +53,7 @@ https://cdn.shopify.com/s/files/1/0534/4392/0067/files/8-RELAYS-UsersGuide-V5.pd
    ```
 9. Generate the TLS certificate. Make sure to set the certificate's common name to the hostname of your raspberry pi ('raspberrypi' by default):
    ```console
+   cd ~
    mkdir pool-ctrl-certs
    cd pool-ctrl-certs
    openssl genrsa -out privkey.pem 2048
