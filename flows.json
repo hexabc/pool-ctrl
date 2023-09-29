@@ -106,6 +106,28 @@
         "color": "#DDAA99"
     },
     {
+        "id": "04d557c8bb84f92b",
+        "type": "subflow",
+        "name": "EmailNotification",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 200,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "75b10c91963284d5"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
         "id": "cd56d1ea593f2982",
         "type": "ui_tab",
         "name": "Filter Pump",
@@ -473,6 +495,23 @@
         "info": "Subflow to convert Fahrenheit temparature to Celsius."
     },
     {
+        "id": "75b10c91963284d5",
+        "type": "e-mail",
+        "z": "04d557c8bb84f92b",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": false,
+        "name": "poolboyjerry@gmail.com",
+        "dname": "PoolEmailNotification",
+        "x": 380,
+        "y": 40,
+        "wires": []
+    },
+    {
         "id": "1176598a97703092",
         "type": "ui_gauge",
         "z": "4b96395a77975ca1",
@@ -525,7 +564,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 580,
+        "y": 760,
         "wires": []
     },
     {
@@ -553,7 +592,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 660,
+        "y": 840,
         "wires": []
     },
     {
@@ -566,7 +605,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 580,
+        "y": 760,
         "wires": [
             [
                 "b22004a283699c7c"
@@ -602,7 +641,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 640,
+        "y": 820,
         "wires": [
             [
                 "237579c78d16e1bc"
@@ -660,7 +699,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 580,
+        "y": 760,
         "wires": [
             [
                 "c566a74f72e90710"
@@ -689,7 +728,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 640,
+        "y": 820,
         "wires": [
             [
                 "31eebae1a6cd070a"
@@ -724,7 +763,7 @@
         "showGlow": true,
         "name": "Speed1",
         "x": 820,
-        "y": 120,
+        "y": 200,
         "wires": []
     },
     {
@@ -755,7 +794,7 @@
         "showGlow": true,
         "name": "Speed2",
         "x": 820,
-        "y": 180,
+        "y": 260,
         "wires": []
     },
     {
@@ -786,30 +825,8 @@
         "showGlow": true,
         "name": "Speed3",
         "x": 820,
-        "y": 260,
+        "y": 340,
         "wires": []
-    },
-    {
-        "id": "92619ce0f1b14716",
-        "type": "toggle",
-        "z": "4b96395a77975ca1",
-        "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 610,
-        "y": 120,
-        "wires": [
-            [
-                "7156231e662085f4"
-            ]
-        ]
     },
     {
         "id": "caea3d25a7f99178",
@@ -825,8 +842,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 610,
-        "y": 180,
+        "x": 410,
+        "y": 260,
         "wires": [
             [
                 "1119d7adf0917de4",
@@ -839,15 +856,18 @@
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "mapCurrentToSpeed",
-        "func": "var current = msg.payload;\nif(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{ payload: true }, { payload: false }, { payload: false }, { payload: false }];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{ payload: false }, { payload: true }, { payload: false }, { payload: false }];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{ payload: false }, { payload: false }, { payload: true }, { payload: false }];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{ payload: false }, { payload: false }, { payload: false }, { payload: true }];\n}",
-        "outputs": 4,
+        "func": "/* Returns an array of 6 booleans with one of [1..4] elements set to true, indicating\n   the pump's current speed: Speed1, Speed2, Speed3 or Speed0 (standby current).\n   The element [0] is set to true if the pump current is higher by a resonable margin\n   than Speed1. The element [5] is set to true if the pump current is close to 0,\n   indicating a tripped circuit breaker.\n*/\nvar current = msg.payload;\nif(current >= 2.3) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload:true}, {payload:true}, {payload:false}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload:false}, {payload:true}, {payload:false}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{payload:false}, {payload:false}, {payload:true}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:false}, {payload:false}];\n} else if(current >= 0.08) {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:false}];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:true}];\n}",
+        "outputs": 6,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 180,
+        "x": 180,
+        "y": 280,
         "wires": [
+            [
+                "f692fd44671da3b7"
+            ],
             [
                 "92619ce0f1b14716"
             ],
@@ -859,6 +879,9 @@
             ],
             [
                 "ef26258c53aeb4b1"
+            ],
+            [
+                "18524ce0570ca769"
             ]
         ]
     },
@@ -945,7 +968,7 @@
         "showGlow": true,
         "name": "SWCG",
         "x": 820,
-        "y": 340,
+        "y": 500,
         "wires": []
     },
     {
@@ -976,7 +999,7 @@
         "showGlow": true,
         "name": "Polaris",
         "x": 830,
-        "y": 380,
+        "y": 540,
         "wires": []
     },
     {
@@ -988,7 +1011,7 @@
             "7ac2d92a68e73c28"
         ],
         "x": 175,
-        "y": 340,
+        "y": 500,
         "wires": [
             [
                 "5339998e0f6dae17"
@@ -1004,7 +1027,7 @@
             "7c51994361debb55"
         ],
         "x": 175,
-        "y": 380,
+        "y": 540,
         "wires": [
             [
                 "c63ec6c2b44ec339"
@@ -1032,7 +1055,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 880,
+        "y": 1060,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1060,7 +1083,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 940,
+        "y": 1120,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1095,7 +1118,7 @@
         "showGlow": true,
         "name": "",
         "x": 830,
-        "y": 760,
+        "y": 940,
         "wires": []
     },
     {
@@ -1110,7 +1133,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 760,
+        "y": 940,
         "wires": [
             [
                 "8b0c435caad96e90"
@@ -1132,7 +1155,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 490,
-        "y": 760,
+        "y": 940,
         "wires": [
             [
                 "962e8890cd94bf0d"
@@ -1151,7 +1174,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 880,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -1168,7 +1191,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 940,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -1183,7 +1206,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 640,
-        "y": 760,
+        "y": 940,
         "wires": [
             [
                 "12095c7b0e55bc1e"
@@ -1212,7 +1235,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 880,
+        "y": 1060,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1241,7 +1264,7 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 940,
+        "y": 1120,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
@@ -1262,8 +1285,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 610,
-        "y": 240,
+        "x": 410,
+        "y": 320,
         "wires": [
             [
                 "77fbf8f3dac33eac"
@@ -1279,8 +1302,8 @@
         "links": [
             "a5692093ed8bdb4a"
         ],
-        "x": 775,
-        "y": 220,
+        "x": 795,
+        "y": 300,
         "wires": []
     },
     {
@@ -1297,8 +1320,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 610,
-        "y": 300,
+        "x": 410,
+        "y": 380,
         "wires": [
             [
                 "d6ca499c42d260e1"
@@ -1314,8 +1337,8 @@
         "links": [
             "7c19cbf5e55a8cd9"
         ],
-        "x": 775,
-        "y": 300,
+        "x": 795,
+        "y": 380,
         "wires": []
     },
     {
@@ -1340,7 +1363,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1000,
+        "y": 1180,
         "wires": [
             [
                 "3dc9d11661b15411",
@@ -1360,7 +1383,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 1000,
+        "y": 1180,
         "wires": [
             [
                 "a8e474b6d56e8228"
@@ -1381,7 +1404,7 @@
         "layout": "row-center",
         "className": "digital_time",
         "x": 550,
-        "y": 1000,
+        "y": 1180,
         "wires": []
     },
     {
@@ -1394,7 +1417,7 @@
         "width": "3",
         "height": "3",
         "x": 290,
-        "y": 1040,
+        "y": 1220,
         "wires": []
     },
     {
@@ -1413,7 +1436,7 @@
         "templateScope": "local",
         "className": "",
         "x": 540,
-        "y": 1040,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -1431,7 +1454,7 @@
         "oldrc": false,
         "name": "",
         "x": 370,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "8bec55162dd6dc32"
@@ -1462,7 +1485,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "3f46dcfd80905234"
@@ -1481,7 +1504,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "3743eca48c342350",
@@ -1514,7 +1537,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 820,
+        "y": 1000,
         "wires": []
     },
     {
@@ -1527,7 +1550,7 @@
             "0be7a512af5258bd"
         ],
         "x": 795,
-        "y": 540,
+        "y": 720,
         "wires": []
     },
     {
@@ -1540,7 +1563,7 @@
             "24e1b9d00ff40fa4"
         ],
         "x": 795,
-        "y": 700,
+        "y": 880,
         "wires": []
     },
     {
@@ -1553,7 +1576,7 @@
             "588f0339291477f4"
         ],
         "x": 795,
-        "y": 860,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1578,7 +1601,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 460,
+        "y": 640,
         "wires": [
             [
                 "53ad2f84e31105ec"
@@ -1595,7 +1618,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 460,
+        "y": 640,
         "wires": [
             [
                 "27423b229191df4e"
@@ -1627,7 +1650,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 460,
+        "y": 640,
         "wires": []
     },
     {
@@ -1640,7 +1663,7 @@
             "1c3f39b17cd1cf56"
         ],
         "x": 795,
-        "y": 420,
+        "y": 600,
         "wires": []
     },
     {
@@ -1653,7 +1676,7 @@
             "01cea2a4cb05a9be"
         ],
         "x": 795,
-        "y": 500,
+        "y": 680,
         "wires": []
     },
     {
@@ -1662,7 +1685,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 460,
+        "y": 640,
         "wires": [
             [
                 "1bc5b3e0d3c496c3",
@@ -1677,7 +1700,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 680,
-        "y": 500,
+        "y": 680,
         "wires": [
             [
                 "328833e45226d67f"
@@ -1690,7 +1713,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 580,
+        "y": 760,
         "wires": [
             [
                 "044396ee4edbb423",
@@ -1704,7 +1727,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 640,
+        "y": 820,
         "wires": [
             [
                 "64dac35cca9bfb7b"
@@ -1717,7 +1740,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 640,
-        "y": 700,
+        "y": 880,
         "wires": [
             [
                 "6844177a765d99ee",
@@ -1725,6 +1748,128 @@
                 "9cef508ff0a07f3f"
             ]
         ]
+    },
+    {
+        "id": "92619ce0f1b14716",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "7156231e662085f4"
+            ]
+        ]
+    },
+    {
+        "id": "f692fd44671da3b7",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 410,
+        "y": 140,
+        "wires": [
+            [
+                "3af81276eb503169"
+            ]
+        ]
+    },
+    {
+        "id": "18524ce0570ca769",
+        "type": "toggle",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "eb0a16a5a38cbf1c"
+            ]
+        ]
+    },
+    {
+        "id": "3af81276eb503169",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "HighVspCurrAlarm",
+        "func": "let alarm = \"High VSP current alarm\";\nlet alarmCleared = \"High VSP current alarm cleared\";\nif(msg.payload == true) {\n    msg.topic = alarm;\n    msg.payload = alarm;\n} else {\n    msg.topic = alarmCleared;\n    msg.payload = alarmCleared;\n}\nmsg.from = \"pool-ctrl@backyard.net\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 140,
+        "wires": [
+            [
+                "35d89d397492a75d"
+            ]
+        ]
+    },
+    {
+        "id": "eb0a16a5a38cbf1c",
+        "type": "function",
+        "z": "4b96395a77975ca1",
+        "name": "LowVspCurrAlarm",
+        "func": "let alarm = \"Low VSP current alarm\";\nlet alarmCleared = \"Low VSP current alarm cleared\";\nif (msg.payload == true) {\n    msg.topic = alarm;\n    msg.payload = alarm;\n} else {\n    msg.topic = alarmCleared;\n    msg.payload = alarmCleared;\n}\nmsg.from = \"pool-ctrl@backyard.net\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 440,
+        "wires": [
+            [
+                "d0e19d8dc2843237"
+            ]
+        ]
+    },
+    {
+        "id": "35d89d397492a75d",
+        "type": "subflow:04d557c8bb84f92b",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "x": 800,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d0e19d8dc2843237",
+        "type": "subflow:04d557c8bb84f92b",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "x": 800,
+        "y": 440,
+        "wires": []
     },
     {
         "id": "5603399d2f104787",
