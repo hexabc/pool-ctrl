@@ -459,6 +459,17 @@
         "className": ""
     },
     {
+        "id": "11f718cecb7bd24c",
+        "type": "ui_group",
+        "name": "VSP Current [A]",
+        "tab": "322f8f2977a81686",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": true,
+        "className": ""
+    },
+    {
         "id": "f2b43a8667c1e099",
         "type": "function",
         "z": "e12f18fb86d56370",
@@ -536,7 +547,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 40,
+        "y": 80,
         "wires": []
     },
     {
@@ -564,7 +575,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 760,
+        "y": 800,
         "wires": []
     },
     {
@@ -592,7 +603,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 840,
+        "y": 880,
         "wires": []
     },
     {
@@ -605,7 +616,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 760,
+        "y": 800,
         "wires": [
             [
                 "b22004a283699c7c"
@@ -622,12 +633,13 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 60,
+        "y": 100,
         "wires": [
             [
                 "1176598a97703092",
                 "86c40ee346c5b9ae",
-                "e24e8bec39c261be"
+                "e24e8bec39c261be",
+                "5fcb7c5549e0edc9"
             ]
         ]
     },
@@ -641,7 +653,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "237579c78d16e1bc"
@@ -666,11 +678,11 @@
         "crontab": "",
         "once": false,
         "onceDelay": "2",
-        "topic": "",
+        "topic": "VSP Current",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 60,
+        "x": 170,
+        "y": 40,
         "wires": [
             [
                 "7948aa3259590a08"
@@ -699,7 +711,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 760,
+        "y": 800,
         "wires": [
             [
                 "c566a74f72e90710"
@@ -728,7 +740,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "31eebae1a6cd070a"
@@ -763,7 +775,7 @@
         "showGlow": true,
         "name": "Speed1",
         "x": 820,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -794,7 +806,7 @@
         "showGlow": true,
         "name": "Speed2",
         "x": 820,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -825,7 +837,7 @@
         "showGlow": true,
         "name": "Speed3",
         "x": 820,
-        "y": 340,
+        "y": 380,
         "wires": []
     },
     {
@@ -843,7 +855,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "1119d7adf0917de4",
@@ -863,7 +875,7 @@
         "finalize": "",
         "libs": [],
         "x": 180,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "f692fd44671da3b7"
@@ -905,7 +917,7 @@
         "to": "",
         "reg": false,
         "x": 610,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "f72b240e050c4645"
@@ -937,7 +949,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -968,7 +980,7 @@
         "showGlow": true,
         "name": "SWCG",
         "x": 820,
-        "y": 500,
+        "y": 540,
         "wires": []
     },
     {
@@ -999,7 +1011,7 @@
         "showGlow": true,
         "name": "Polaris",
         "x": 830,
-        "y": 540,
+        "y": 580,
         "wires": []
     },
     {
@@ -1011,7 +1023,7 @@
             "7ac2d92a68e73c28"
         ],
         "x": 175,
-        "y": 500,
+        "y": 540,
         "wires": [
             [
                 "5339998e0f6dae17"
@@ -1027,7 +1039,7 @@
             "7c51994361debb55"
         ],
         "x": 175,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "c63ec6c2b44ec339"
@@ -1055,7 +1067,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 1060,
+        "y": 1100,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1083,7 +1095,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 1120,
+        "y": 1160,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1118,7 +1130,7 @@
         "showGlow": true,
         "name": "",
         "x": 830,
-        "y": 940,
+        "y": 980,
         "wires": []
     },
     {
@@ -1133,7 +1145,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 940,
+        "y": 980,
         "wires": [
             [
                 "8b0c435caad96e90"
@@ -1155,7 +1167,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 490,
-        "y": 940,
+        "y": 980,
         "wires": [
             [
                 "962e8890cd94bf0d"
@@ -1174,7 +1186,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1060,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -1191,7 +1203,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1120,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -1206,7 +1218,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 640,
-        "y": 940,
+        "y": 980,
         "wires": [
             [
                 "12095c7b0e55bc1e"
@@ -1235,7 +1247,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 1060,
+        "y": 1100,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1264,7 +1276,7 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 1120,
+        "y": 1160,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
@@ -1286,7 +1298,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "77fbf8f3dac33eac"
@@ -1303,7 +1315,7 @@
             "a5692093ed8bdb4a"
         ],
         "x": 795,
-        "y": 300,
+        "y": 340,
         "wires": []
     },
     {
@@ -1321,7 +1333,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "d6ca499c42d260e1"
@@ -1338,7 +1350,7 @@
             "7c19cbf5e55a8cd9"
         ],
         "x": 795,
-        "y": 380,
+        "y": 420,
         "wires": []
     },
     {
@@ -1363,7 +1375,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1180,
+        "y": 1220,
         "wires": [
             [
                 "3dc9d11661b15411",
@@ -1383,7 +1395,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 1180,
+        "y": 1220,
         "wires": [
             [
                 "a8e474b6d56e8228"
@@ -1404,7 +1416,7 @@
         "layout": "row-center",
         "className": "digital_time",
         "x": 550,
-        "y": 1180,
+        "y": 1220,
         "wires": []
     },
     {
@@ -1417,7 +1429,7 @@
         "width": "3",
         "height": "3",
         "x": 290,
-        "y": 1220,
+        "y": 1260,
         "wires": []
     },
     {
@@ -1436,7 +1448,7 @@
         "templateScope": "local",
         "className": "",
         "x": 540,
-        "y": 1220,
+        "y": 1260,
         "wires": [
             []
         ]
@@ -1454,7 +1466,7 @@
         "oldrc": false,
         "name": "",
         "x": 370,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [
                 "8bec55162dd6dc32"
@@ -1485,7 +1497,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [
                 "3f46dcfd80905234"
@@ -1504,7 +1516,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [
                 "3743eca48c342350",
@@ -1537,7 +1549,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 1000,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1550,7 +1562,7 @@
             "0be7a512af5258bd"
         ],
         "x": 795,
-        "y": 720,
+        "y": 760,
         "wires": []
     },
     {
@@ -1563,7 +1575,7 @@
             "24e1b9d00ff40fa4"
         ],
         "x": 795,
-        "y": 880,
+        "y": 920,
         "wires": []
     },
     {
@@ -1576,7 +1588,7 @@
             "588f0339291477f4"
         ],
         "x": 795,
-        "y": 1040,
+        "y": 1080,
         "wires": []
     },
     {
@@ -1601,7 +1613,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "53ad2f84e31105ec"
@@ -1618,7 +1630,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "27423b229191df4e"
@@ -1650,7 +1662,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 640,
+        "y": 680,
         "wires": []
     },
     {
@@ -1663,7 +1675,7 @@
             "1c3f39b17cd1cf56"
         ],
         "x": 795,
-        "y": 600,
+        "y": 640,
         "wires": []
     },
     {
@@ -1676,7 +1688,7 @@
             "01cea2a4cb05a9be"
         ],
         "x": 795,
-        "y": 680,
+        "y": 720,
         "wires": []
     },
     {
@@ -1685,7 +1697,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "1bc5b3e0d3c496c3",
@@ -1700,7 +1712,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 680,
-        "y": 680,
+        "y": 720,
         "wires": [
             [
                 "328833e45226d67f"
@@ -1713,7 +1725,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 760,
+        "y": 800,
         "wires": [
             [
                 "044396ee4edbb423",
@@ -1727,7 +1739,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "64dac35cca9bfb7b"
@@ -1740,7 +1752,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 640,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "6844177a765d99ee",
@@ -1764,7 +1776,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "7156231e662085f4"
@@ -1786,7 +1798,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "3af81276eb503169"
@@ -1808,7 +1820,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "eb0a16a5a38cbf1c"
@@ -1827,7 +1839,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "35d89d397492a75d"
@@ -1846,7 +1858,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "d0e19d8dc2843237"
@@ -1859,7 +1871,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 800,
-        "y": 140,
+        "y": 180,
         "wires": []
     },
     {
@@ -1868,7 +1880,20 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 800,
-        "y": 440,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "5fcb7c5549e0edc9",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 14",
+        "mode": "link",
+        "links": [
+            "bf2b0d4178d8bab0"
+        ],
+        "x": 795,
+        "y": 40,
         "wires": []
     },
     {
@@ -2844,50 +2869,6 @@
         "info": "This delay is to avoid a racing condition\r\nbetween Polaris and filter pump schedulers. "
     },
     {
-        "id": "8d02091b58de8f0b",
-        "type": "ui_chart",
-        "z": "c0f272f785fad1e5",
-        "name": "AirWaterTempChart",
-        "group": "96cfaa1c32a04204",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "auto",
-        "interpolate": "step",
-        "nodata": "Waiting for data to arrive...",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 710,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "0be7a512af5258bd",
         "type": "link in",
         "z": "c0f272f785fad1e5",
@@ -3267,8 +3248,162 @@
         "z": "c0f272f785fad1e5",
         "name": "Color Assignment Note",
         "info": "Delay nodes establish colors for time series.\nThe time series of the first measurement to arrive\nwill be assigned navy blue, the second light blue,\nthe third orange, etc.",
-        "x": 120,
-        "y": 460,
+        "x": 140,
+        "y": 620,
         "wires": []
+    },
+    {
+        "id": "5f792e528541aede",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "3acb4cc9d9d20efc"
+            ]
+        ]
+    },
+    {
+        "id": "bf2b0d4178d8bab0",
+        "type": "link in",
+        "z": "c0f272f785fad1e5",
+        "name": "link in 11",
+        "links": [
+            "5fcb7c5549e0edc9"
+        ],
+        "x": 165,
+        "y": 480,
+        "wires": [
+            [
+                "5f792e528541aede"
+            ]
+        ]
+    },
+    {
+        "id": "8d02091b58de8f0b",
+        "type": "ui_chart",
+        "z": "c0f272f785fad1e5",
+        "name": "AirWaterTempChart",
+        "group": "96cfaa1c32a04204",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "step",
+        "nodata": "Waiting for data to arrive...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 710,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3acb4cc9d9d20efc",
+        "type": "ui_chart",
+        "z": "c0f272f785fad1e5",
+        "name": "VSPCurrentChart",
+        "group": "11f718cecb7bd24c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "step",
+        "nodata": "Waiting for data to arrive...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 710,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f40611b6928638ef",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "Clear Chart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "jsonata",
+        "x": 530,
+        "y": 540,
+        "wires": [
+            [
+                "3acb4cc9d9d20efc"
+            ]
+        ]
     }
 ]
