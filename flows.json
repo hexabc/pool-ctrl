@@ -433,7 +433,7 @@
         "order": 1,
         "disp": true,
         "width": "12",
-        "collapse": true,
+        "collapse": false,
         "className": ""
     },
     {
@@ -444,7 +444,7 @@
         "order": 2,
         "disp": true,
         "width": "12",
-        "collapse": true,
+        "collapse": false,
         "className": ""
     },
     {
@@ -461,12 +461,12 @@
     {
         "id": "11f718cecb7bd24c",
         "type": "ui_group",
-        "name": "VSP Current [A]",
+        "name": "VSP Current [A] (5 minute aggreg)",
         "tab": "322f8f2977a81686",
         "order": 3,
         "disp": true,
         "width": "12",
-        "collapse": true,
+        "collapse": false,
         "className": ""
     },
     {
@@ -636,9 +636,9 @@
         "y": 100,
         "wires": [
             [
-                "1176598a97703092",
                 "86c40ee346c5b9ae",
                 "e24e8bec39c261be",
+                "1176598a97703092",
                 "5fcb7c5549e0edc9"
             ]
         ]
@@ -1890,7 +1890,8 @@
         "name": "link out 14",
         "mode": "link",
         "links": [
-            "bf2b0d4178d8bab0"
+            "bf2b0d4178d8bab0",
+            "8adf0d566e08c1f6"
         ],
         "x": 795,
         "y": 40,
@@ -2876,7 +2877,7 @@
         "links": [
             "044396ee4edbb423"
         ],
-        "x": 165,
+        "x": 155,
         "y": 120,
         "wires": [
             [
@@ -2901,7 +2902,7 @@
         "topic": "",
         "payload": "[]",
         "payloadType": "jsonata",
-        "x": 530,
+        "x": 520,
         "y": 180,
         "wires": [
             [
@@ -2947,7 +2948,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 740,
+        "x": 760,
         "y": 240,
         "wires": [
             []
@@ -2961,7 +2962,7 @@
         "links": [
             "fb55be63495f43b5"
         ],
-        "x": 165,
+        "x": 155,
         "y": 300,
         "wires": [
             [
@@ -2986,7 +2987,7 @@
         "topic": "",
         "payload": "[]",
         "payloadType": "jsonata",
-        "x": 530,
+        "x": 520,
         "y": 420,
         "wires": [
             [
@@ -3011,7 +3012,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 300,
+        "x": 290,
         "y": 120,
         "wires": [
             [
@@ -3036,7 +3037,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 300,
+        "x": 290,
         "y": 300,
         "wires": [
             [
@@ -3052,7 +3053,7 @@
         "links": [
             "eafbc79c885b930e"
         ],
-        "x": 165,
+        "x": 155,
         "y": 360,
         "wires": [
             [
@@ -3077,7 +3078,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 300,
+        "x": 290,
         "y": 360,
         "wires": [
             [
@@ -3093,7 +3094,7 @@
         "links": [
             "1bc5b3e0d3c496c3"
         ],
-        "x": 165,
+        "x": 155,
         "y": 60,
         "wires": [
             [
@@ -3118,7 +3119,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 300,
+        "x": 290,
         "y": 60,
         "wires": [
             [
@@ -3134,7 +3135,7 @@
         "links": [
             "328833e45226d67f"
         ],
-        "x": 165,
+        "x": 155,
         "y": 240,
         "wires": [
             [
@@ -3159,7 +3160,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 300,
+        "x": 290,
         "y": 240,
         "wires": [
             [
@@ -3184,7 +3185,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 490,
+        "x": 480,
         "y": 120,
         "wires": [
             [
@@ -3209,7 +3210,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 490,
+        "x": 480,
         "y": 300,
         "wires": [
             [
@@ -3234,7 +3235,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 490,
+        "x": 480,
         "y": 360,
         "wires": [
             [
@@ -3247,51 +3248,10 @@
         "type": "comment",
         "z": "c0f272f785fad1e5",
         "name": "Color Assignment Note",
-        "info": "Delay nodes establish colors for time series.\nThe time series of the first measurement to arrive\nwill be assigned navy blue, the second light blue,\nthe third orange, etc.",
+        "info": "Delay nodes to establish colors for time series.\nThe time series of the first measurement to arrive\nwill be assigned navy blue, the second light blue,\nthe third orange, etc.",
         "x": 140,
-        "y": 620,
+        "y": 720,
         "wires": []
-    },
-    {
-        "id": "5f792e528541aede",
-        "type": "delay",
-        "z": "c0f272f785fad1e5",
-        "name": "",
-        "pauseType": "timed",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "5",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 300,
-        "y": 480,
-        "wires": [
-            [
-                "3acb4cc9d9d20efc"
-            ]
-        ]
-    },
-    {
-        "id": "bf2b0d4178d8bab0",
-        "type": "link in",
-        "z": "c0f272f785fad1e5",
-        "name": "link in 11",
-        "links": [
-            "5fcb7c5549e0edc9"
-        ],
-        "x": 165,
-        "y": 480,
-        "wires": [
-            [
-                "5f792e528541aede"
-            ]
-        ]
     },
     {
         "id": "8d02091b58de8f0b",
@@ -3331,14 +3291,89 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 710,
+        "x": 790,
         "y": 60,
         "wires": [
             []
         ]
     },
     {
-        "id": "3acb4cc9d9d20efc",
+        "id": "c9afbd275e71215d",
+        "type": "aggregator",
+        "z": "c0f272f785fad1e5",
+        "name": "Avg",
+        "topic": "",
+        "intervalCount": "5",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": false,
+        "submitPerTopic": true,
+        "aggregationType": "mean",
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "b78e24849909cf27"
+            ]
+        ]
+    },
+    {
+        "id": "8adf0d566e08c1f6",
+        "type": "link in",
+        "z": "c0f272f785fad1e5",
+        "name": "link in 12",
+        "links": [
+            "5fcb7c5549e0edc9"
+        ],
+        "x": 155,
+        "y": 540,
+        "wires": [
+            [
+                "22063e83ef6529ed",
+                "2d938f1bd92312c8",
+                "1f8ba1f717908b91"
+            ]
+        ]
+    },
+    {
+        "id": "2f4a181b03590396",
+        "type": "aggregator",
+        "z": "c0f272f785fad1e5",
+        "name": "Min",
+        "topic": "",
+        "intervalCount": "5",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": false,
+        "submitPerTopic": true,
+        "aggregationType": "min",
+        "x": 430,
+        "y": 540,
+        "wires": [
+            [
+                "95625126784596f0"
+            ]
+        ]
+    },
+    {
+        "id": "24b00ec5d4d1f916",
+        "type": "aggregator",
+        "z": "c0f272f785fad1e5",
+        "name": "Max",
+        "topic": "",
+        "intervalCount": "5",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": false,
+        "submitPerTopic": true,
+        "aggregationType": "max",
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "ef8257c8fca5fcf8"
+            ]
+        ]
+    },
+    {
+        "id": "07b1547f9d09cf34",
         "type": "ui_chart",
         "z": "c0f272f785fad1e5",
         "name": "VSPCurrentChart",
@@ -3375,14 +3410,39 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 710,
-        "y": 480,
+        "x": 790,
+        "y": 660,
         "wires": [
             []
         ]
     },
     {
-        "id": "f40611b6928638ef",
+        "id": "ef8257c8fca5fcf8",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "95625126784596f0"
+            ]
+        ]
+    },
+    {
+        "id": "60f92dfcfc0745d6",
         "type": "inject",
         "z": "c0f272f785fad1e5",
         "name": "Clear Chart",
@@ -3399,10 +3459,143 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 530,
+        "y": 660,
+        "wires": [
+            [
+                "07b1547f9d09cf34"
+            ]
+        ]
+    },
+    {
+        "id": "22063e83ef6529ed",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Avg",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 480,
+        "wires": [
+            [
+                "c9afbd275e71215d"
+            ]
+        ]
+    },
+    {
+        "id": "2d938f1bd92312c8",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Min",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
         "y": 540,
         "wires": [
             [
-                "3acb4cc9d9d20efc"
+                "2f4a181b03590396"
+            ]
+        ]
+    },
+    {
+        "id": "1f8ba1f717908b91",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Max",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "24b00ec5d4d1f916"
+            ]
+        ]
+    },
+    {
+        "id": "95625126784596f0",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "RoundIt",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$round(msg.payload, 3)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 500,
+        "wires": [
+            [
+                "07b1547f9d09cf34"
+            ]
+        ]
+    },
+    {
+        "id": "b78e24849909cf27",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "20",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 480,
+        "wires": [
+            [
+                "95625126784596f0"
             ]
         ]
     }
