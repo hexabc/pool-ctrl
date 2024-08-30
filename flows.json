@@ -333,7 +333,7 @@
         "type": "ui_group",
         "name": "Water Temp [°F]",
         "tab": "dc57eab5ef574e16",
-        "order": 7,
+        "order": 8,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -344,7 +344,7 @@
         "type": "ui_group",
         "name": "Enclosure Temp [°C]",
         "tab": "dc57eab5ef574e16",
-        "order": 9,
+        "order": 10,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -388,7 +388,7 @@
         "type": "ui_group",
         "name": "Enclosure Fan",
         "tab": "dc57eab5ef574e16",
-        "order": 10,
+        "order": 11,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -410,7 +410,7 @@
         "type": "ui_group",
         "name": "Cpu Temp [°C]",
         "tab": "dc57eab5ef574e16",
-        "order": 8,
+        "order": 9,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -452,7 +452,7 @@
         "type": "ui_group",
         "name": "Air Temp [°F]",
         "tab": "dc57eab5ef574e16",
-        "order": 6,
+        "order": 7,
         "disp": true,
         "width": "5",
         "collapse": false,
@@ -464,6 +464,39 @@
         "name": "VSP Current [A] (5-minute aggregates)",
         "tab": "322f8f2977a81686",
         "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9507e16a4592b9c5",
+        "type": "ui_group",
+        "name": "SWCG Supply Current [A]",
+        "tab": "dc57eab5ef574e16",
+        "order": 6,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d72708171566f9a3",
+        "type": "ui_group",
+        "name": "SWCG Supply Current [A] (5-minute aggregates)",
+        "tab": "322f8f2977a81686",
+        "order": 4,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9535ae078c18fbf1",
+        "type": "ui_group",
+        "name": "SWCG Daily Duty Cycle [%]",
+        "tab": "322f8f2977a81686",
+        "order": 6,
         "disp": true,
         "width": "12",
         "collapse": false,
@@ -547,7 +580,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 80,
+        "y": 200,
         "wires": []
     },
     {
@@ -575,7 +608,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 800,
+        "y": 920,
         "wires": []
     },
     {
@@ -603,7 +636,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 880,
+        "y": 1000,
         "wires": []
     },
     {
@@ -616,7 +649,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
                 "b22004a283699c7c"
@@ -633,7 +666,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 310,
-        "y": 100,
+        "y": 220,
         "wires": [
             [
                 "86c40ee346c5b9ae",
@@ -653,7 +686,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 860,
+        "y": 980,
         "wires": [
             [
                 "237579c78d16e1bc"
@@ -682,7 +715,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 40,
+        "y": 160,
         "wires": [
             [
                 "7948aa3259590a08"
@@ -711,7 +744,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
                 "c566a74f72e90710"
@@ -740,7 +773,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 860,
+        "y": 980,
         "wires": [
             [
                 "31eebae1a6cd070a"
@@ -775,7 +808,7 @@
         "showGlow": true,
         "name": "Speed1",
         "x": 820,
-        "y": 240,
+        "y": 360,
         "wires": []
     },
     {
@@ -806,7 +839,7 @@
         "showGlow": true,
         "name": "Speed2",
         "x": 820,
-        "y": 300,
+        "y": 420,
         "wires": []
     },
     {
@@ -837,7 +870,7 @@
         "showGlow": true,
         "name": "Speed3",
         "x": 820,
-        "y": 380,
+        "y": 500,
         "wires": []
     },
     {
@@ -855,7 +888,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 300,
+        "y": 420,
         "wires": [
             [
                 "1119d7adf0917de4",
@@ -868,14 +901,14 @@
         "type": "function",
         "z": "4b96395a77975ca1",
         "name": "mapCurrentToSpeed",
-        "func": "/* Returns an array of 6 booleans with one of [1..4] elements set to true, indicating\n   the pump's current speed: Speed1, Speed2, Speed3 or Speed0 (standby current).\n   The element [0] is set to true if the pump current is higher by a resonable margin\n   than Speed1. The element [5] is set to true if the pump current is close to 0,\n   indicating a tripped circuit breaker.\n*/\nvar current = msg.payload;\nglobal.set(\"vspCurrent\", current);\nif(current >= 2.3) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload:true}, {payload:true}, {payload:false}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload:false}, {payload:true}, {payload:false}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 1.2) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{payload:false}, {payload:false}, {payload:true}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:false}, {payload:false}];\n} else if(current >= 0.08) {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:false}];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:true}];\n}",
+        "func": "/* Returns an array of 6 booleans with one of [1..4] elements set to true, indicating\n   the pump's current speed: Speed1, Speed2, Speed3 or Speed0 (standby current).\n   The element [0] is set to true if the pump current is higher by a resonable margin\n   than Speed1. The element [5] is set to true if the pump current is close to 0,\n   indicating a tripped circuit breaker.\n*/\nvar current = msg.payload;\nglobal.set(\"vspCurrent\", current);\nif(current >= 2.3) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload:true}, {payload:true}, {payload:false}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 1.8) {\n    global.set(\"vspSpeed\", \"Speed1\");\n    return [{payload:false}, {payload:true}, {payload:false}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 1.1) {\n    global.set(\"vspSpeed\", \"Speed2\");\n    return [{payload:false}, {payload:false}, {payload:true}, {payload:false}, {payload:false}, {payload:false}];\n} else if(current >= 0.5) {\n    global.set(\"vspSpeed\", \"Speed3\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:false}, {payload:false}];\n} else if(current >= 0.05) {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:false}];\n} else {\n    global.set(\"vspSpeed\", \"Speed0\");\n    return [{payload:false}, {payload:false}, {payload:false}, {payload:false}, {payload:true}, {payload:true}];\n}",
         "outputs": 6,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 180,
-        "y": 320,
+        "y": 440,
         "wires": [
             [
                 "f692fd44671da3b7"
@@ -917,7 +950,7 @@
         "to": "",
         "reg": false,
         "x": 610,
-        "y": 120,
+        "y": 240,
         "wires": [
             [
                 "f72b240e050c4645"
@@ -949,7 +982,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 120,
+        "y": 240,
         "wires": []
     },
     {
@@ -980,7 +1013,7 @@
         "showGlow": true,
         "name": "SWCG",
         "x": 820,
-        "y": 540,
+        "y": 660,
         "wires": []
     },
     {
@@ -1011,7 +1044,7 @@
         "showGlow": true,
         "name": "Polaris",
         "x": 830,
-        "y": 580,
+        "y": 700,
         "wires": []
     },
     {
@@ -1023,7 +1056,7 @@
             "7ac2d92a68e73c28"
         ],
         "x": 175,
-        "y": 540,
+        "y": 660,
         "wires": [
             [
                 "5339998e0f6dae17"
@@ -1039,7 +1072,7 @@
             "7c51994361debb55"
         ],
         "x": 175,
-        "y": 580,
+        "y": 700,
         "wires": [
             [
                 "c63ec6c2b44ec339"
@@ -1067,7 +1100,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 1100,
+        "y": 1220,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1095,7 +1128,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 1160,
+        "y": 1280,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1130,7 +1163,7 @@
         "showGlow": true,
         "name": "",
         "x": 830,
-        "y": 980,
+        "y": 1100,
         "wires": []
     },
     {
@@ -1145,7 +1178,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 980,
+        "y": 1100,
         "wires": [
             [
                 "8b0c435caad96e90"
@@ -1167,7 +1200,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 490,
-        "y": 980,
+        "y": 1100,
         "wires": [
             [
                 "962e8890cd94bf0d"
@@ -1186,7 +1219,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1100,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -1203,7 +1236,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1160,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -1218,7 +1251,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 640,
-        "y": 980,
+        "y": 1100,
         "wires": [
             [
                 "12095c7b0e55bc1e"
@@ -1247,7 +1280,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 1100,
+        "y": 1220,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1276,7 +1309,7 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 1160,
+        "y": 1280,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
@@ -1298,7 +1331,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 360,
+        "y": 480,
         "wires": [
             [
                 "77fbf8f3dac33eac"
@@ -1315,7 +1348,7 @@
             "a5692093ed8bdb4a"
         ],
         "x": 795,
-        "y": 340,
+        "y": 460,
         "wires": []
     },
     {
@@ -1333,7 +1366,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 420,
+        "y": 540,
         "wires": [
             [
                 "d6ca499c42d260e1"
@@ -1350,7 +1383,7 @@
             "7c19cbf5e55a8cd9"
         ],
         "x": 795,
-        "y": 420,
+        "y": 540,
         "wires": []
     },
     {
@@ -1375,7 +1408,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1220,
+        "y": 1340,
         "wires": [
             [
                 "3dc9d11661b15411",
@@ -1395,7 +1428,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 1220,
+        "y": 1340,
         "wires": [
             [
                 "a8e474b6d56e8228"
@@ -1416,7 +1449,7 @@
         "layout": "row-center",
         "className": "digital_time",
         "x": 550,
-        "y": 1220,
+        "y": 1340,
         "wires": []
     },
     {
@@ -1429,7 +1462,7 @@
         "width": "3",
         "height": "3",
         "x": 290,
-        "y": 1260,
+        "y": 1380,
         "wires": []
     },
     {
@@ -1448,7 +1481,7 @@
         "templateScope": "local",
         "className": "",
         "x": 540,
-        "y": 1260,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -1466,7 +1499,7 @@
         "oldrc": false,
         "name": "",
         "x": 370,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "8bec55162dd6dc32"
@@ -1497,7 +1530,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "3f46dcfd80905234"
@@ -1516,7 +1549,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "3743eca48c342350",
@@ -1549,7 +1582,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 1040,
+        "y": 1160,
         "wires": []
     },
     {
@@ -1562,7 +1595,7 @@
             "0be7a512af5258bd"
         ],
         "x": 795,
-        "y": 760,
+        "y": 880,
         "wires": []
     },
     {
@@ -1575,7 +1608,7 @@
             "24e1b9d00ff40fa4"
         ],
         "x": 795,
-        "y": 920,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1588,7 +1621,7 @@
             "588f0339291477f4"
         ],
         "x": 795,
-        "y": 1080,
+        "y": 1200,
         "wires": []
     },
     {
@@ -1613,7 +1646,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "53ad2f84e31105ec"
@@ -1630,7 +1663,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "27423b229191df4e"
@@ -1662,7 +1695,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 680,
+        "y": 800,
         "wires": []
     },
     {
@@ -1675,7 +1708,7 @@
             "1c3f39b17cd1cf56"
         ],
         "x": 795,
-        "y": 640,
+        "y": 760,
         "wires": []
     },
     {
@@ -1688,7 +1721,7 @@
             "01cea2a4cb05a9be"
         ],
         "x": 795,
-        "y": 720,
+        "y": 840,
         "wires": []
     },
     {
@@ -1697,7 +1730,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "1bc5b3e0d3c496c3",
@@ -1712,7 +1745,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 680,
-        "y": 720,
+        "y": 840,
         "wires": [
             [
                 "328833e45226d67f"
@@ -1725,7 +1758,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
                 "044396ee4edbb423",
@@ -1739,7 +1772,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 860,
+        "y": 980,
         "wires": [
             [
                 "64dac35cca9bfb7b"
@@ -1752,7 +1785,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 640,
-        "y": 920,
+        "y": 1040,
         "wires": [
             [
                 "6844177a765d99ee",
@@ -1776,7 +1809,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 240,
+        "y": 360,
         "wires": [
             [
                 "7156231e662085f4"
@@ -1798,7 +1831,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 180,
+        "y": 300,
         "wires": [
             [
                 "3af81276eb503169"
@@ -1820,7 +1853,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 410,
-        "y": 480,
+        "y": 600,
         "wires": [
             [
                 "eb0a16a5a38cbf1c"
@@ -1839,7 +1872,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 180,
+        "y": 300,
         "wires": [
             [
                 "35d89d397492a75d"
@@ -1858,7 +1891,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 480,
+        "y": 600,
         "wires": [
             [
                 "d0e19d8dc2843237"
@@ -1871,7 +1904,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 800,
-        "y": 180,
+        "y": 300,
         "wires": []
     },
     {
@@ -1880,7 +1913,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 800,
-        "y": 480,
+        "y": 600,
         "wires": []
     },
     {
@@ -1890,11 +1923,102 @@
         "name": "link out 14",
         "mode": "link",
         "links": [
-            "bf2b0d4178d8bab0",
             "8adf0d566e08c1f6"
         ],
         "x": 795,
-        "y": 40,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "055db489515c4561",
+        "type": "inject",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "2",
+        "topic": "SWCG Current",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "319ab9e8ae0d1a45"
+            ]
+        ]
+    },
+    {
+        "id": "319ab9e8ae0d1a45",
+        "type": "BAS 0-10V in",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "stack": "0",
+        "channel": "4",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 410,
+        "y": 60,
+        "wires": [
+            [
+                "78892d657369c12a",
+                "03029c545ab1b46c"
+            ]
+        ]
+    },
+    {
+        "id": "78892d657369c12a",
+        "type": "ui_gauge",
+        "z": "4b96395a77975ca1",
+        "name": "",
+        "group": "9507e16a4592b9c5",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "",
+        "label": "A",
+        "format": "{{value | number:3}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "03029c545ab1b46c",
+        "type": "link out",
+        "z": "4b96395a77975ca1",
+        "name": "link out 15",
+        "mode": "link",
+        "links": [
+            "bbec21e3df4e097e",
+            "dc6c197a2b8840b8",
+            "ef165b825f6f2b09",
+            "aba63d0385761a28",
+            "8f983bf1fd86c031"
+        ],
+        "x": 795,
+        "y": 100,
         "wires": []
     },
     {
@@ -2247,8 +2371,8 @@
         "type": "delay",
         "z": "57aa7085c1d84098",
         "name": "",
-        "pauseType": "random",
-        "timeout": "5",
+        "pauseType": "delay",
+        "timeout": "1",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -2263,7 +2387,7 @@
         "y": 120,
         "wires": [
             [
-                "5a79071d1f552e84"
+                "e8b2ab3964c04b5b"
             ]
         ]
     },
@@ -2272,8 +2396,8 @@
         "type": "delay",
         "z": "57aa7085c1d84098",
         "name": "",
-        "pauseType": "random",
-        "timeout": "5",
+        "pauseType": "delay",
+        "timeout": "2",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -2288,7 +2412,7 @@
         "y": 240,
         "wires": [
             [
-                "5603399d2f104787"
+                "5714a2997c35b33f"
             ]
         ]
     },
@@ -2297,8 +2421,8 @@
         "type": "delay",
         "z": "57aa7085c1d84098",
         "name": "",
-        "pauseType": "random",
-        "timeout": "5",
+        "pauseType": "delay",
+        "timeout": "3",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -2310,6 +2434,72 @@
         "allowrate": false,
         "outputs": 1,
         "x": 460,
+        "y": 360,
+        "wires": [
+            [
+                "6b6cd30f15834281"
+            ]
+        ]
+    },
+    {
+        "id": "e8b2ab3964c04b5b",
+        "type": "toggle",
+        "z": "57aa7085c1d84098",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 630,
+        "y": 120,
+        "wires": [
+            [
+                "5a79071d1f552e84"
+            ]
+        ]
+    },
+    {
+        "id": "5714a2997c35b33f",
+        "type": "toggle",
+        "z": "57aa7085c1d84098",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [
+                "5603399d2f104787"
+            ]
+        ]
+    },
+    {
+        "id": "6b6cd30f15834281",
+        "type": "toggle",
+        "z": "57aa7085c1d84098",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 630,
         "y": 360,
         "wires": [
             [
@@ -2948,7 +3138,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 800,
+        "x": 820,
         "y": 220,
         "wires": [
             []
@@ -3174,8 +3364,8 @@
         "z": "c0f272f785fad1e5",
         "name": "Color Assignment Note",
         "info": "Delay nodes to establish colors for time series.\nThe time series of the first measurement to arrive\nwill be assigned navy blue, the second light blue,\nthe third orange, etc.",
-        "x": 140,
-        "y": 680,
+        "x": 180,
+        "y": 1060,
         "wires": []
     },
     {
@@ -3216,7 +3406,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 830,
+        "x": 850,
         "y": 60,
         "wires": [
             []
@@ -3335,7 +3525,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 830,
+        "x": 850,
         "y": 640,
         "wires": [
             []
@@ -3596,6 +3786,458 @@
         "wires": [
             [
                 "95625126784596f0"
+            ]
+        ]
+    },
+    {
+        "id": "e8f39a01532e3b8f",
+        "type": "aggregator",
+        "z": "c0f272f785fad1e5",
+        "name": "Avg",
+        "topic": "",
+        "intervalCount": "5",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": false,
+        "submitPerTopic": true,
+        "aggregationType": "mean",
+        "x": 450,
+        "y": 760,
+        "wires": [
+            [
+                "2685eb98cb65c25f"
+            ]
+        ]
+    },
+    {
+        "id": "bbec21e3df4e097e",
+        "type": "link in",
+        "z": "c0f272f785fad1e5",
+        "name": "link in 13",
+        "links": [
+            "03029c545ab1b46c"
+        ],
+        "x": 165,
+        "y": 760,
+        "wires": [
+            [
+                "ce09b32074c27580",
+                "855c6e71021e09f5",
+                "6c3a0bf599929bdf"
+            ]
+        ]
+    },
+    {
+        "id": "de52bcf7b07560bc",
+        "type": "aggregator",
+        "z": "c0f272f785fad1e5",
+        "name": "Min",
+        "topic": "",
+        "intervalCount": "5",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": false,
+        "submitPerTopic": true,
+        "aggregationType": "min",
+        "x": 450,
+        "y": 820,
+        "wires": [
+            [
+                "99de021a1528bade"
+            ]
+        ]
+    },
+    {
+        "id": "21e74c759256e8a7",
+        "type": "aggregator",
+        "z": "c0f272f785fad1e5",
+        "name": "Max",
+        "topic": "",
+        "intervalCount": "5",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": false,
+        "submitPerTopic": true,
+        "aggregationType": "max",
+        "x": 450,
+        "y": 700,
+        "wires": [
+            [
+                "9bb944c8c8d0fb23"
+            ]
+        ]
+    },
+    {
+        "id": "3dd466be8ef82f57",
+        "type": "ui_chart",
+        "z": "c0f272f785fad1e5",
+        "name": "SWCGSupplyCurrentChart",
+        "group": "d72708171566f9a3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "step",
+        "nodata": "Waiting for data to arrive...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "13",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#c5b0d5",
+            "#ff9896",
+            "#9467bd",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "27b2d8541e965666",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "Clear Chart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "jsonata",
+        "x": 550,
+        "y": 880,
+        "wires": [
+            [
+                "3dd466be8ef82f57"
+            ]
+        ]
+    },
+    {
+        "id": "ce09b32074c27580",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Avg",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 760,
+        "wires": [
+            [
+                "e8f39a01532e3b8f"
+            ]
+        ]
+    },
+    {
+        "id": "855c6e71021e09f5",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Min",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 820,
+        "wires": [
+            [
+                "de52bcf7b07560bc"
+            ]
+        ]
+    },
+    {
+        "id": "6c3a0bf599929bdf",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Max",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 700,
+        "wires": [
+            [
+                "21e74c759256e8a7"
+            ]
+        ]
+    },
+    {
+        "id": "9bb944c8c8d0fb23",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "RoundIt",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$round(msg.payload, 3)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 700,
+        "wires": [
+            [
+                "3dd466be8ef82f57"
+            ]
+        ]
+    },
+    {
+        "id": "99de021a1528bade",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "20",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 820,
+        "wires": [
+            [
+                "9bb944c8c8d0fb23"
+            ]
+        ]
+    },
+    {
+        "id": "2685eb98cb65c25f",
+        "type": "delay",
+        "z": "c0f272f785fad1e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 760,
+        "wires": [
+            [
+                "9bb944c8c8d0fb23"
+            ]
+        ]
+    },
+    {
+        "id": "ef165b825f6f2b09",
+        "type": "link in",
+        "z": "c0f272f785fad1e5",
+        "name": "link in 14",
+        "links": [
+            "03029c545ab1b46c"
+        ],
+        "x": 165,
+        "y": 940,
+        "wires": [
+            [
+                "d466416297612613"
+            ]
+        ]
+    },
+    {
+        "id": "d466416297612613",
+        "type": "function",
+        "z": "c0f272f785fad1e5",
+        "name": "ConvertActiveCurrentToDutyCycle",
+        "func": "var current = msg.payload;\nmsg.topic = 'Duty Cycle';\nif (current > 0.035) {\n    if (current > 0.35)\n        msg.payload = 100.0;\n    else\n        msg.payload = 0.0;\n}\nelse {\n    // Don't send any message to the next node in the flow\n    msg = null;\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 940,
+        "wires": [
+            [
+                "f4f764bd92b15f28"
+            ]
+        ]
+    },
+    {
+        "id": "f4f764bd92b15f28",
+        "type": "aggregator",
+        "z": "c0f272f785fad1e5",
+        "name": "DailyAvg",
+        "topic": "",
+        "intervalCount": "1",
+        "intervalUnits": "d",
+        "submitIncompleteInterval": true,
+        "submitPerTopic": true,
+        "aggregationType": "mean",
+        "x": 600,
+        "y": 940,
+        "wires": [
+            [
+                "8fbfe76f38e02dd9"
+            ]
+        ]
+    },
+    {
+        "id": "8fbfe76f38e02dd9",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "RoundIt",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$round(msg.payload, 1)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 940,
+        "wires": [
+            [
+                "507b5e65170af641"
+            ]
+        ]
+    },
+    {
+        "id": "507b5e65170af641",
+        "type": "ui_chart",
+        "z": "c0f272f785fad1e5",
+        "name": "SWCGDailyDutyCycleChart",
+        "group": "9535ae078c18fbf1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "Waiting for data to arrive...",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "7",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ce2512",
+            "#ff9896",
+            "#9467bd",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "330b4099f8608834",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "Clear Chart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "jsonata",
+        "x": 550,
+        "y": 1000,
+        "wires": [
+            [
+                "507b5e65170af641"
             ]
         ]
     }
