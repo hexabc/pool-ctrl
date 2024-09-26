@@ -220,7 +220,7 @@
             "name": "Pool-Ctrl",
             "hideToolbar": "false",
             "allowSwipe": "false",
-            "lockMenu": "false",
+            "lockMenu": "true",
             "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
@@ -2030,7 +2030,7 @@
         "relay": "2",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 580,
+        "x": 720,
         "y": 180,
         "wires": [
             [
@@ -2080,7 +2080,7 @@
         "relay": "1",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 580,
+        "x": 720,
         "y": 60,
         "wires": [
             [
@@ -2117,7 +2117,7 @@
         "wires": [
             [],
             [
-                "0665a10898f73ed9"
+                "a26cb94bb3076515"
             ]
         ]
     },
@@ -2130,7 +2130,7 @@
         "relay": "3",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 580,
+        "x": 720,
         "y": 300,
         "wires": [
             [
@@ -2167,7 +2167,7 @@
         "wires": [
             [],
             [
-                "215187038d5b981b"
+                "6abed712e17a040b"
             ]
         ]
     },
@@ -2199,7 +2199,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 60,
+        "y": 120,
         "wires": []
     },
     {
@@ -2230,7 +2230,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 180,
+        "y": 240,
         "wires": []
     },
     {
@@ -2261,7 +2261,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 300,
+        "y": 360,
         "wires": []
     },
     {
@@ -2290,11 +2290,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 340,
+        "x": 380,
         "y": 60,
         "wires": [
             [
-                "b19e70dfdf164a24"
+                "6f5ceb8065b01c6f"
             ]
         ]
     },
@@ -2324,11 +2324,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 340,
+        "x": 380,
         "y": 180,
         "wires": [
             [
-                "0567f4dbcabf4f9a"
+                "b6d01f6452de277b"
             ]
         ]
     },
@@ -2358,61 +2358,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 340,
+        "x": 380,
         "y": 300,
         "wires": [
             [
-                "6abed712e17a040b"
-            ]
-        ]
-    },
-    {
-        "id": "b19e70dfdf164a24",
-        "type": "delay",
-        "z": "57aa7085c1d84098",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "3",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 460,
-        "y": 120,
-        "wires": [
-            [
-                "e8b2ab3964c04b5b"
-            ]
-        ]
-    },
-    {
-        "id": "0567f4dbcabf4f9a",
-        "type": "delay",
-        "z": "57aa7085c1d84098",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "3",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 460,
-        "y": 240,
-        "wires": [
-            [
-                "5714a2997c35b33f"
+                "f71dd882d698a22a"
             ]
         ]
     },
@@ -2422,7 +2372,7 @@
         "z": "57aa7085c1d84098",
         "name": "",
         "pauseType": "delay",
-        "timeout": "3",
+        "timeout": "10",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -2433,16 +2383,41 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 460,
+        "x": 260,
         "y": 360,
         "wires": [
             [
-                "6b6cd30f15834281"
+                "215187038d5b981b"
             ]
         ]
     },
     {
-        "id": "e8b2ab3964c04b5b",
+        "id": "a26cb94bb3076515",
+        "type": "delay",
+        "z": "57aa7085c1d84098",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "3",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 240,
+        "wires": [
+            [
+                "0665a10898f73ed9"
+            ]
+        ]
+    },
+    {
+        "id": "6f5ceb8065b01c6f",
         "type": "toggle",
         "z": "57aa7085c1d84098",
         "name": "",
@@ -2455,8 +2430,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 630,
-        "y": 120,
+        "x": 550,
+        "y": 60,
         "wires": [
             [
                 "5a79071d1f552e84"
@@ -2464,7 +2439,7 @@
         ]
     },
     {
-        "id": "5714a2997c35b33f",
+        "id": "b6d01f6452de277b",
         "type": "toggle",
         "z": "57aa7085c1d84098",
         "name": "",
@@ -2477,8 +2452,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 630,
-        "y": 240,
+        "x": 550,
+        "y": 180,
         "wires": [
             [
                 "5603399d2f104787"
@@ -2486,7 +2461,7 @@
         ]
     },
     {
-        "id": "6b6cd30f15834281",
+        "id": "f71dd882d698a22a",
         "type": "toggle",
         "z": "57aa7085c1d84098",
         "name": "",
@@ -2499,8 +2474,8 @@
         "toggleValue": "",
         "toggleType": "str",
         "passOnOff": "ifChanged",
-        "x": 630,
-        "y": 360,
+        "x": 550,
+        "y": 300,
         "wires": [
             [
                 "61bf50795ecdcd91"
@@ -3068,7 +3043,7 @@
             "044396ee4edbb423"
         ],
         "x": 165,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "6bf8e4bdfbe33dd2"
@@ -3093,7 +3068,7 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "8d02091b58de8f0b"
@@ -3139,7 +3114,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 820,
-        "y": 220,
+        "y": 240,
         "wires": [
             []
         ]
@@ -3153,7 +3128,7 @@
             "fb55be63495f43b5"
         ],
         "x": 165,
-        "y": 280,
+        "y": 300,
         "wires": [
             [
                 "05786c0743ce2fa9"
@@ -3178,7 +3153,7 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -3203,7 +3178,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "fe2f5511fcca9378"
@@ -3228,7 +3203,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 280,
+        "y": 300,
         "wires": [
             [
                 "e1bc41953f65b110"
@@ -3244,7 +3219,7 @@
             "eafbc79c885b930e"
         ],
         "x": 165,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "c86a4a9521b61073"
@@ -3269,7 +3244,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -3285,7 +3260,7 @@
             "1bc5b3e0d3c496c3"
         ],
         "x": 165,
-        "y": 60,
+        "y": 40,
         "wires": [
             [
                 "5c1cf71818f46622"
@@ -3310,7 +3285,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 60,
+        "y": 40,
         "wires": [
             [
                 "8d02091b58de8f0b"
@@ -3326,7 +3301,7 @@
             "328833e45226d67f"
         ],
         "x": 165,
-        "y": 340,
+        "y": 360,
         "wires": [
             [
                 "8b9f1e045aa79aa8"
@@ -3351,7 +3326,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 340,
+        "y": 360,
         "wires": [
             [
                 "1733d209ec32c915"
@@ -3364,8 +3339,8 @@
         "z": "c0f272f785fad1e5",
         "name": "Color Assignment Note",
         "info": "Delay nodes to establish colors for time series.\nThe time series of the first measurement to arrive\nwill be assigned navy blue, the second light blue,\nthe third orange, etc.",
-        "x": 180,
-        "y": 1060,
+        "x": 160,
+        "y": 1220,
         "wires": []
     },
     {
@@ -3407,7 +3382,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 850,
-        "y": 60,
+        "y": 40,
         "wires": [
             []
         ]
@@ -3424,7 +3399,7 @@
         "submitPerTopic": true,
         "aggregationType": "mean",
         "x": 450,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "b21be722cb25c281"
@@ -3440,7 +3415,7 @@
             "5fcb7c5549e0edc9"
         ],
         "x": 165,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "22063e83ef6529ed",
@@ -3461,7 +3436,7 @@
         "submitPerTopic": true,
         "aggregationType": "min",
         "x": 450,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "cc0896774fa3c81a"
@@ -3480,7 +3455,7 @@
         "submitPerTopic": true,
         "aggregationType": "max",
         "x": 450,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "95625126784596f0"
@@ -3526,7 +3501,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 850,
-        "y": 640,
+        "y": 680,
         "wires": [
             []
         ]
@@ -3549,7 +3524,7 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "07b1547f9d09cf34"
@@ -3576,7 +3551,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "c9afbd275e71215d"
@@ -3603,7 +3578,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "2f4a181b03590396"
@@ -3630,7 +3605,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "24b00ec5d4d1f916"
@@ -3657,7 +3632,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "07b1547f9d09cf34"
@@ -3682,7 +3657,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 610,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "95625126784596f0"
@@ -3707,7 +3682,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 530,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "8d02091b58de8f0b"
@@ -3732,7 +3707,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 530,
-        "y": 280,
+        "y": 300,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -3757,7 +3732,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 530,
-        "y": 340,
+        "y": 360,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -3782,7 +3757,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 610,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "95625126784596f0"
@@ -3801,7 +3776,7 @@
         "submitPerTopic": true,
         "aggregationType": "mean",
         "x": 450,
-        "y": 760,
+        "y": 820,
         "wires": [
             [
                 "2685eb98cb65c25f"
@@ -3817,7 +3792,7 @@
             "03029c545ab1b46c"
         ],
         "x": 165,
-        "y": 760,
+        "y": 820,
         "wires": [
             [
                 "ce09b32074c27580",
@@ -3838,7 +3813,7 @@
         "submitPerTopic": true,
         "aggregationType": "min",
         "x": 450,
-        "y": 820,
+        "y": 880,
         "wires": [
             [
                 "99de021a1528bade"
@@ -3857,7 +3832,7 @@
         "submitPerTopic": true,
         "aggregationType": "max",
         "x": 450,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "9bb944c8c8d0fb23"
@@ -3903,7 +3878,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 820,
-        "y": 880,
+        "y": 940,
         "wires": [
             []
         ]
@@ -3926,7 +3901,7 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 880,
+        "y": 940,
         "wires": [
             [
                 "3dd466be8ef82f57"
@@ -3953,7 +3928,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 760,
+        "y": 820,
         "wires": [
             [
                 "e8f39a01532e3b8f"
@@ -3980,7 +3955,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 820,
+        "y": 880,
         "wires": [
             [
                 "de52bcf7b07560bc"
@@ -4007,7 +3982,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "21e74c759256e8a7"
@@ -4034,7 +4009,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "3dd466be8ef82f57"
@@ -4059,7 +4034,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 610,
-        "y": 820,
+        "y": 880,
         "wires": [
             [
                 "9bb944c8c8d0fb23"
@@ -4084,7 +4059,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 610,
-        "y": 760,
+        "y": 820,
         "wires": [
             [
                 "9bb944c8c8d0fb23"
@@ -4100,7 +4075,7 @@
             "03029c545ab1b46c"
         ],
         "x": 165,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "d466416297612613"
@@ -4119,7 +4094,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "f4f764bd92b15f28"
@@ -4138,7 +4113,7 @@
         "submitPerTopic": true,
         "aggregationType": "mean",
         "x": 600,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "8fbfe76f38e02dd9"
@@ -4165,7 +4140,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "507b5e65170af641"
@@ -4184,13 +4159,13 @@
         "label": "",
         "chartType": "line",
         "legend": "false",
-        "xformat": "auto",
+        "xformat": "D/M",
         "interpolate": "linear",
         "nodata": "Waiting for data to arrive...",
         "dot": true,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "7",
+        "removeOlder": "14",
         "removeOlderPoints": "",
         "removeOlderUnit": "86400",
         "cutout": 0,
@@ -4211,9 +4186,11 @@
         "useDifferentColor": false,
         "className": "",
         "x": 820,
-        "y": 1000,
+        "y": 1080,
         "wires": [
-            []
+            [
+                "6be2279a06b1a03f"
+            ]
         ]
     },
     {
@@ -4234,7 +4211,73 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 1000,
+        "y": 1080,
+        "wires": [
+            [
+                "507b5e65170af641"
+            ]
+        ]
+    },
+    {
+        "id": "6be2279a06b1a03f",
+        "type": "file",
+        "z": "c0f272f785fad1e5",
+        "name": "WriteDailyDutyCycleFile",
+        "filename": "dailyDutyCycleFile",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 810,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0efc926c6e9984d7",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "OnDeploy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 1140,
+        "wires": [
+            [
+                "98169350c73e497f"
+            ]
+        ]
+    },
+    {
+        "id": "98169350c73e497f",
+        "type": "file in",
+        "z": "c0f272f785fad1e5",
+        "name": "ReadDailyDutyCycleFile",
+        "filename": "dailyDutyCycleFile",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 470,
+        "y": 1140,
         "wires": [
             [
                 "507b5e65170af641"
