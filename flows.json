@@ -2372,7 +2372,7 @@
         "z": "57aa7085c1d84098",
         "name": "",
         "pauseType": "delay",
-        "timeout": "10",
+        "timeout": "20",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -2397,7 +2397,7 @@
         "z": "57aa7085c1d84098",
         "name": "",
         "pauseType": "delay",
-        "timeout": "5",
+        "timeout": "10",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -3087,13 +3087,13 @@
         "label": "",
         "chartType": "line",
         "legend": "true",
-        "xformat": "auto",
+        "xformat": "HH:mm",
         "interpolate": "step",
         "nodata": "Waiting for data to arrive...",
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "12",
+        "removeOlder": "13",
         "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
@@ -3114,9 +3114,11 @@
         "useDifferentColor": false,
         "className": "",
         "x": 820,
-        "y": 240,
+        "y": 300,
         "wires": [
-            []
+            [
+                "9d7a7dedde25a45f"
+            ]
         ]
     },
     {
@@ -3128,7 +3130,7 @@
             "fb55be63495f43b5"
         ],
         "x": 165,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "05786c0743ce2fa9"
@@ -3153,7 +3155,7 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -3203,7 +3205,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "e1bc41953f65b110"
@@ -3219,7 +3221,7 @@
             "eafbc79c885b930e"
         ],
         "x": 165,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "c86a4a9521b61073"
@@ -3244,7 +3246,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -3301,7 +3303,7 @@
             "328833e45226d67f"
         ],
         "x": 165,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "8b9f1e045aa79aa8"
@@ -3326,7 +3328,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "1733d209ec32c915"
@@ -3340,7 +3342,7 @@
         "name": "Color Assignment Note",
         "info": "Delay nodes to establish colors for time series.\nThe time series of the first measurement to arrive\nwill be assigned navy blue, the second light blue,\nthe third orange, etc.",
         "x": 160,
-        "y": 1220,
+        "y": 1460,
         "wires": []
     },
     {
@@ -3355,13 +3357,13 @@
         "label": "",
         "chartType": "line",
         "legend": "true",
-        "xformat": "auto",
+        "xformat": "HH:mm",
         "interpolate": "step",
         "nodata": "Waiting for data to arrive...",
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "12",
+        "removeOlder": "13",
         "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
@@ -3384,7 +3386,9 @@
         "x": 850,
         "y": 40,
         "wires": [
-            []
+            [
+                "7c563dc836ce92c7"
+            ]
         ]
     },
     {
@@ -3399,7 +3403,7 @@
         "submitPerTopic": true,
         "aggregationType": "mean",
         "x": 450,
-        "y": 560,
+        "y": 680,
         "wires": [
             [
                 "b21be722cb25c281"
@@ -3415,7 +3419,7 @@
             "5fcb7c5549e0edc9"
         ],
         "x": 165,
-        "y": 560,
+        "y": 680,
         "wires": [
             [
                 "22063e83ef6529ed",
@@ -3436,7 +3440,7 @@
         "submitPerTopic": true,
         "aggregationType": "min",
         "x": 450,
-        "y": 620,
+        "y": 740,
         "wires": [
             [
                 "cc0896774fa3c81a"
@@ -3455,7 +3459,7 @@
         "submitPerTopic": true,
         "aggregationType": "max",
         "x": 450,
-        "y": 500,
+        "y": 620,
         "wires": [
             [
                 "95625126784596f0"
@@ -3474,13 +3478,13 @@
         "label": "",
         "chartType": "line",
         "legend": "true",
-        "xformat": "auto",
+        "xformat": "HH:mm",
         "interpolate": "step",
         "nodata": "Waiting for data to arrive...",
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "12",
+        "removeOlder": "13",
         "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
@@ -3501,9 +3505,11 @@
         "useDifferentColor": false,
         "className": "",
         "x": 850,
-        "y": 680,
+        "y": 800,
         "wires": [
-            []
+            [
+                "18213425412fb12e"
+            ]
         ]
     },
     {
@@ -3524,7 +3530,7 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "07b1547f9d09cf34"
@@ -3551,7 +3557,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 560,
+        "y": 680,
         "wires": [
             [
                 "c9afbd275e71215d"
@@ -3578,7 +3584,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 620,
+        "y": 740,
         "wires": [
             [
                 "2f4a181b03590396"
@@ -3605,7 +3611,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 500,
+        "y": 620,
         "wires": [
             [
                 "24b00ec5d4d1f916"
@@ -3632,7 +3638,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 500,
+        "y": 620,
         "wires": [
             [
                 "07b1547f9d09cf34"
@@ -3657,7 +3663,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 610,
-        "y": 620,
+        "y": 740,
         "wires": [
             [
                 "95625126784596f0"
@@ -3707,7 +3713,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 530,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -3732,7 +3738,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 530,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "d8265cee72db87d1"
@@ -3757,7 +3763,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 610,
-        "y": 560,
+        "y": 680,
         "wires": [
             [
                 "95625126784596f0"
@@ -3776,7 +3782,7 @@
         "submitPerTopic": true,
         "aggregationType": "mean",
         "x": 450,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "2685eb98cb65c25f"
@@ -3792,7 +3798,7 @@
             "03029c545ab1b46c"
         ],
         "x": 165,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "ce09b32074c27580",
@@ -3813,7 +3819,7 @@
         "submitPerTopic": true,
         "aggregationType": "min",
         "x": 450,
-        "y": 880,
+        "y": 1060,
         "wires": [
             [
                 "99de021a1528bade"
@@ -3832,7 +3838,7 @@
         "submitPerTopic": true,
         "aggregationType": "max",
         "x": 450,
-        "y": 760,
+        "y": 940,
         "wires": [
             [
                 "9bb944c8c8d0fb23"
@@ -3851,7 +3857,7 @@
         "label": "",
         "chartType": "line",
         "legend": "true",
-        "xformat": "auto",
+        "xformat": "HH:mm",
         "interpolate": "step",
         "nodata": "Waiting for data to arrive...",
         "dot": false,
@@ -3878,9 +3884,11 @@
         "useDifferentColor": false,
         "className": "",
         "x": 820,
-        "y": 940,
+        "y": 1120,
         "wires": [
-            []
+            [
+                "f65efc7c0d8089ed"
+            ]
         ]
     },
     {
@@ -3901,7 +3909,7 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 940,
+        "y": 1120,
         "wires": [
             [
                 "3dd466be8ef82f57"
@@ -3928,7 +3936,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "e8f39a01532e3b8f"
@@ -3955,7 +3963,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 880,
+        "y": 1060,
         "wires": [
             [
                 "de52bcf7b07560bc"
@@ -3982,7 +3990,7 @@
         "to": "",
         "reg": false,
         "x": 290,
-        "y": 760,
+        "y": 940,
         "wires": [
             [
                 "21e74c759256e8a7"
@@ -4009,7 +4017,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 760,
+        "y": 940,
         "wires": [
             [
                 "3dd466be8ef82f57"
@@ -4034,7 +4042,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 610,
-        "y": 880,
+        "y": 1060,
         "wires": [
             [
                 "9bb944c8c8d0fb23"
@@ -4059,7 +4067,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 610,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "9bb944c8c8d0fb23"
@@ -4075,7 +4083,7 @@
             "03029c545ab1b46c"
         ],
         "x": 165,
-        "y": 1020,
+        "y": 1260,
         "wires": [
             [
                 "d466416297612613"
@@ -4094,7 +4102,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 1020,
+        "y": 1260,
         "wires": [
             [
                 "f4f764bd92b15f28"
@@ -4113,7 +4121,7 @@
         "submitPerTopic": true,
         "aggregationType": "mean",
         "x": 600,
-        "y": 1020,
+        "y": 1260,
         "wires": [
             [
                 "8fbfe76f38e02dd9"
@@ -4140,7 +4148,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 1020,
+        "y": 1260,
         "wires": [
             [
                 "507b5e65170af641"
@@ -4186,7 +4194,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 820,
-        "y": 1080,
+        "y": 1320,
         "wires": [
             [
                 "6be2279a06b1a03f"
@@ -4211,7 +4219,7 @@
         "payload": "[]",
         "payloadType": "jsonata",
         "x": 550,
-        "y": 1080,
+        "y": 1320,
         "wires": [
             [
                 "507b5e65170af641"
@@ -4223,14 +4231,14 @@
         "type": "file",
         "z": "c0f272f785fad1e5",
         "name": "WriteDailyDutyCycleFile",
-        "filename": "dailyDutyCycleFile",
+        "filename": "persistence/dailyDutyCycleFile",
         "filenameType": "str",
         "appendNewline": true,
-        "createDir": false,
+        "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 810,
-        "y": 1140,
+        "x": 830,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -4256,8 +4264,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 230,
-        "y": 1140,
+        "x": 250,
+        "y": 1380,
         "wires": [
             [
                 "98169350c73e497f"
@@ -4269,19 +4277,283 @@
         "type": "file in",
         "z": "c0f272f785fad1e5",
         "name": "ReadDailyDutyCycleFile",
-        "filename": "dailyDutyCycleFile",
+        "filename": "persistence/dailyDutyCycleFile",
         "filenameType": "str",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 470,
-        "y": 1140,
+        "x": 490,
+        "y": 1380,
         "wires": [
             [
                 "507b5e65170af641"
             ]
+        ]
+    },
+    {
+        "id": "988842b92de64675",
+        "type": "file in",
+        "z": "c0f272f785fad1e5",
+        "name": "ReadSwcgCurrentFile",
+        "filename": "persistence/swcgCurrentFile",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 500,
+        "y": 1180,
+        "wires": [
+            [
+                "3dd466be8ef82f57"
+            ]
+        ]
+    },
+    {
+        "id": "7376ae3789ac6260",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "OnDeploy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 1180,
+        "wires": [
+            [
+                "988842b92de64675"
+            ]
+        ]
+    },
+    {
+        "id": "f65efc7c0d8089ed",
+        "type": "file",
+        "z": "c0f272f785fad1e5",
+        "name": "WriteSwcgCurrentFile",
+        "filename": "persistence/swcgCurrentFile",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 820,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "18213425412fb12e",
+        "type": "file",
+        "z": "c0f272f785fad1e5",
+        "name": "WriteVspCurrentFile",
+        "filename": "persistence/vspCurrentFile",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 820,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fcd49403e3dc73d7",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "OnDeploy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 860,
+        "wires": [
+            [
+                "8a092015fab6775a"
+            ]
+        ]
+    },
+    {
+        "id": "8a092015fab6775a",
+        "type": "file in",
+        "z": "c0f272f785fad1e5",
+        "name": "ReadVspCurrentFile",
+        "filename": "persistence/vspCurrentFile",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 500,
+        "y": 860,
+        "wires": [
+            [
+                "07b1547f9d09cf34"
+            ]
+        ]
+    },
+    {
+        "id": "9d7a7dedde25a45f",
+        "type": "file",
+        "z": "c0f272f785fad1e5",
+        "name": "WriteCpuEnclosureAirTempFile",
+        "filename": "persistence/cpuEnclosureAirTempFile",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 850,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fde4d3d837b9b3a0",
+        "type": "file in",
+        "z": "c0f272f785fad1e5",
+        "name": "ReadCpuEnclosureAirTempFile",
+        "filename": "persistence/cpuEnclosureAirTempFile",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 510,
+        "y": 540,
+        "wires": [
+            [
+                "d8265cee72db87d1"
+            ]
+        ]
+    },
+    {
+        "id": "6d244586f8506d55",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "OnDeploy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 540,
+        "wires": [
+            [
+                "fde4d3d837b9b3a0"
+            ]
+        ]
+    },
+    {
+        "id": "aec76f2f84e63223",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "OnDeploy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "7cfaa69022af1511"
+            ]
+        ]
+    },
+    {
+        "id": "7cfaa69022af1511",
+        "type": "file in",
+        "z": "c0f272f785fad1e5",
+        "name": "ReadAirWaterTempFile",
+        "filename": "persistence/airWaterTempFile",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 530,
+        "y": 220,
+        "wires": [
+            [
+                "8d02091b58de8f0b"
+            ]
+        ]
+    },
+    {
+        "id": "7c563dc836ce92c7",
+        "type": "file",
+        "z": "c0f272f785fad1e5",
+        "name": "WriteAirWaterTempFile",
+        "filename": "persistence/airWaterTempFile",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 880,
+        "y": 100,
+        "wires": [
+            []
         ]
     }
 ]
