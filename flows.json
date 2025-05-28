@@ -40,6 +40,14 @@
         "env": []
     },
     {
+        "id": "e6fc8e9b91293beb",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "e12f18fb86d56370",
         "type": "subflow",
         "name": "Steinhart-Hart",
@@ -503,6 +511,17 @@
         "className": ""
     },
     {
+        "id": "9b38c7fd0bf2904b",
+        "type": "ui_group",
+        "name": "SWCG Daily Chlorine Production [ppm]",
+        "tab": "322f8f2977a81686",
+        "order": 6,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "f2b43a8667c1e099",
         "type": "function",
         "z": "e12f18fb86d56370",
@@ -738,7 +757,7 @@
         ],
         "repeat": "60",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "Water",
         "payload": "",
@@ -767,7 +786,7 @@
         ],
         "repeat": "60",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "Enclosure",
         "payload": "",
@@ -1524,7 +1543,7 @@
         ],
         "repeat": "60",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "Cpu",
         "payload": "",
@@ -2015,7 +2034,8 @@
             "dc6c197a2b8840b8",
             "ef165b825f6f2b09",
             "aba63d0385761a28",
-            "8f983bf1fd86c031"
+            "8f983bf1fd86c031",
+            "34b0617ab6e2cdc7"
         ],
         "x": 795,
         "y": 100,
@@ -3342,7 +3362,7 @@
         "name": "Color Assignment Note",
         "info": "Delay nodes to establish colors for time series.\nThe time series of the first measurement to arrive\nwill be assigned navy blue, the second light blue,\nthe third orange, etc.",
         "x": 160,
-        "y": 1460,
+        "y": 1660,
         "wires": []
     },
     {
@@ -4095,7 +4115,7 @@
         "type": "function",
         "z": "c0f272f785fad1e5",
         "name": "ConvertActiveCurrentToDutyCycle",
-        "func": "var current = msg.payload;\nmsg.topic = 'Duty Cycle';\nif (current > 0.035) {\n    if (current > 0.35)\n        msg.payload = 100.0;\n    else\n        msg.payload = 0.0;\n}\nelse {\n    // Don't send any message to the next node in the flow\n    msg = null;\n}\nreturn msg;\n",
+        "func": "var current = msg.payload;\nmsg.topic = 'Duty Cycle';\n//if (current > 0.035) {\n    if (current > 0.35)\n        msg.payload = 100.0;\n    else\n        msg.payload = 0.0;\n//}\n//else {\n    // Don't send any message to the next node in the flow\n//    msg = null;\n//}\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4554,6 +4574,224 @@
         "y": 100,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "34b0617ab6e2cdc7",
+        "type": "link in",
+        "z": "c0f272f785fad1e5",
+        "name": "link in 15",
+        "links": [
+            "03029c545ab1b46c"
+        ],
+        "x": 165,
+        "y": 1460,
+        "wires": [
+            [
+                "c1a914a1787b9487"
+            ]
+        ]
+    },
+    {
+        "id": "c1a914a1787b9487",
+        "type": "function",
+        "z": "c0f272f785fad1e5",
+        "name": "ConvertActiveCurrentToChlorineProd",
+        "func": "// Calculates instantenous value of chlorine production\n// in ppm, which is either a zero (during resting intervals\n// or periods when the pump is off), or a number derived from\n// the pool volume and RJ60's power (chlorine lb/day).\n// The advertised RJ60 power is 3.1 lb/day.\n// The values are passed to the aggregator node which averages\n// them over 24 hours.\n\n// Pool volume in gallons\nconst poolVolumeGallons = 22000;\n\n// RJ60+ daily chlorine production in pounds\nconst rj60DailyChlorineProdPounds = 3.1;\n\n// How many liters are in one gallon\nconst oneGallonLiters = 3.7854118;\n\n// How many pounds a liter of water weights\nconst oneLiterWaterPounds = 2.2046226;\n\n// How many pounds a gallon of water weights\nconst oneGallonWaterPounds = oneGallonLiters * oneLiterWaterPounds;\n\n// How many pounds the pool water weights\nconst poolPounds = poolVolumeGallons * oneGallonWaterPounds;\n\nlet current = msg.payload;\nmsg.topic = 'Chlorine Production';\n// RJ60's AC supply current is about 0.7A during chlorine production,\n// and in resting time it's 0.05A.\nif (current > 0.35)\n    msg.payload = rj60DailyChlorineProdPounds / poolPounds * 1000000;\nelse\n    msg.payload = 0.0;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 1460,
+        "wires": [
+            [
+                "702de4c65f9ce880"
+            ]
+        ]
+    },
+    {
+        "id": "702de4c65f9ce880",
+        "type": "aggregator",
+        "z": "c0f272f785fad1e5",
+        "name": "DailyAvg",
+        "topic": "",
+        "intervalCount": "1",
+        "intervalUnits": "d",
+        "submitIncompleteInterval": true,
+        "submitPerTopic": true,
+        "aggregationType": "mean",
+        "x": 600,
+        "y": 1460,
+        "wires": [
+            [
+                "254f09567f456a71"
+            ]
+        ]
+    },
+    {
+        "id": "254f09567f456a71",
+        "type": "change",
+        "z": "c0f272f785fad1e5",
+        "name": "RoundIt",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$round(msg.payload, 1)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 1460,
+        "wires": [
+            [
+                "22ccf664da263b99"
+            ]
+        ]
+    },
+    {
+        "id": "22ccf664da263b99",
+        "type": "ui_chart",
+        "z": "c0f272f785fad1e5",
+        "name": "SWCGDailyChlorineProdChart",
+        "group": "9b38c7fd0bf2904b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "Waiting for data to arrive...",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "14",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ce2512",
+            "#ff9896",
+            "#9467bd",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 830,
+        "y": 1520,
+        "wires": [
+            [
+                "bae77ba60b437a10"
+            ]
+        ]
+    },
+    {
+        "id": "a913b765db9c9b9a",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "Clear Chart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "jsonata",
+        "x": 550,
+        "y": 1520,
+        "wires": [
+            [
+                "22ccf664da263b99"
+            ]
+        ]
+    },
+    {
+        "id": "bae77ba60b437a10",
+        "type": "file",
+        "z": "c0f272f785fad1e5",
+        "name": "WriteDailyChlorineProdFile",
+        "filename": "persistence/dailyChlorineProdFile",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 840,
+        "y": 1580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "22da370f23d8db3a",
+        "type": "inject",
+        "z": "c0f272f785fad1e5",
+        "name": "OnDeploy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 1580,
+        "wires": [
+            [
+                "5d372628724d462f"
+            ]
+        ]
+    },
+    {
+        "id": "5d372628724d462f",
+        "type": "file in",
+        "z": "c0f272f785fad1e5",
+        "name": "ReadDailyChlorineProdFile",
+        "filename": "persistence/dailyChlorineProdFile",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 500,
+        "y": 1580,
+        "wires": [
+            [
+                "22ccf664da263b99"
+            ]
         ]
     }
 ]
