@@ -228,7 +228,7 @@
             "name": "Pool-Ctrl",
             "hideToolbar": "false",
             "allowSwipe": "false",
-            "lockMenu": "true",
+            "lockMenu": "false",
             "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
@@ -2050,7 +2050,7 @@
         "relay": "2",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 720,
+        "x": 580,
         "y": 180,
         "wires": [
             [
@@ -2087,7 +2087,7 @@
         "wires": [
             [],
             [
-                "26609cf05650848c"
+                "9a02fa55cd369383"
             ]
         ]
     },
@@ -2100,7 +2100,7 @@
         "relay": "1",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 720,
+        "x": 580,
         "y": 60,
         "wires": [
             [
@@ -2137,7 +2137,7 @@
         "wires": [
             [],
             [
-                "a26cb94bb3076515"
+                "29f5dd45c6ed609c"
             ]
         ]
     },
@@ -2150,7 +2150,7 @@
         "relay": "3",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 720,
+        "x": 580,
         "y": 300,
         "wires": [
             [
@@ -2187,7 +2187,7 @@
         "wires": [
             [],
             [
-                "6abed712e17a040b"
+                "2dc594c0ee7ec75e"
             ]
         ]
     },
@@ -2219,7 +2219,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 120,
+        "y": 60,
         "wires": []
     },
     {
@@ -2250,7 +2250,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 240,
+        "y": 180,
         "wires": []
     },
     {
@@ -2281,7 +2281,7 @@
         "showGlow": true,
         "name": "",
         "x": 750,
-        "y": 360,
+        "y": 300,
         "wires": []
     },
     {
@@ -2314,7 +2314,7 @@
         "y": 60,
         "wires": [
             [
-                "6f5ceb8065b01c6f"
+                "5a79071d1f552e84"
             ]
         ]
     },
@@ -2348,7 +2348,7 @@
         "y": 180,
         "wires": [
             [
-                "b6d01f6452de277b"
+                "5603399d2f104787"
             ]
         ]
     },
@@ -2382,53 +2382,53 @@
         "y": 300,
         "wires": [
             [
-                "f71dd882d698a22a"
+                "61bf50795ecdcd91"
             ]
         ]
     },
     {
-        "id": "6abed712e17a040b",
+        "id": "9a02fa55cd369383",
         "type": "delay",
         "z": "57aa7085c1d84098",
         "name": "",
-        "pauseType": "delay",
-        "timeout": "20",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "3",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 260,
-        "y": 360,
-        "wires": [
-            [
-                "215187038d5b981b"
-            ]
-        ]
-    },
-    {
-        "id": "a26cb94bb3076515",
-        "type": "delay",
-        "z": "57aa7085c1d84098",
-        "name": "",
-        "pauseType": "delay",
+        "pauseType": "random",
         "timeout": "10",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
         "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "3",
-        "randomUnits": "seconds",
+        "randomFirst": "0",
+        "randomLast": "999",
+        "randomUnits": "milliseconds",
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 260,
+        "x": 220,
+        "y": 120,
+        "wires": [
+            [
+                "26609cf05650848c"
+            ]
+        ]
+    },
+    {
+        "id": "29f5dd45c6ed609c",
+        "type": "delay",
+        "z": "57aa7085c1d84098",
+        "name": "",
+        "pauseType": "random",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "2000",
+        "randomLast": "2999",
+        "randomUnits": "milliseconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 220,
         "y": 240,
         "wires": [
             [
@@ -2437,68 +2437,27 @@
         ]
     },
     {
-        "id": "6f5ceb8065b01c6f",
-        "type": "toggle",
+        "id": "2dc594c0ee7ec75e",
+        "type": "delay",
         "z": "57aa7085c1d84098",
         "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 550,
-        "y": 60,
+        "pauseType": "random",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "4000",
+        "randomLast": "4999",
+        "randomUnits": "milliseconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 220,
+        "y": 360,
         "wires": [
             [
-                "5a79071d1f552e84"
-            ]
-        ]
-    },
-    {
-        "id": "b6d01f6452de277b",
-        "type": "toggle",
-        "z": "57aa7085c1d84098",
-        "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 550,
-        "y": 180,
-        "wires": [
-            [
-                "5603399d2f104787"
-            ]
-        ]
-    },
-    {
-        "id": "f71dd882d698a22a",
-        "type": "toggle",
-        "z": "57aa7085c1d84098",
-        "name": "",
-        "onOffTopic": "",
-        "onValue": "true",
-        "onType": "bool",
-        "offValue": "false",
-        "offType": "bool",
-        "toggleTopic": "",
-        "toggleValue": "",
-        "toggleType": "str",
-        "passOnOff": "ifChanged",
-        "x": 550,
-        "y": 300,
-        "wires": [
-            [
-                "61bf50795ecdcd91"
+                "215187038d5b981b"
             ]
         ]
     },
@@ -2531,7 +2490,7 @@
         "wires": [
             [],
             [
-                "785c98cc83c92395"
+                "7c4e433baadcfe72"
             ]
         ]
     },
@@ -2753,32 +2712,6 @@
         "info": "Reset the SWCG switch if the scheduler or the user attempts to\r\nturn it ON while the filter pump doesn't run."
     },
     {
-        "id": "785c98cc83c92395",
-        "type": "delay",
-        "z": "3f63d940e09f2d66",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 340,
-        "y": 60,
-        "wires": [
-            [
-                "7c4e433baadcfe72"
-            ]
-        ],
-        "info": "This delay is to avoid a racing condition\r\nbetween SWCG and filter pump schedulers."
-    },
-    {
         "id": "2659d86e2cc382d0",
         "type": "ui_time_scheduler",
         "z": "4688e1a9d6eb75fd",
@@ -2807,7 +2740,7 @@
         "wires": [
             [],
             [
-                "3883b479e514189d"
+                "bf1b6566544e0e55"
             ]
         ]
     },
@@ -3027,32 +2960,6 @@
             ]
         ],
         "info": "Reset the Polaris switch if the OFF message has been sent from\r\nSpeed2 toggle in the Pool Status flow. In other words, turn\r\nthe Polaris pump off if the VSP current transducer stops\r\nreporting Speed2."
-    },
-    {
-        "id": "3883b479e514189d",
-        "type": "delay",
-        "z": "4688e1a9d6eb75fd",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 340,
-        "y": 60,
-        "wires": [
-            [
-                "bf1b6566544e0e55"
-            ]
-        ],
-        "info": "This delay is to avoid a racing condition\r\nbetween Polaris and filter pump schedulers. "
     },
     {
         "id": "0be7a512af5258bd",
@@ -4597,7 +4504,7 @@
         "type": "function",
         "z": "c0f272f785fad1e5",
         "name": "ConvertActiveCurrentToChlorineProd",
-        "func": "// Calculates instantenous value of chlorine production\n// in ppm, which is either a zero (during resting intervals\n// or periods when the pump is off), or a number derived from\n// the pool volume and RJ60's power (chlorine lb/day).\n// The advertised RJ60 power is 3.1 lb/day.\n// The values are passed to the aggregator node which averages\n// them over 24 hours.\n\n// Pool volume in gallons\nconst poolVolumeGallons = 22000;\n\n// RJ60+ daily chlorine production in pounds\nconst rj60DailyChlorineProdPounds = 3.1;\n\n// How many liters are in one gallon\nconst oneGallonLiters = 3.7854118;\n\n// How many pounds a liter of water weights\nconst oneLiterWaterPounds = 2.2046226;\n\n// How many pounds a gallon of water weights\nconst oneGallonWaterPounds = oneGallonLiters * oneLiterWaterPounds;\n\n// How many pounds the pool water weights\nconst poolPounds = poolVolumeGallons * oneGallonWaterPounds;\n\nlet current = msg.payload;\nmsg.topic = 'Chlorine Production';\n// RJ60's AC supply current is about 0.7A during chlorine production,\n// and in resting time it's 0.05A.\nif (current > 0.35)\n    msg.payload = rj60DailyChlorineProdPounds / poolPounds * 1000000;\nelse\n    msg.payload = 0.0;\nreturn msg;\n",
+        "func": "// Calculates instantenous value of chlorine production\n// in ppm, which is either a zero (during resting intervals\n// or periods when the pump is off), or a number derived from\n// the pool volume and RJ60's power (chlorine lb/day).\n// The advertised RJ60 power is 3.1 lb/day.\n// The values are passed to the aggregator node which averages\n// them over 24 hours.\n\n// Pool volume in gallons\nconst poolVolumeGallons = 22000;\n\n// RJ60+ daily chlorine production in pounds\nconst rj60DailyChlorineProdPounds = 3.1;\n\n// How many liters are in one gallon\nconst oneGallonLiters = 3.7854118;\n\n// How many pounds a liter of water weights\nconst oneLiterWaterPounds = 2.2046226;\n\n// How many pounds a gallon of water weights\nconst oneGallonWaterPounds = oneGallonLiters * oneLiterWaterPounds;\n\n// How many pounds the pool water weights\nconst poolPounds = poolVolumeGallons * oneGallonWaterPounds;\n\nlet current = msg.payload;\nmsg.topic = 'Chlorine Production';\n// RJ60's 240VAC supply current is about 0.7A during chlorine production,\n// and 0.05A during rest time.\nif (current > 0.35)\n    msg.payload = rj60DailyChlorineProdPounds / poolPounds * 1000000;\nelse\n    msg.payload = 0.0;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
