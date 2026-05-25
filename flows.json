@@ -40,9 +40,9 @@
         "env": []
     },
     {
-        "id": "e6fc8e9b91293beb",
+        "id": "5ab87ae1789fc3e7",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "System",
         "disabled": false,
         "info": "",
         "env": []
@@ -522,6 +522,26 @@
         "className": ""
     },
     {
+        "id": "7fc72e6631e94f6f",
+        "type": "ui_tab",
+        "name": "System",
+        "icon": "dashboard",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3c7a4e6460291703",
+        "type": "ui_group",
+        "name": "VSP Power Off",
+        "tab": "7fc72e6631e94f6f",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "f2b43a8667c1e099",
         "type": "function",
         "z": "e12f18fb86d56370",
@@ -627,7 +647,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 920,
+        "y": 980,
         "wires": []
     },
     {
@@ -655,7 +675,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 1000,
+        "y": 1060,
         "wires": []
     },
     {
@@ -668,7 +688,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 920,
+        "y": 980,
         "wires": [
             [
                 "b22004a283699c7c"
@@ -705,7 +725,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "237579c78d16e1bc"
@@ -726,7 +746,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "2",
+        "repeat": "1",
         "crontab": "",
         "once": false,
         "onceDelay": "2",
@@ -763,7 +783,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 920,
+        "y": 980,
         "wires": [
             [
                 "c566a74f72e90710"
@@ -792,7 +812,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "31eebae1a6cd070a"
@@ -1032,7 +1052,7 @@
         "showGlow": true,
         "name": "SWCG",
         "x": 820,
-        "y": 660,
+        "y": 720,
         "wires": []
     },
     {
@@ -1063,7 +1083,7 @@
         "showGlow": true,
         "name": "Polaris",
         "x": 830,
-        "y": 700,
+        "y": 760,
         "wires": []
     },
     {
@@ -1075,7 +1095,7 @@
             "7ac2d92a68e73c28"
         ],
         "x": 175,
-        "y": 660,
+        "y": 720,
         "wires": [
             [
                 "5339998e0f6dae17"
@@ -1091,7 +1111,7 @@
             "7c51994361debb55"
         ],
         "x": 175,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "c63ec6c2b44ec339"
@@ -1119,7 +1139,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             [
                 "479ead13a6775c5b"
@@ -1147,7 +1167,7 @@
         "step": 1,
         "className": "",
         "x": 390,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             [
                 "d77339e798ac28c5"
@@ -1182,7 +1202,7 @@
         "showGlow": true,
         "name": "",
         "x": 830,
-        "y": 1100,
+        "y": 1160,
         "wires": []
     },
     {
@@ -1197,7 +1217,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 1100,
+        "y": 1160,
         "wires": [
             [
                 "8b0c435caad96e90"
@@ -1219,7 +1239,7 @@
         "toggleType": "str",
         "passOnOff": "ifChanged",
         "x": 490,
-        "y": 1100,
+        "y": 1160,
         "wires": [
             [
                 "962e8890cd94bf0d"
@@ -1238,7 +1258,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -1255,7 +1275,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             []
         ]
@@ -1270,7 +1290,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 640,
-        "y": 1100,
+        "y": 1160,
         "wires": [
             [
                 "12095c7b0e55bc1e"
@@ -1299,7 +1319,7 @@
         "payload": "FanStartTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             [
                 "eba710b3735ba873"
@@ -1328,7 +1348,7 @@
         "payload": "FanStopTemp",
         "payloadType": "global",
         "x": 160,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             [
                 "c5e4e2e7e9d8a17b"
@@ -1427,7 +1447,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "3dc9d11661b15411",
@@ -1447,7 +1467,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "a8e474b6d56e8228"
@@ -1468,7 +1488,7 @@
         "layout": "row-center",
         "className": "digital_time",
         "x": 550,
-        "y": 1340,
+        "y": 1400,
         "wires": []
     },
     {
@@ -1481,7 +1501,7 @@
         "width": "3",
         "height": "3",
         "x": 290,
-        "y": 1380,
+        "y": 1440,
         "wires": []
     },
     {
@@ -1500,7 +1520,7 @@
         "templateScope": "local",
         "className": "",
         "x": 540,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             []
         ]
@@ -1518,7 +1538,7 @@
         "oldrc": false,
         "name": "",
         "x": 370,
-        "y": 1160,
+        "y": 1220,
         "wires": [
             [
                 "8bec55162dd6dc32"
@@ -1549,7 +1569,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1160,
+        "y": 1220,
         "wires": [
             [
                 "3f46dcfd80905234"
@@ -1568,7 +1588,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1160,
+        "y": 1220,
         "wires": [
             [
                 "3743eca48c342350",
@@ -1601,7 +1621,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 1160,
+        "y": 1220,
         "wires": []
     },
     {
@@ -1614,7 +1634,7 @@
             "0be7a512af5258bd"
         ],
         "x": 795,
-        "y": 880,
+        "y": 940,
         "wires": []
     },
     {
@@ -1627,7 +1647,7 @@
             "24e1b9d00ff40fa4"
         ],
         "x": 795,
-        "y": 1040,
+        "y": 1100,
         "wires": []
     },
     {
@@ -1640,7 +1660,7 @@
             "588f0339291477f4"
         ],
         "x": 795,
-        "y": 1200,
+        "y": 1260,
         "wires": []
     },
     {
@@ -1665,7 +1685,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 800,
+        "y": 860,
         "wires": [
             [
                 "53ad2f84e31105ec"
@@ -1682,7 +1702,7 @@
         "payload": "payload",
         "payloadType": "msg",
         "x": 350,
-        "y": 800,
+        "y": 860,
         "wires": [
             [
                 "27423b229191df4e"
@@ -1714,7 +1734,7 @@
         "diff": false,
         "className": "",
         "x": 830,
-        "y": 800,
+        "y": 860,
         "wires": []
     },
     {
@@ -1727,7 +1747,7 @@
             "1c3f39b17cd1cf56"
         ],
         "x": 795,
-        "y": 760,
+        "y": 820,
         "wires": []
     },
     {
@@ -1740,7 +1760,7 @@
             "01cea2a4cb05a9be"
         ],
         "x": 795,
-        "y": 840,
+        "y": 900,
         "wires": []
     },
     {
@@ -1749,7 +1769,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 800,
+        "y": 860,
         "wires": [
             [
                 "1bc5b3e0d3c496c3",
@@ -1764,7 +1784,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 680,
-        "y": 840,
+        "y": 900,
         "wires": [
             [
                 "328833e45226d67f"
@@ -1777,7 +1797,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 920,
+        "y": 980,
         "wires": [
             [
                 "044396ee4edbb423",
@@ -1791,7 +1811,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 530,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "64dac35cca9bfb7b"
@@ -1804,7 +1824,7 @@
         "z": "4b96395a77975ca1",
         "name": "",
         "x": 640,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "6844177a765d99ee",
@@ -2042,6 +2062,53 @@
         "wires": []
     },
     {
+        "id": "306f535b2624810a",
+        "type": "link in",
+        "z": "4b96395a77975ca1",
+        "name": "link in 16",
+        "links": [
+            "208f52608ace9250"
+        ],
+        "x": 175,
+        "y": 660,
+        "wires": [
+            [
+                "df8b5c88f0f2eb2a"
+            ]
+        ]
+    },
+    {
+        "id": "df8b5c88f0f2eb2a",
+        "type": "ui_led",
+        "z": "4b96395a77975ca1",
+        "order": 4,
+        "group": "16a416e84f9afe7e",
+        "width": 0,
+        "height": 0,
+        "label": "Powered Off",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Shutdown",
+        "x": 820,
+        "y": 660,
+        "wires": []
+    },
+    {
         "id": "5603399d2f104787",
         "type": "8relind",
         "z": "57aa7085c1d84098",
@@ -2087,7 +2154,7 @@
         "wires": [
             [],
             [
-                "9a02fa55cd369383"
+                "7276199ca04e3855"
             ]
         ]
     },
@@ -2137,7 +2204,7 @@
         "wires": [
             [],
             [
-                "29f5dd45c6ed609c"
+                "1f7d16a2ee6bb8c5"
             ]
         ]
     },
@@ -2187,7 +2254,7 @@
         "wires": [
             [],
             [
-                "2dc594c0ee7ec75e"
+                "215187038d5b981b"
             ]
         ]
     },
@@ -2387,23 +2454,23 @@
         ]
     },
     {
-        "id": "9a02fa55cd369383",
+        "id": "7276199ca04e3855",
         "type": "delay",
         "z": "57aa7085c1d84098",
         "name": "",
-        "pauseType": "random",
+        "pauseType": "delay",
         "timeout": "10",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
         "rateUnits": "second",
-        "randomFirst": "0",
-        "randomLast": "999",
-        "randomUnits": "milliseconds",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 220,
+        "x": 260,
         "y": 120,
         "wires": [
             [
@@ -2412,52 +2479,27 @@
         ]
     },
     {
-        "id": "29f5dd45c6ed609c",
+        "id": "1f7d16a2ee6bb8c5",
         "type": "delay",
         "z": "57aa7085c1d84098",
         "name": "",
-        "pauseType": "random",
+        "pauseType": "delay",
         "timeout": "5",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
         "rateUnits": "second",
-        "randomFirst": "2000",
-        "randomLast": "2999",
-        "randomUnits": "milliseconds",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 220,
+        "x": 260,
         "y": 240,
         "wires": [
             [
                 "0665a10898f73ed9"
-            ]
-        ]
-    },
-    {
-        "id": "2dc594c0ee7ec75e",
-        "type": "delay",
-        "z": "57aa7085c1d84098",
-        "name": "",
-        "pauseType": "random",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "4000",
-        "randomLast": "4999",
-        "randomUnits": "milliseconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 220,
-        "y": 360,
-        "wires": [
-            [
-                "215187038d5b981b"
             ]
         ]
     },
@@ -4044,7 +4086,7 @@
         "topic": "",
         "intervalCount": "1",
         "intervalUnits": "d",
-        "submitIncompleteInterval": true,
+        "submitIncompleteInterval": false,
         "submitPerTopic": true,
         "aggregationType": "mean",
         "x": 600,
@@ -4526,7 +4568,7 @@
         "topic": "",
         "intervalCount": "1",
         "intervalUnits": "d",
-        "submitIncompleteInterval": true,
+        "submitIncompleteInterval": false,
         "submitPerTopic": true,
         "aggregationType": "mean",
         "x": 600,
@@ -4698,6 +4740,219 @@
         "wires": [
             [
                 "22ccf664da263b99"
+            ]
+        ]
+    },
+    {
+        "id": "c99c10e94962f6ac",
+        "type": "ui_time_scheduler",
+        "z": "5ab87ae1789fc3e7",
+        "group": "3c7a4e6460291703",
+        "name": "VSPPowerOffScheduler",
+        "startDay": 0,
+        "refresh": "5",
+        "devices": [
+            "VSP Power Off"
+        ],
+        "singleOff": false,
+        "onlySendChange": true,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": false,
+        "lat": "40.39448",
+        "lon": "-74.10402",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 1,
+        "width": 6,
+        "height": 2,
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [],
+            [
+                "9811631410d8b9d8"
+            ]
+        ]
+    },
+    {
+        "id": "9811631410d8b9d8",
+        "type": "ui_switch",
+        "z": "5ab87ae1789fc3e7",
+        "name": "VSPPowerOffSwitch",
+        "label": "",
+        "tooltip": "",
+        "group": "3c7a4e6460291703",
+        "order": 3,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "aca37f8d7171a02f",
+                "118d94e015a3ec33"
+            ]
+        ]
+    },
+    {
+        "id": "aca37f8d7171a02f",
+        "type": "function",
+        "z": "5ab87ae1789fc3e7",
+        "name": "DisallowVSPPowerOff",
+        "func": "var vspPowerOffSwitch = msg.payload;\nvar vspSpeed = global.get(\"vspSpeed\");\nif (vspPowerOffSwitch == false || vspPowerOffSwitch == true && vspSpeed == \"Speed0\") {\n    // Pass the message to the VSPShutdown relay.\n    return [msg, null];\n} else {\n    // Cannot shut down running pump\n    return [null, { payload: \"Stop the VSP pump before powering it off\" }];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "e446affc8bf1d315"
+            ],
+            [
+                "1c919009f3aedf67"
+            ]
+        ],
+        "info": "Block the message to the VSP Power Off Relay if the filter pump\r\nis running."
+    },
+    {
+        "id": "e446affc8bf1d315",
+        "type": "toggle",
+        "z": "5ab87ae1789fc3e7",
+        "name": "",
+        "onOffTopic": "",
+        "onValue": "true",
+        "onType": "bool",
+        "offValue": "false",
+        "offType": "bool",
+        "toggleTopic": "",
+        "toggleValue": "",
+        "toggleType": "str",
+        "passOnOff": "ifChanged",
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "9c7e1f4b86ff6dd9"
+            ]
+        ]
+    },
+    {
+        "id": "9c7e1f4b86ff6dd9",
+        "type": "8relind",
+        "z": "5ab87ae1789fc3e7",
+        "name": "VSPPowerOffRelay",
+        "stack": "0",
+        "relay": "5",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 570,
+        "y": 60,
+        "wires": [
+            [
+                "208f52608ace9250",
+                "f5f9ad50b3ecb2a5"
+            ]
+        ]
+    },
+    {
+        "id": "208f52608ace9250",
+        "type": "link out",
+        "z": "5ab87ae1789fc3e7",
+        "name": "link out 16",
+        "mode": "link",
+        "links": [
+            "306f535b2624810a"
+        ],
+        "x": 775,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f5f9ad50b3ecb2a5",
+        "type": "ui_led",
+        "z": "5ab87ae1789fc3e7",
+        "order": 2,
+        "group": "3c7a4e6460291703",
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 810,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1c919009f3aedf67",
+        "type": "ui_toast",
+        "z": "5ab87ae1789fc3e7",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 650,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "118d94e015a3ec33",
+        "type": "function",
+        "z": "5ab87ae1789fc3e7",
+        "name": "ResetVSPPowerOffSwitch",
+        "func": "var vspSpeed = global.get(\"vspSpeed\");\nvar vspPowerOffSwitch = msg.payload;\nif (vspSpeed != \"Speed0\" && vspPowerOffSwitch == true) {\n    return { payload: false };\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "9811631410d8b9d8"
             ]
         ]
     }
